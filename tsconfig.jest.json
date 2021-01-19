@@ -6,18 +6,8 @@
     "target": "ES2017",
     "plugins": [
       {
-        "transform": "./packages/tracing-plugin/src/index.ts",
+        "transform": "@effect-ts/tracing-plugin",
         "moduleMap": {
-          "^packages/system/src/(.*)": "(@effect-ts/system): src/$1",
-          "^packages/system/test/(.*)": "(@effect-ts/system): test/$1",
-          "^packages/core/src/(.*)": "(@effect-ts/core): src/$1",
-          "^packages/core/test/(.*)": "(@effect-ts/core): test/$1",
-          "^packages/node/src/(.*)": "(@effect-ts/node): src/$1",
-          "^packages/node/test/(.*)": "(@effect-ts/node): test/$1",
-          "^packages/jest/src/(.*)": "(@effect-ts/jest): src/$1",
-          "^packages/jest/test/(.*)": "(@effect-ts/jest): test/$1",
-          "^packages/monocle/src/(.*)": "(@effect-ts/monocle): src/$1",
-          "^packages/monocle/test/(.*)": "(@effect-ts/monocle): test/$1",
           "^packages/morphic/src/(.*)": "(@effect-ts/morphic): src/$1",
           "^packages/morphic/test/(.*)": "(@effect-ts/morphic/test): test/$1"
         }
