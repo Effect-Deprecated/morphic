@@ -1,3 +1,3 @@
-### Monocle
+## Welcome to Effect-TS - Morphic
 
-This package is forked from `https://github.com/sledorze/morphic-ts` and adapted and improved to work with the `@effect-ts` ecosystem. All credits the to original authors.
+Please follow up to: [https://github.com/Effect-TS/morphic/tree/master/packages/morphic](https://github.com/Effect-TS/morphic/tree/master/packages/morphic)
