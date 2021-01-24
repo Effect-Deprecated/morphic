@@ -1,6 +1,7 @@
 import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
 import type { HKT } from "../../HKT"
-import type { Strict, StrictURI } from "../base"
+import type { Strict } from "../base"
+import { StrictURI } from "../base"
 
 declare module "../../Algebra/Intersection" {
   interface IntersectionConfig<

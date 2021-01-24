@@ -1,6 +1,7 @@
 import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
 import type { HKT } from "../../HKT"
-import type { Guard, GuardURI } from "../base"
+import type { Guard } from "../base"
+import { GuardURI } from "../base"
 
 declare module "../../Algebra/Intersection" {
   interface IntersectionConfig<

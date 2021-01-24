@@ -2,7 +2,7 @@ import type { Arbitrary } from "fast-check"
 
 import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
 import type { HKT } from "../../HKT"
-import type { FastCheckURI } from "../base"
+import { FastCheckURI } from "../base"
 
 declare module "../../Algebra/Intersection" {
   interface IntersectionConfig<

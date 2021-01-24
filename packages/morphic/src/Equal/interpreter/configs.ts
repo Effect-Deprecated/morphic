@@ -2,7 +2,7 @@ import type * as E from "@effect-ts/core/Equal"
 
 import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
 import type { HKT } from "../../HKT"
-import type { EqURI } from "../base"
+import { EqURI } from "../base"
 
 declare module "../../Algebra/Intersection" {
   export interface IntersectionConfig<

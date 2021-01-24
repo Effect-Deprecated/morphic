@@ -2,7 +2,7 @@ import type * as S from "@effect-ts/core/Show"
 
 import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
 import type { HKT } from "../../HKT"
-import type { ShowURI } from "../base"
+import { ShowURI } from "../base"
 
 declare module "../../Algebra/Intersection" {
   interface IntersectionConfig<
