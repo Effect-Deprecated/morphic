@@ -11,7 +11,7 @@ import { isUnknownRecord } from "../../Guard/interpreter/common"
 import { interpreter } from "../../HKT"
 import { decoderApplyConfig, DecoderType, DecoderURI } from "../base"
 import { appendContext, fail, makeDecoder } from "../common"
-import { foreachArray, foreachNonEmptyArray } from "./common"
+import { forEachArray, forEachNonEmptyArray } from "./common"
 
 export const regexUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
@@ -237,7 +237,7 @@ export const decoderPrimitiveInterpreter = interpreter<DecoderURI, PrimitivesURI
               makeDecoder(
                 (u, c) =>
                   Array.isArray(u)
-                    ? foreachArray((k, a) =>
+                    ? forEachArray((k, a) =>
                         decoder.validate(a, appendContext(c, String(k), decoder, a))
                       )(u)
                     : fail(u, c, `${typeof u} is not an array`),
@@ -259,7 +259,7 @@ export const decoderPrimitiveInterpreter = interpreter<DecoderURI, PrimitivesURI
                 (u, c) =>
                   Array.isArray(u)
                     ? T.map_(
-                        foreachArray((k, a) =>
+                        forEachArray((k, a) =>
                           decoder.validate(a, appendContext(c, String(k), decoder, a))
                         )(u),
                         List.from
@@ -283,7 +283,7 @@ export const decoderPrimitiveInterpreter = interpreter<DecoderURI, PrimitivesURI
                 (u, c) =>
                   Array.isArray(u)
                     ? A.isNonEmpty(u)
-                      ? foreachNonEmptyArray((k, a) =>
+                      ? forEachNonEmptyArray((k, a) =>
                           decoder.validate(a, appendContext(c, String(k), decoder, a))
                         )(u)
                       : fail(u, c, `array is empty`)

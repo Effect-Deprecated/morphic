@@ -15,7 +15,7 @@ export const strictRecordInterpreter = interpreter<StrictURI, RecordURI>()(() =>
         new StrictType(
           strictApplyConfig(config?.conf)(
             {
-              shrink: R.foreachF(T.Applicative)(strict.shrink)
+              shrink: R.forEachF(T.Applicative)(strict.shrink)
             },
             env,
             { strict }

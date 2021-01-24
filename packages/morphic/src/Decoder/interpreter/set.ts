@@ -6,7 +6,7 @@ import type { SetURI } from "../../Algebra/Set"
 import { interpreter } from "../../HKT"
 import { decoderApplyConfig, DecoderType, DecoderURI } from "../base"
 import { appendContext, fail, makeDecoder } from "../common"
-import { foreachArray } from "./common"
+import { forEachArray } from "./common"
 
 export const decoderSetInterpreter = interpreter<DecoderURI, SetURI>()(() => ({
   _F: DecoderURI,
@@ -21,7 +21,7 @@ export const decoderSetInterpreter = interpreter<DecoderURI, SetURI>()(() => ({
                 Array.isArray(u)
                   ? pipe(
                       u,
-                      foreachArray((k, a) =>
+                      forEachArray((k, a) =>
                         decoder.validate(a, appendContext(c, String(k), decoder, a))
                       ),
                       T.map(S.fromArray(_))

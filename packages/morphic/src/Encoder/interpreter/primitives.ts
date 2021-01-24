@@ -164,7 +164,7 @@ export const encoderPrimitiveInterpreter = interpreter<EncoderURI, PrimitivesURI
           new EncoderType(
             encoderApplyConfig(config?.conf)(
               {
-                encode: A.foreachF(T.Applicative)(encoder.encode)
+                encode: A.forEachF(T.Applicative)(encoder.encode)
               },
               env,
               { encoder }
@@ -179,7 +179,7 @@ export const encoderPrimitiveInterpreter = interpreter<EncoderURI, PrimitivesURI
             encoderApplyConfig(config?.conf)(
               {
                 encode: flow(
-                  L.foreachF(T.Applicative)(encoder.encode),
+                  L.forEachF(T.Applicative)(encoder.encode),
                   T.map(L.toArray)
                 )
               },
@@ -195,7 +195,7 @@ export const encoderPrimitiveInterpreter = interpreter<EncoderURI, PrimitivesURI
           new EncoderType(
             encoderApplyConfig(config?.conf)(
               {
-                encode: NA.foreachF(T.Applicative)(encoder.encode)
+                encode: NA.forEachF(T.Applicative)(encoder.encode)
               },
               env,
               { encoder }

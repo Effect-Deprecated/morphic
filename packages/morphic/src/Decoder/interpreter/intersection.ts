@@ -6,7 +6,7 @@ import type { IntersectionURI } from "../../Algebra/Intersection"
 import { interpreter } from "../../HKT"
 import { decoderApplyConfig, DecoderType, DecoderURI } from "../base"
 import { makeDecoder } from "../common"
-import { foreachArray, mergePrefer } from "./common"
+import { forEachArray, mergePrefer } from "./common"
 
 export const decoderIntersectionInterpreter = interpreter<
   DecoderURI,
@@ -22,7 +22,7 @@ export const decoderIntersectionInterpreter = interpreter<
           (u, c) =>
             pipe(
               decoders,
-              foreachArray((_, d) => d.decoder.validate(u, c)),
+              forEachArray((_, d) => d.decoder.validate(u, c)),
               T.map(A.reduce({} as any, (b, a) => mergePrefer(u, b, a)))
             ),
           "intersection",

@@ -16,7 +16,7 @@ export const encoderSetInterpreter = interpreter<EncoderURI, SetURI>()(() => ({
         new EncoderType(
           encoderApplyConfig(config?.conf)(
             {
-              encode: flow(S.toArray(_), A.foreachF(T.Applicative)(encoder.encode))
+              encode: flow(S.toArray(_), A.forEachF(T.Applicative)(encoder.encode))
             },
             env,
             { encoder }

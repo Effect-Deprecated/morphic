@@ -67,7 +67,7 @@ function partialStrict<PropsA, PropsE, Env extends AnyEnv>(
     shrink: (u) =>
       pipe(
         strict as Record<string, any>,
-        R.foreachWithIndexF(T.Applicative)((k) =>
+        R.forEachWithIndexF(T.Applicative)((k) =>
           u[k]
             ? typeof u[k] !== "undefined"
               ? T.map_((strict[k] as Strict<any>).shrink(u[k]), O.some)
@@ -91,7 +91,7 @@ function interfaceStrict<PropsA, PropsE, Env extends AnyEnv>(
     shrink: (u) =>
       pipe(
         strict as Record<string, any>,
-        R.foreachWithIndexF(T.Applicative)((k) =>
+        R.forEachWithIndexF(T.Applicative)((k) =>
           (strict[k] as Strict<any>).shrink(u[k])
         ),
         T.map((x) => x as any)

@@ -162,7 +162,7 @@ export const strictPrimitiveInterpreter = interpreter<StrictURI, PrimitivesURI>(
           new StrictType(
             strictApplyConfig(config?.conf)(
               {
-                shrink: A.foreachF(T.Applicative)(strict.shrink)
+                shrink: A.forEachF(T.Applicative)(strict.shrink)
               },
               env,
               { strict }
@@ -176,7 +176,7 @@ export const strictPrimitiveInterpreter = interpreter<StrictURI, PrimitivesURI>(
           new StrictType(
             strictApplyConfig(config?.conf)(
               {
-                shrink: L.foreachF(T.Applicative)(strict.shrink)
+                shrink: L.forEachF(T.Applicative)(strict.shrink)
               },
               env,
               { strict }
@@ -190,7 +190,7 @@ export const strictPrimitiveInterpreter = interpreter<StrictURI, PrimitivesURI>(
           new StrictType(
             strictApplyConfig(config?.conf)(
               {
-                shrink: NA.foreachF(T.Applicative)(strict.shrink)
+                shrink: NA.forEachF(T.Applicative)(strict.shrink)
               },
               env,
               { strict }

@@ -18,7 +18,7 @@ export const strictIntersectionInterpreter = interpreter<StrictURI, Intersection
             shrink: (u) =>
               pipe(
                 stricts,
-                A.foreachF(T.Applicative)((d) => d.shrink(u)),
+                A.forEachF(T.Applicative)((d) => d.shrink(u)),
                 T.map(A.reduce(({} as unknown) as any, (b, a) => ({ ...b, ...a })))
               )
           },

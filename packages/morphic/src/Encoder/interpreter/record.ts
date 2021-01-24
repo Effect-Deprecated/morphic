@@ -15,7 +15,7 @@ export const encoderRecordInterpreter = interpreter<EncoderURI, RecordURI>()(() 
         new EncoderType(
           encoderApplyConfig(config?.conf)(
             {
-              encode: R.foreachF(T.Applicative)(encoder.encode)
+              encode: R.forEachF(T.Applicative)(encoder.encode)
             },
             env,
             { encoder }

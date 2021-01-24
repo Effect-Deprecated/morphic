@@ -20,7 +20,7 @@ export const reorderIntersectionInterpreter = interpreter<
           reorder: (u) =>
             pipe(
               reorders,
-              A.foreachF(T.Applicative)((d) => d.reorder(u)),
+              A.forEachF(T.Applicative)((d) => d.reorder(u)),
               T.map((u) => {
                 const r: any = {}
                 u.forEach((o) => {

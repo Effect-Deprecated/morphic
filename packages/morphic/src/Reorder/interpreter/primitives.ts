@@ -161,7 +161,7 @@ export const reorderPrimitiveInterpreter = interpreter<ReorderURI, PrimitivesURI
           new ReorderType(
             reorderApplyConfig(config?.conf)(
               {
-                reorder: A.foreachF(T.Applicative)(reorder.reorder)
+                reorder: A.forEachF(T.Applicative)(reorder.reorder)
               },
               env,
               { reorder }
@@ -175,7 +175,7 @@ export const reorderPrimitiveInterpreter = interpreter<ReorderURI, PrimitivesURI
           new ReorderType(
             reorderApplyConfig(config?.conf)(
               {
-                reorder: L.foreachF(T.Applicative)(reorder.reorder)
+                reorder: L.forEachF(T.Applicative)(reorder.reorder)
               },
               env,
               { reorder }
@@ -189,7 +189,7 @@ export const reorderPrimitiveInterpreter = interpreter<ReorderURI, PrimitivesURI
           new ReorderType(
             reorderApplyConfig(config?.conf)(
               {
-                reorder: NA.foreachF(T.Applicative)(reorder.reorder)
+                reorder: NA.forEachF(T.Applicative)(reorder.reorder)
               },
               env,
               { reorder }

@@ -19,9 +19,9 @@ export const Validation = DSL.getValidationF({
   ...T.Fail
 })(AssociativeDecodeError)
 
-export const foreachNonEmptyArray = NA.foreachWithIndexF(Validation)
-export const foreachArray = A.foreachWithIndexF(Validation)
-export const foreachRecordWithIndex = R.foreachWithIndexF(Validation)
+export const forEachNonEmptyArray = NA.forEachWithIndexF(Validation)
+export const forEachArray = A.forEachWithIndexF(Validation)
+export const forEachRecordWithIndex = R.forEachWithIndexF(Validation)
 export const tuple = DSL.tupleF(Validation)
 export const struct = DSL.structF(Validation)
 

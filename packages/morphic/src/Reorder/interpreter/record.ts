@@ -15,7 +15,7 @@ export const reorderRecordInterpreter = interpreter<ReorderURI, RecordURI>()(() 
         new ReorderType(
           reorderApplyConfig(config?.conf)(
             {
-              reorder: R.foreachF(T.Applicative)(reorder.reorder)
+              reorder: R.forEachF(T.Applicative)(reorder.reorder)
             },
             env,
             { reorder }

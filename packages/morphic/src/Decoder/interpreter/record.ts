@@ -5,7 +5,7 @@ import { isUnknownRecord } from "../../Guard/interpreter/common"
 import { interpreter } from "../../HKT"
 import { decoderApplyConfig, DecoderType, DecoderURI } from "../base"
 import { appendContext, fail, makeDecoder } from "../common"
-import { foreachRecordWithIndex } from "./common"
+import { forEachRecordWithIndex } from "./common"
 
 export const decoderRecordInterpreter = interpreter<DecoderURI, RecordURI>()(() => ({
   _F: DecoderURI,
@@ -18,7 +18,7 @@ export const decoderRecordInterpreter = interpreter<DecoderURI, RecordURI>()(() 
             makeDecoder(
               (u, c) =>
                 isUnknownRecord(u)
-                  ? foreachRecordWithIndex((k, a) =>
+                  ? forEachRecordWithIndex((k, a) =>
                       decoder.validate(a, appendContext(c, k, decoder, u))
                     )(u)
                   : fail(u, c, `${typeof u} is not a record`),

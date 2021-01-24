@@ -10,7 +10,7 @@ import { projectFieldWithEnv2 } from "../../Utils"
 import { decoderApplyConfig, DecoderType, DecoderURI } from "../base"
 import type { Decoder } from "../common"
 import { appendContext, fail, makeDecoder } from "../common"
-import { foreachRecordWithIndex, mergePrefer, originalSort, tuple } from "./common"
+import { forEachRecordWithIndex, mergePrefer, originalSort, tuple } from "./common"
 
 export const decoderObjectInterpreter = interpreter<DecoderURI, ObjectURI>()(() => ({
   _F: DecoderURI,
@@ -87,7 +87,7 @@ function partialDecoder<
       if (isUnknownRecord(u)) {
         return pipe(
           u,
-          foreachRecordWithIndex((k, a) =>
+          forEachRecordWithIndex((k, a) =>
             typeof a !== "undefined" && decoder[k]
               ? (decoder[k] as DecoderType<any>).decoder.validate(
                   a,
@@ -131,7 +131,7 @@ function interfaceDecoder<
 
         return pipe(
           r,
-          foreachRecordWithIndex((k, a) =>
+          forEachRecordWithIndex((k, a) =>
             decoder[k]
               ? (decoder[k] as DecoderType<any>).decoder.validate(
                   a,

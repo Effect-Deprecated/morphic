@@ -14,7 +14,7 @@ export const encoderObjectInterpreter = interpreter<EncoderURI, ObjectURI>()(() 
       return new EncoderType(
         encoderApplyConfig(config?.conf)(
           {
-            encode: R.foreachWithIndexF(T.Applicative)((k, a) =>
+            encode: R.forEachWithIndexF(T.Applicative)((k, a) =>
               encoder[k] != null ? encoder[k].encoder.encode(a) : T.succeed(a)
             ) as any
           },
@@ -30,7 +30,7 @@ export const encoderObjectInterpreter = interpreter<EncoderURI, ObjectURI>()(() 
       return new EncoderType(
         encoderApplyConfig(config?.conf)(
           {
-            encode: R.foreachWithIndexF(T.Applicative)((k, a) =>
+            encode: R.forEachWithIndexF(T.Applicative)((k, a) =>
               typeof a !== "undefined" && encoder[k] != null
                 ? encoder[k].encoder.encode(a)
                 : T.succeed(a)
@@ -49,7 +49,7 @@ export const encoderObjectInterpreter = interpreter<EncoderURI, ObjectURI>()(() 
         return new EncoderType(
           encoderApplyConfig(config?.conf)(
             {
-              encode: R.foreachWithIndexF(T.Applicative)((k, a) =>
+              encode: R.forEachWithIndexF(T.Applicative)((k, a) =>
                 encoder[k] != null
                   ? encoder[k].encoder.encode(a)
                   : typeof a !== "undefined" && encoderPartial[k] != null

@@ -20,7 +20,7 @@ export const encoderIntersectionInterpreter = interpreter<
           encode: (u) =>
             pipe(
               encoders,
-              A.foreachF(T.Applicative)((d) => d.encoder.encode(u)),
+              A.forEachF(T.Applicative)((d) => d.encoder.encode(u)),
               T.map(A.reduce(({} as unknown) as any, (b, a) => mergePrefer(u, b, a)))
             )
         },
