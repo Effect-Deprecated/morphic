@@ -1,6 +1,5 @@
 import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
-import type { Hash } from "../base"
-import { HashURI } from "../base"
+import type { Hash, HashURI } from "../base"
 
 declare module "../../Algebra/Intersection" {
   interface IntersectionConfig<

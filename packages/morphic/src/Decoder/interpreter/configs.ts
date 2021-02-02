@@ -1,6 +1,6 @@
 import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
 import type { HKT } from "../../HKT"
-import { DecoderURI } from "../base"
+import type { DecoderURI } from "../base"
 import type { Decoder } from "../common"
 
 declare module "../../Algebra/Intersection" {
