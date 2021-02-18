@@ -4,7 +4,7 @@ import {
   intersection
 } from "@effect-ts/core/Array"
 import { first } from "@effect-ts/core/Associative"
-import { eqString } from "@effect-ts/core/Equal"
+import * as Equal from "@effect-ts/core/Equal"
 import { tuple } from "@effect-ts/core/Function"
 import {
   fromFoldable as RfromFoldable,
@@ -72,12 +72,16 @@ export type AnyM<ProgURI extends ProgramURI, InterpURI extends InterpreterURI, R
 const recordFromArray = RfromFoldable(first<any>(), foldableArray)
 const keepKeys = (a: Record<string, any>, toKeep: Array<string>): object =>
   recordFromArray(
-    intersection(eqString)(toKeep)(Object.keys(a)).map((k: string) => tuple(k, a[k]))
+    intersection(Equal.string)(toKeep)(Object.keys(a)).map((k: string) =>
+      tuple(k, a[k])
+    )
   )
 
 const excludeKeys = (a: Record<string, any>, toExclude: Array<string>): object =>
   recordFromArray(
-    difference(eqString)(toExclude)(Object.keys(a)).map((k: string) => tuple(k, a[k]))
+    difference(Equal.string)(toExclude)(Object.keys(a)).map((k: string) =>
+      tuple(k, a[k])
+    )
   )
 
 export type TaggedBuilder<

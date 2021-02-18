@@ -6,7 +6,7 @@ import {
   reduceRight
 } from "@effect-ts/core/Array"
 import { first as AssociativeFirst } from "@effect-ts/core/Associative"
-import { eqString } from "@effect-ts/core/Equal"
+import * as Equal from "@effect-ts/core/Equal"
 import { tuple } from "@effect-ts/core/Function"
 import { fromFoldable } from "@effect-ts/core/Record"
 
@@ -58,20 +58,20 @@ const intersectKeys = <
   b: KeysDefinition<B, Tag>
 ): KeysDefinition<Extract<A, B>, Tag> =>
   recordFromArray(
-    intersection(eqString)(Object.keys(b))(Object.keys(a)).map(toTupleNull)
+    intersection(Equal.string)(Object.keys(b))(Object.keys(a)).map(toTupleNull)
   ) as KeysDefinition<Extract<A, B>, Tag>
 
 const excludeKeys = <A extends Tagged<Tag>, Tag extends string>(
   a: KeysDefinition<A, Tag>,
   toRemove: Array<string>
 ): object =>
-  recordFromArray(difference(eqString)(toRemove)(Object.keys(a)).map(toTupleNull))
+  recordFromArray(difference(Equal.string)(toRemove)(Object.keys(a)).map(toTupleNull))
 
 const keepKeys = <A extends Tagged<Tag>, Tag extends string>(
   a: KeysDefinition<A, Tag>,
   toKeep: Array<string>
 ): object =>
-  recordFromArray(intersection(eqString)(toKeep)(Object.keys(a)).map(toTupleNull))
+  recordFromArray(intersection(Equal.string)(toKeep)(Object.keys(a)).map(toTupleNull))
 
 export const unionADT = <
   AS extends [

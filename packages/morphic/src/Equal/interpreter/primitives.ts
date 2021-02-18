@@ -1,12 +1,6 @@
 import { getEqual as AgetEq } from "@effect-ts/core/Array"
 import { getEqual as EgetEq } from "@effect-ts/core/Either"
-import {
-  contramap,
-  eqBoolean,
-  eqNumber,
-  eqStrict,
-  eqString
-} from "@effect-ts/core/Equal"
+import * as Equal from "@effect-ts/core/Equal"
 import { pipe } from "@effect-ts/core/Function"
 import { getEqual as LgetEq } from "@effect-ts/core/List"
 import { getEqual as OgetEq } from "@effect-ts/core/Option"
@@ -31,27 +25,30 @@ export const eqPrimitiveInterpreter = interpreter<EqURI, PrimitivesURI>()(() => 
     new EqType(eqApplyConfig(config?.conf)(k(env).eq, env, {})),
   date: (config) => (env) =>
     pipe(
-      eqNumber,
-      contramap((date: Date) => date.getTime()),
+      Equal.number,
+      Equal.contramap((date: Date) => date.getTime()),
       (eq) => new EqType(eqApplyConfig(config?.conf)(eq, env, {}))
     ),
   boolean: (config) => (env) =>
-    new EqType(eqApplyConfig(config?.conf)(eqBoolean, env, {})),
+    new EqType(eqApplyConfig(config?.conf)(Equal.boolean, env, {})),
   string: (config) => (env) =>
-    new EqType(eqApplyConfig(config?.conf)(eqString, env, {})),
+    new EqType(eqApplyConfig(config?.conf)(Equal.string, env, {})),
   number: (config) => (env) =>
-    new EqType(eqApplyConfig(config?.conf)(eqNumber, env, {})),
+    new EqType(eqApplyConfig(config?.conf)(Equal.number, env, {})),
   bigint: (config) => (env) =>
-    new EqType<bigint>(eqApplyConfig(config?.conf)(eqStrict, env, {})),
+    new EqType<bigint>(eqApplyConfig(config?.conf)(Equal.strict(), env, {})),
   stringLiteral: (k, config) => (env) =>
-    new EqType<typeof k>(eqApplyConfig(config?.conf)(eqString, env, {})),
+    new EqType<typeof k>(eqApplyConfig(config?.conf)(Equal.string, env, {})),
   numberLiteral: (k, config) => (env) =>
-    new EqType<typeof k>(eqApplyConfig(config?.conf)(eqNumber, env, {})),
+    new EqType<typeof k>(eqApplyConfig(config?.conf)(Equal.number, env, {})),
   oneOfLiterals: (ls, config) => (env) =>
-    pipe(eqStrict, (eq) => new EqType(eqApplyConfig(config?.conf)(eq, env, { eq }))),
+    pipe(
+      Equal.strict(),
+      (eq) => new EqType(eqApplyConfig(config?.conf)(eq, env, { eq }))
+    ),
   keysOf: (keys, config) => (env) =>
     new EqType<keyof typeof keys & string>(
-      eqApplyConfig(config?.conf)(eqStrict, env, {})
+      eqApplyConfig(config?.conf)(Equal.strict(), env, {})
     ),
   nullable: (getType, config) => (env) =>
     pipe(
@@ -100,7 +97,7 @@ export const eqPrimitiveInterpreter = interpreter<EqURI, PrimitivesURI>()(() => 
       (eq) => new EqType(eqApplyConfig(config?.conf)(AgetEq(eq), env, { eq }))
     ),
   uuid: (config) => (env) =>
-    new EqType<UUID>(eqApplyConfig(config?.conf)(eqString, env, {})),
+    new EqType<UUID>(eqApplyConfig(config?.conf)(Equal.string, env, {})),
   either: (e, a, config) => (env) =>
     pipe(e(env).eq, (left) =>
       pipe(
