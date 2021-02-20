@@ -1,7 +1,7 @@
 import type * as S from "@effect-ts/core/Show"
 
 import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
-import type { HKT } from "../../HKT"
+import type { HKT, Kind } from "../../HKT"
 import type { ShowURI } from "../base"
 
 declare module "../../Algebra/Intersection" {
@@ -82,6 +82,15 @@ declare module "../../Algebra/Primitives" {
   interface OptionConfig<L, A> {
     [ShowURI]: {
       show: S.Show<A>
+    }
+  }
+  interface TupleConfig<Types extends readonly Kind<any, any, any, any>[]> {
+    [ShowURI]: {
+      shows: {
+        [k in keyof Types]: [Types[k]] extends [HKT<any, infer E, infer A>]
+          ? S.Show<A>
+          : never
+      }
     }
   }
 }

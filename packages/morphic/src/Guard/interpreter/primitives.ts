@@ -253,5 +253,21 @@ export const guardPrimitiveInterpreter = interpreter<GuardURI, PrimitivesURI>()(
             }
           )
         )
+    ),
+  tuple: (...types) => (cfg) => (env) =>
+    new GuardType(
+      guardApplyConfig(cfg?.conf)(
+        {
+          is: (u): u is any =>
+            typeof u === "object" &&
+            Array.isArray(u) &&
+            u.length === types.length &&
+            types.every((g, i) => g(env).guard.is(u[i]))
+        },
+        env,
+        {
+          guards: types.map((g) => g(env).guard) as any
+        }
+      )
     )
 }))

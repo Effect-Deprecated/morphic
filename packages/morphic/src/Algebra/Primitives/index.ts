@@ -39,6 +39,7 @@ export interface BigIntConfig {}
 export interface StringConfig {}
 export interface DateConfig {}
 export interface UUIDConfig {}
+export interface TupleConfig<Types extends readonly Kind<any, any, any, any>[]> {}
 export interface FunctionConfig<I, IE, O, OE> {}
 
 export const PrimitivesURI = "PrimitivesURI"
@@ -164,4 +165,42 @@ export interface AlgebraPrimitives<F extends InterpreterURIS, Env extends AnyEnv
       config?: Named<ConfigsForType<Env, Option<E>, Option<A>, OptionConfig<E, A>>>
     ): Kind<F, Env, Option<E>, Option<A>>
   }
+
+  readonly tuple: <Types extends NonEmptyArray<Kind<F, Env, unknown, unknown>>>(
+    ...args: Types
+  ) => (
+    config?: Named<
+      ConfigsForType<
+        Env,
+        {
+          readonly [k in keyof Types]: [Types[k]] extends [
+            Kind<F, Env, infer E, unknown>
+          ]
+            ? E
+            : never
+        },
+        {
+          readonly [k in keyof Types]: [Types[k]] extends [
+            Kind<F, Env, unknown, infer A>
+          ]
+            ? A
+            : never
+        },
+        TupleConfig<Types>
+      >
+    >
+  ) => Kind<
+    F,
+    Env,
+    {
+      readonly [k in keyof Types]: [Types[k]] extends [Kind<F, Env, infer E, unknown>]
+        ? E
+        : never
+    },
+    {
+      readonly [k in keyof Types]: [Types[k]] extends [Kind<F, Env, unknown, infer A>]
+        ? A
+        : never
+    }
+  >
 }

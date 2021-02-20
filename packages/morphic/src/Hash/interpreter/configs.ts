@@ -1,4 +1,5 @@
 import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
+import type { HKT, Kind } from "../../HKT"
 import type { Hash, HashURI } from "../base"
 
 declare module "../../Algebra/Intersection" {
@@ -79,6 +80,15 @@ declare module "../../Algebra/Primitives" {
   interface OptionConfig<L, A> {
     [HashURI]: {
       hash: Hash
+    }
+  }
+  interface TupleConfig<Types extends readonly Kind<any, any, any, any>[]> {
+    [HashURI]: {
+      hashes: {
+        [k in keyof Types]: [Types[k]] extends [HKT<any, infer E, infer A>]
+          ? Hash
+          : never
+      }
     }
   }
 }

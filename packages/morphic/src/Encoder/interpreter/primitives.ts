@@ -7,6 +7,7 @@ import * as O from "@effect-ts/core/Option"
 import * as T from "@effect-ts/core/Sync"
 
 import type { PrimitivesURI } from "../../Algebra/Primitives"
+import { forEachNonEmptyArray } from "../../Decoder/interpreter/common"
 import { interpreter } from "../../HKT"
 import { encoderApplyConfig, EncoderType, EncoderURI } from "../base"
 
@@ -252,6 +253,22 @@ export const encoderPrimitiveInterpreter = interpreter<EncoderURI, PrimitivesURI
               }
             )
           )
+      ),
+    tuple: (...types) => (cfg) => (env) =>
+      new EncoderType(
+        encoderApplyConfig(cfg?.conf)(
+          {
+            encode: (values) =>
+              pipe(
+                values,
+                forEachNonEmptyArray((i, a) => types[i](env).encoder.encode(a)) as any
+              )
+          },
+          env,
+          {
+            encoders: types.map((d) => d(env).encoder) as any
+          }
+        )
       )
   })
 )

@@ -246,6 +246,24 @@ export const reorderPrimitiveInterpreter = interpreter<ReorderURI, PrimitivesURI
               }
             )
           )
+      ),
+    tuple: (...types) => (cfg) => (env) =>
+      new ReorderType(
+        reorderApplyConfig(cfg?.conf)(
+          {
+            reorder: (u) =>
+              pipe(
+                u,
+                A.forEachWithIndexF(T.Applicative)((i, v) =>
+                  types[i](env).reorder.reorder(v)
+                ) as any
+              )
+          },
+          env,
+          {
+            reorders: types.map((r) => r(env).reorder) as any
+          }
+        )
       )
   })
 )

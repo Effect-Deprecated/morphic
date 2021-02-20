@@ -12,7 +12,7 @@ import type { AType, EType } from "../src"
 import { make, opaque, ShowURI } from "../src"
 import { asserts } from "../src/Asserts"
 import { decode, decoder, report } from "../src/Decoder"
-import { encoder } from "../src/Encoder"
+import { encode, encoder } from "../src/Encoder"
 import { equal } from "../src/Equal"
 import { arbitrary } from "../src/FastCheck"
 import { guard } from "../src/Guard"
@@ -60,6 +60,21 @@ export const Id = make((F) =>
 
 export const InterA = make((F) => F.intersection(Person(F), Id(F))())
 export const InterB = make((F) => F.intersection(Id(F), Person(F))())
+
+export const Tuple = make((F) =>
+  F.tuple(
+    F.string(),
+    F.number(),
+    F.string(),
+    F.stringLiteral("abc")
+  )({
+    conf: {
+      Eq: (_) => _,
+      EncoderURI: (_, __, ___) => _,
+      DecoderURI: (_, __, ___) => _
+    }
+  })
+)
 
 describe("FastCheck", () => {
   it("Generate Person", () => {
@@ -243,4 +258,26 @@ it("Decodes/Encodes partial properly", () => {
       b: O.none
     })
   )
+})
+
+describe("Tuple", () => {
+  it("Decoder", () => {
+    expect(T.runEither(decode(Tuple)(["1", 2, "3", "abc"]))).toEqual(
+      E.right(["1", 2, "3", "abc"])
+    )
+    expect(T.runEither(report(decode(Tuple)(["1", "2", "3", "abc"])))).toEqual(
+      E.left(['Expecting Number at 1 but instead got: "2" (string is not a number)'])
+    )
+  })
+  it("Encoder", () => {
+    expect(T.run(encode(Tuple)(["1", 2, "3", "abc"]))).toEqual(["1", 2, "3", "abc"])
+  })
+  it("Equal", () => {
+    expect(equal(Tuple).equals(["1", 2, "3", "abc"])(["1", 2, "3", "abc"])).toEqual(
+      true
+    )
+    expect(equal(Tuple).equals(["1", 2, "3", "abc"])(["1", 0, "3", "abc"])).toEqual(
+      false
+    )
+  })
 })

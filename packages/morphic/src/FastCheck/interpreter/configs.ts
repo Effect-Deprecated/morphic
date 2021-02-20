@@ -1,7 +1,7 @@
 import type { Arbitrary } from "fast-check"
 
 import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
-import type { HKT } from "../../HKT"
+import type { HKT, Kind } from "../../HKT"
 import type { FastCheckURI } from "../base"
 
 declare module "../../Algebra/Intersection" {
@@ -87,6 +87,15 @@ declare module "../../Algebra/Primitives" {
   interface OptionConfig<L, A> {
     [FastCheckURI]: {
       arb: Arbitrary<A>
+    }
+  }
+  interface TupleConfig<Types extends readonly Kind<any, any, any, any>[]> {
+    [FastCheckURI]: {
+      arbs: {
+        [k in keyof Types]: [Types[k]] extends [HKT<any, infer E, infer A>]
+          ? Arbitrary<A>
+          : never
+      }
     }
   }
 }

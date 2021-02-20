@@ -1,4 +1,4 @@
-import { getEqual as AgetEq } from "@effect-ts/core/Array"
+import * as A from "@effect-ts/core/Array"
 import { getEqual as EgetEq } from "@effect-ts/core/Either"
 import * as Equal from "@effect-ts/core/Equal"
 import { pipe } from "@effect-ts/core/Function"
@@ -84,7 +84,7 @@ export const eqPrimitiveInterpreter = interpreter<EqURI, PrimitivesURI>()(() => 
   array: (getType, config) => (env) =>
     pipe(
       getType(env).eq,
-      (eq) => new EqType(eqApplyConfig(config?.conf)(AgetEq(eq), env, { eq }))
+      (eq) => new EqType(eqApplyConfig(config?.conf)(A.getEqual(eq), env, { eq }))
     ),
   list: (getType, config) => (env) =>
     pipe(
@@ -94,7 +94,7 @@ export const eqPrimitiveInterpreter = interpreter<EqURI, PrimitivesURI>()(() => 
   nonEmptyArray: (getType, config) => (env) =>
     pipe(
       getType(env).eq,
-      (eq) => new EqType(eqApplyConfig(config?.conf)(AgetEq(eq), env, { eq }))
+      (eq) => new EqType(eqApplyConfig(config?.conf)(A.getEqual(eq), env, { eq }))
     ),
   uuid: (config) => (env) =>
     new EqType<UUID>(eqApplyConfig(config?.conf)(Equal.string, env, {})),
@@ -120,5 +120,18 @@ export const eqPrimitiveInterpreter = interpreter<EqURI, PrimitivesURI>()(() => 
             eq
           })
         )
+    ),
+  tuple: (...types) => (cfg) => (env) =>
+    new EqType(
+      eqApplyConfig(cfg?.conf)(
+        {
+          equals: (y) => (x) =>
+            x.length === y.length &&
+            x.length === types.length &&
+            types.every((e, i) => e(env).eq.equals(y[i])(x[i]))
+        },
+        env,
+        { eqs: types.map((e) => e(env).eq) as any }
+      )
     )
 }))

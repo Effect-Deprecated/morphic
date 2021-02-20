@@ -222,5 +222,17 @@ export const hashPrimitiveInterpreter = interpreter<HashURI, PrimitivesURI>()(()
           }
         )
       )
+    ),
+  tuple: (...types) => (config) => (env) =>
+    new HashType(
+      hashApplyConfig(config?.conf)(
+        named(config?.name)({
+          hash: `Tuple<${types.map((h) => h(env).hash).join(",")}>`
+        }),
+        env,
+        {
+          hashes: types.map((h) => h(env).hash) as any
+        }
+      )
     )
 }))

@@ -247,6 +247,24 @@ export const strictPrimitiveInterpreter = interpreter<StrictURI, PrimitivesURI>(
               }
             )
           )
+      ),
+    tuple: (...types) => (cfg) => (env) =>
+      new StrictType(
+        strictApplyConfig(cfg?.conf)(
+          {
+            shrink: (u) =>
+              pipe(
+                u,
+                A.forEachWithIndexF(T.Applicative)((i, a) =>
+                  types[i](env).strict.shrink(a)
+                ) as any
+              )
+          },
+          env,
+          {
+            stricts: types.map((s) => s(env).strict) as any
+          }
+        )
       )
   })
 )

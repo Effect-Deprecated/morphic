@@ -1,5 +1,5 @@
 import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
-import type { HKT } from "../../HKT"
+import type { HKT, Kind } from "../../HKT"
 import type { DecoderURI } from "../base"
 import type { Decoder } from "../common"
 
@@ -91,6 +91,15 @@ declare module "../../Algebra/Primitives" {
   interface OptionConfig<L, A> {
     [DecoderURI]: {
       decoder: Decoder<A>
+    }
+  }
+  interface TupleConfig<Types extends readonly Kind<any, any, any, any>[]> {
+    [DecoderURI]: {
+      decoders: {
+        [k in keyof Types]: [Types[k]] extends [HKT<any, infer E, infer A>]
+          ? Decoder<A>
+          : never
+      }
     }
   }
 }

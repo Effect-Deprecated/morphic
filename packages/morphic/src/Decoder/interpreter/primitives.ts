@@ -396,6 +396,42 @@ export const decoderPrimitiveInterpreter = interpreter<DecoderURI, PrimitivesURI
               }
             )
           )
+      ),
+    tuple: (...types) => (cfg) => (env) =>
+      new DecoderType(
+        decoderApplyConfig(cfg?.conf)(
+          makeDecoder(
+            (u, c) => {
+              if (typeof u === "object" && Array.isArray(u)) {
+                if (u.length !== types.length) {
+                  return fail(
+                    u,
+                    c,
+                    `input array has ${u.length} elements, expected ${types.length}`
+                  )
+                } else {
+                  return pipe(
+                    types,
+                    forEachNonEmptyArray((i, d) => {
+                      const decoder = d(env).decoder
+                      return decoder.validate(
+                        u[i],
+                        appendContext(c, String(i), decoder, u[i])
+                      )
+                    })
+                  ) as any
+                }
+              }
+              return fail(u, c, `${typeof u} is not an array`)
+            },
+            "tuple",
+            cfg?.name || "Tuple"
+          ),
+          env,
+          {
+            decoders: types.map((d) => d(env).decoder) as any
+          }
+        )
       )
   })
 )

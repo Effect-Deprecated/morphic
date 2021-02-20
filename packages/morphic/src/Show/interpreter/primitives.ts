@@ -196,5 +196,20 @@ export const showPrimitiveInterpreter = interpreter<ShowURI, PrimitivesURI>()(()
           })
         )
       )
+    ),
+  tuple: (...types) => (cfg) => (env) =>
+    new ShowType(
+      showApplyConfig(cfg?.conf)(
+        named(cfg?.name)({
+          show: (u) =>
+            `[${((u as unknown) as Array<any>)
+              .map((v, i) => types[i](env).show.show(v))
+              .join(",")}]`
+        }),
+        env,
+        {
+          shows: types.map((s) => s(env).show) as any
+        }
+      )
     )
 }))

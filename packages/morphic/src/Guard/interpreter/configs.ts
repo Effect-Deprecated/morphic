@@ -1,5 +1,5 @@
 import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
-import type { HKT } from "../../HKT"
+import type { HKT, Kind } from "../../HKT"
 import type { Guard, GuardURI } from "../base"
 
 declare module "../../Algebra/Intersection" {
@@ -90,6 +90,15 @@ declare module "../../Algebra/Primitives" {
   interface OptionConfig<L, A> {
     [GuardURI]: {
       guard: Guard<A>
+    }
+  }
+  interface TupleConfig<Types extends readonly Kind<any, any, any, any>[]> {
+    [GuardURI]: {
+      guards: {
+        [k in keyof Types]: [Types[k]] extends [HKT<any, infer E, infer A>]
+          ? Guard<A>
+          : never
+      }
     }
   }
 }

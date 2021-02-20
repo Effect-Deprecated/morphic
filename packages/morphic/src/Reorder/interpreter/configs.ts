@@ -1,5 +1,5 @@
 import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
-import type { HKT } from "../../HKT"
+import type { HKT, Kind } from "../../HKT"
 import type { Reorder, ReorderURI } from "../base"
 
 declare module "../../Algebra/Intersection" {
@@ -90,6 +90,15 @@ declare module "../../Algebra/Primitives" {
   interface OptionConfig<L, A> {
     [ReorderURI]: {
       reorder: Reorder<A>
+    }
+  }
+  interface TupleConfig<Types extends readonly Kind<any, any, any, any>[]> {
+    [ReorderURI]: {
+      reorders: {
+        [k in keyof Types]: [Types[k]] extends [HKT<any, infer E, infer A>]
+          ? Reorder<A>
+          : never
+      }
     }
   }
 }
