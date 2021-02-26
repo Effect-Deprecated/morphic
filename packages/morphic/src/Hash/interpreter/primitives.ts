@@ -84,11 +84,11 @@ export const hashPrimitiveInterpreter = interpreter<HashURI, PrimitivesURI>()(()
         {}
       )
     ),
-  oneOfLiterals: (_, config) => (env) =>
+  oneOfLiterals: (...ls) => (config) => (env) =>
     new HashType(
       hashApplyConfig(config?.conf)(
         named(config?.name)({
-          hash: `${_}`
+          hash: `${ls.join(",")}`
         }),
         env,
         {}

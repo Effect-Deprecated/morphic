@@ -97,7 +97,7 @@ export const strictPrimitiveInterpreter = interpreter<StrictURI, PrimitivesURI>(
           {}
         )
       ),
-    oneOfLiterals: (_ls, config) => (env) =>
+    oneOfLiterals: (..._ls) => (config) => (env) =>
       new StrictType(
         strictApplyConfig(config?.conf)(
           {

@@ -104,7 +104,7 @@ export const encoderPrimitiveInterpreter = interpreter<EncoderURI, PrimitivesURI
           {}
         )
       ),
-    oneOfLiterals: (ls, config) => (env) =>
+    oneOfLiterals: (..._ls) => (config) => (env) =>
       new EncoderType(
         encoderApplyConfig(config?.conf)(
           {

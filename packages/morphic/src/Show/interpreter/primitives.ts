@@ -79,7 +79,7 @@ export const showPrimitiveInterpreter = interpreter<ShowURI, PrimitivesURI>()(()
         {}
       )
     ),
-  oneOfLiterals: (_, config) => (env) =>
+  oneOfLiterals: (..._ls) => (config) => (env) =>
     new ShowType(
       showApplyConfig(config?.conf)(
         named(config?.name)(<Show<LiteralT>>{

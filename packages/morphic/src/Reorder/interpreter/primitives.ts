@@ -97,7 +97,7 @@ export const reorderPrimitiveInterpreter = interpreter<ReorderURI, PrimitivesURI
           {}
         )
       ),
-    oneOfLiterals: (_ls, config) => (env) =>
+    oneOfLiterals: (..._ls) => (config) => (env) =>
       new ReorderType(
         reorderApplyConfig(config?.conf)(
           {

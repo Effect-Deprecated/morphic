@@ -49,7 +49,7 @@ export const fcPrimitiveInterpreter = interpreter<FastCheckURI, PrimitivesURI>()
       new FastCheckType(
         fcApplyConfig(config?.conf)(accessFC(env).constant(l), env, {})
       ),
-    oneOfLiterals: (ls, config) => (env) =>
+    oneOfLiterals: (...ls) => (config) => (env) =>
       new FastCheckType(
         fcApplyConfig(config?.conf)(accessFC(env).constantFrom(...ls), env, {})
       ),
