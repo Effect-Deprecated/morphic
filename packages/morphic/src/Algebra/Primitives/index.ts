@@ -113,12 +113,11 @@ export interface AlgebraPrimitives<F extends InterpreterURIS, Env extends AnyEnv
   ) => Kind<F, Env, number, typeof value>
 
   readonly oneOfLiterals: {
-    <T extends readonly [LiteralT, ...LiteralT[]]>(
-      value: T,
+    <T extends readonly [LiteralT, ...LiteralT[]]>(...value: T): (
       config?: Named<
         ConfigsForType<Env, LiteralT, T[number], OneOfLiteralsConfig<T[number]>>
       >
-    ): Kind<F, Env, LiteralT, T[number]>
+    ) => Kind<F, Env, LiteralT, T[number]>
   }
 
   readonly keysOf: <K extends Keys>(

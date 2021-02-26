@@ -95,7 +95,7 @@ export const guardPrimitiveInterpreter = interpreter<GuardURI, PrimitivesURI>()(
         {}
       )
     ),
-  oneOfLiterals: (ls, config) => (env) =>
+  oneOfLiterals: (...ls) => (config) => (env) =>
     new GuardType(
       guardApplyConfig(config?.conf)(
         {

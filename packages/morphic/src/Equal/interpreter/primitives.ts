@@ -41,7 +41,7 @@ export const eqPrimitiveInterpreter = interpreter<EqURI, PrimitivesURI>()(() => 
     new EqType<typeof k>(eqApplyConfig(config?.conf)(Equal.string, env, {})),
   numberLiteral: (k, config) => (env) =>
     new EqType<typeof k>(eqApplyConfig(config?.conf)(Equal.number, env, {})),
-  oneOfLiterals: (ls, config) => (env) =>
+  oneOfLiterals: (..._ls) => (config) => (env) =>
     pipe(
       Equal.strict(),
       (eq) => new EqType(eqApplyConfig(config?.conf)(eq, env, { eq }))

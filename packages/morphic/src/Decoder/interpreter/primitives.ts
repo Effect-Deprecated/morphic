@@ -149,7 +149,7 @@ export const decoderPrimitiveInterpreter = interpreter<DecoderURI, PrimitivesURI
           {}
         )
       ),
-    oneOfLiterals: (ls, cfg) => (env) =>
+    oneOfLiterals: (...ls) => (cfg) => (env) =>
       new DecoderType(
         decoderApplyConfig(cfg?.conf)(
           makeDecoder(
