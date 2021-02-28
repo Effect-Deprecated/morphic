@@ -8,7 +8,7 @@ export const eqRecursiveInterpreter = interpreter<EqURI, RecursiveURI>()(() => (
     function f(env) {
       return new EqType(
         eqApplyConfig(config?.conf)(
-          { equals: (y) => (x) => a(f)(env).eq.equals(y)(x) },
+          { equals: (x, y) => a(f)(env).eq.equals(x, y) },
           env,
           {}
         )

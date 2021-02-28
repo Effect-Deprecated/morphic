@@ -13,7 +13,7 @@ export const eqNewtypeInterpreter = interpreter<EqURI, NewtypeURI>()(() => ({
         new EqType(
           eqApplyConfig(config?.conf)(
             {
-              equals: (y) => (x) => eq.equals(iso.reverseGet(y))(iso.reverseGet(x))
+              equals: (x, y) => eq.equals(iso.reverseGet(x), iso.reverseGet(y))
             },
             env,
             { eq }
@@ -27,7 +27,7 @@ export const eqNewtypeInterpreter = interpreter<EqURI, NewtypeURI>()(() => ({
         new EqType(
           eqApplyConfig(config?.conf)(
             {
-              equals: (y) => (x) => eq.equals(prism.reverseGet(y))(prism.reverseGet(x))
+              equals: (x, y) => eq.equals(prism.reverseGet(x), prism.reverseGet(y))
             },
             env,
             { eq }

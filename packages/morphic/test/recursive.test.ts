@@ -70,6 +70,6 @@ const eqCondition = equal(Condition).equals
 
 it("should not blow up", () => {
   expect(
-    eqCondition({ _tag: "All", conditions: [] })({ _tag: "All", conditions: [] })
+    eqCondition({ _tag: "All", conditions: [] }, { _tag: "All", conditions: [] })
   ).toEqual(true)
 })

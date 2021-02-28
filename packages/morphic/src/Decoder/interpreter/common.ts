@@ -7,10 +7,7 @@ import * as T from "@effect-ts/core/Sync"
 
 import type { Errors } from "../common"
 
-export const AssociativeDecodeError = makeAssociative<Errors>((y) => (x) => [
-  ...x,
-  ...y
-])
+export const AssociativeDecodeError = makeAssociative<Errors>((x, y) => [...x, ...y])
 
 export const Validation = DSL.getValidationF({
   ...T.Applicative,

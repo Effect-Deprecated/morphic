@@ -15,7 +15,7 @@ export const eqPrimitiveInterpreter = interpreter<EqURI, PrimitivesURI>()(() => 
     new EqType(
       eqApplyConfig(config?.conf)(
         {
-          equals: (y) => (x) => x === y
+          equals: (x, y) => x === y
         },
         env,
         {}
@@ -67,14 +67,14 @@ export const eqPrimitiveInterpreter = interpreter<EqURI, PrimitivesURI>()(() => 
         new EqType(
           eqApplyConfig(config?.conf)(
             {
-              equals: (y) => (x) =>
+              equals: (x, y) =>
                 typeof x === "undefined" && typeof y === "undefined"
                   ? true
                   : typeof x === "undefined"
                   ? false
                   : typeof y === "undefined"
                   ? false
-                  : eq.equals(y)(x)
+                  : eq.equals(x, y)
             },
             env,
             { eq }
@@ -125,10 +125,10 @@ export const eqPrimitiveInterpreter = interpreter<EqURI, PrimitivesURI>()(() => 
     new EqType(
       eqApplyConfig(cfg?.conf)(
         {
-          equals: (y) => (x) =>
+          equals: (x, y) =>
             x.length === y.length &&
             x.length === types.length &&
-            types.every((e, i) => e(env).eq.equals(y[i])(x[i]))
+            types.every((e, i) => e(env).eq.equals(x[i], y[i]))
         },
         env,
         { eqs: types.map((e) => e(env).eq) as any }

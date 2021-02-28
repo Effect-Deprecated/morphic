@@ -10,12 +10,12 @@ export const eqTaggedUnionInterpreter = interpreter<EqURI, TaggedUnionURI>()(() 
     return new EqType(
       eqApplyConfig(config?.conf)(
         {
-          equals: (b) => (a): boolean => {
+          equals: (a, b): boolean => {
             if (a === b) {
               return true
             } else {
               const aTag = a[tag as any]
-              return aTag === b[tag as any] ? equals[aTag as any].equals(b)(a) : false
+              return aTag === b[tag as any] ? equals[aTag as any].equals(a, b) : false
             }
           }
         },

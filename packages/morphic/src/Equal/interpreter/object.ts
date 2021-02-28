@@ -10,14 +10,14 @@ import { eqApplyConfig, EqType, EqURI } from "../base"
 const asPartial = <T>(x: EqType<T>): EqType<Partial<T>> => x as any
 
 export const eqOrUndefined = <A>(eq: E.Equal<A>): E.Equal<A | undefined> => ({
-  equals: (y) => (x) =>
+  equals: (x, y) =>
     typeof x === "undefined" && typeof y === "undefined"
       ? true
       : typeof x === "undefined"
       ? false
       : typeof y === "undefined"
       ? false
-      : eq.equals(y)(x)
+      : eq.equals(x, y)
 })
 
 export const eqObjectInterpreter = interpreter<EqURI, ObjectURI>()(() => ({

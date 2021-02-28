@@ -68,6 +68,6 @@ describe("Intersection", () => {
     const geq = equalType(All).at("g")!.eq
     expect(runEither(gd.decode("ok"))).toEqual(right("ok"))
     expect(run(ge.encode("ok"))).toEqual("ok")
-    expect(geq.equals("ok")("ok")).toEqual(true)
+    expect(geq.equals("ok", "ok")).toEqual(true)
   })
 })

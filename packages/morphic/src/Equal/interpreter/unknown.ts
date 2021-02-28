@@ -8,10 +8,6 @@ export const eqUnknownInterpreter = interpreter<EqURI, UnknownURI>()(() => ({
   _F: EqURI,
   unknown: (cfg) => (env) =>
     new EqType(
-      eqApplyConfig(cfg?.conf)(
-        { equals: (y) => (x) => circularDeepEqual(x, y) },
-        env,
-        {}
-      )
+      eqApplyConfig(cfg?.conf)({ equals: (x, y) => circularDeepEqual(x, y) }, env, {})
     )
 }))

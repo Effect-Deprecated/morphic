@@ -138,14 +138,16 @@ describe("FastCheck", () => {
   })
   it("Uses Equal", () => {
     expect(
-      equal(Person).equals({ name: { first: "Michael", last: "Arnaldi" } })({
-        name: { first: "Michael", last: "Arnaldi" }
-      })
+      equal(Person).equals(
+        { name: { first: "Michael", last: "Arnaldi" } },
+        { name: { first: "Michael", last: "Arnaldi" } }
+      )
     ).toEqual(true)
     expect(
-      equal(Person).equals({ name: { first: "Michael", last: "Arnaldi" } })({
-        name: { first: "John", last: "Doe" }
-      })
+      equal(Person).equals(
+        { name: { first: "John", last: "Doe" } },
+        { name: { first: "Michael", last: "Arnaldi" } }
+      )
     ).toEqual(false)
   })
   it("Shows Person", () => {
@@ -273,10 +275,10 @@ describe("Tuple", () => {
     expect(T.run(encode(Tuple)(["1", 2, "3", "abc"]))).toEqual(["1", 2, "3", "abc"])
   })
   it("Equal", () => {
-    expect(equal(Tuple).equals(["1", 2, "3", "abc"])(["1", 2, "3", "abc"])).toEqual(
+    expect(equal(Tuple).equals(["1", 2, "3", "abc"], ["1", 2, "3", "abc"])).toEqual(
       true
     )
-    expect(equal(Tuple).equals(["1", 2, "3", "abc"])(["1", 0, "3", "abc"])).toEqual(
+    expect(equal(Tuple).equals(["1", 0, "3", "abc"], ["1", 2, "3", "abc"])).toEqual(
       false
     )
   })

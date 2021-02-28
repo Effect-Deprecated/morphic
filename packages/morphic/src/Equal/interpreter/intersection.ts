@@ -12,7 +12,7 @@ export const eqIntersectionInterpreter = interpreter<EqURI, IntersectionURI>()((
     return new EqType(
       eqApplyConfig(config?.conf)(
         {
-          equals: (b) => (a) => fold(all)(equals.map((eq) => eq.eq.equals(b)(a)))
+          equals: (a, b) => fold(all)(equals.map((eq) => eq.eq.equals(a, b)))
         },
         env,
         {
