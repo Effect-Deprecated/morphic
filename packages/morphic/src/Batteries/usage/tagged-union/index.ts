@@ -4,12 +4,13 @@ import {
   intersection
 } from "@effect-ts/core/Array"
 import { first } from "@effect-ts/core/Associative"
-import * as Equal from "@effect-ts/core/Equal"
-import { tuple } from "@effect-ts/core/Function"
+import type { Dictionary } from "@effect-ts/core/Dictionary"
 import {
   fromFoldable as RfromFoldable,
   mapWithIndex as RmapWithIndex
-} from "@effect-ts/core/Record"
+} from "@effect-ts/core/Dictionary"
+import * as Equal from "@effect-ts/core/Equal"
+import { tuple } from "@effect-ts/core/Function"
 
 import type { ADT } from "../../../Adt"
 import { makeADT } from "../../../Adt"
@@ -43,7 +44,7 @@ export type M<
   InterpURI extends InterpreterURI
 > = Materialized<R, E, A, ProgURI, InterpURI>
 
-export type AnyTypes = Record<string, InhabitedTypes<any, any, any>>
+export type AnyTypes = Dictionary<InhabitedTypes<any, any, any>>
 
 export type UnionTypes<
   Types extends AnyTypes,
@@ -70,14 +71,14 @@ export type AnyM<ProgURI extends ProgramURI, InterpURI extends InterpreterURI, R
 >
 
 const recordFromArray = RfromFoldable(first<any>(), foldableArray)
-const keepKeys = (a: Record<string, any>, toKeep: Array<string>): object =>
+const keepKeys = (a: Dictionary<any>, toKeep: Array<string>): object =>
   recordFromArray(
     intersection(Equal.string)(toKeep)(Object.keys(a)).map((k: string) =>
       tuple(k, a[k])
     )
   )
 
-const excludeKeys = (a: Record<string, any>, toExclude: Array<string>): object =>
+const excludeKeys = (a: Dictionary<any>, toExclude: Array<string>): object =>
   recordFromArray(
     difference(Equal.string)(toExclude)(Object.keys(a)).map((k: string) =>
       tuple(k, a[k])

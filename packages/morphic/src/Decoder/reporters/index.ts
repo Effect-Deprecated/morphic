@@ -2,10 +2,10 @@
  * From https://github.com/gillchristian/io-ts-reporters
  */
 import * as A from "@effect-ts/core/Array"
+import * as R from "@effect-ts/core/Dictionary"
 import { pipe } from "@effect-ts/core/Function"
 import * as NEA from "@effect-ts/core/NonEmptyArray"
 import * as O from "@effect-ts/core/Option"
-import * as R from "@effect-ts/core/Record"
 import * as S from "@effect-ts/core/Sync"
 
 import type * as t from "../common"
@@ -115,7 +115,7 @@ const formatValidationCommonError = (
     )
   )
 
-const groupByKey = NEA.groupBy((error: t.ValidationError) =>
+const groupByKey = A.groupBy((error: t.ValidationError) =>
   keyPath(A.takeUntil_(error.context, isUnionType))
 )
 

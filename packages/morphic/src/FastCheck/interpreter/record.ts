@@ -1,7 +1,7 @@
 import { Foldable as array } from "@effect-ts/core/Array"
 import { first } from "@effect-ts/core/Associative"
+import { fromFoldable } from "@effect-ts/core/Dictionary"
 import { pipe } from "@effect-ts/core/Function"
-import { fromFoldable } from "@effect-ts/core/Record"
 
 import type { RecordURI } from "../../Algebra/Record"
 import { interpreter } from "../../HKT"

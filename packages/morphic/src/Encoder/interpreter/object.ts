@@ -1,5 +1,5 @@
+import * as R from "@effect-ts/core/Dictionary"
 import { pipe } from "@effect-ts/core/Function"
-import * as R from "@effect-ts/core/Record"
 import * as T from "@effect-ts/core/Sync"
 
 import type { ObjectURI } from "../../Algebra/Object"
@@ -20,7 +20,7 @@ export const encoderObjectInterpreter = interpreter<EncoderURI, ObjectURI>()(() 
           },
           env,
           {
-            encoder: R.map_(encoder, (d) => d.encoder) as any
+            encoder: R.map_(encoder as R.Dictionary<any>, (d) => d.encoder) as any
           }
         )
       ).setChilds(encoder)
@@ -38,7 +38,7 @@ export const encoderObjectInterpreter = interpreter<EncoderURI, ObjectURI>()(() 
           },
           env,
           {
-            encoder: R.map_(encoder, (d) => d.encoder) as any
+            encoder: R.map_(encoder as R.Dictionary<any>, (d) => d.encoder) as any
           }
         )
       ).setChilds(encoder)
@@ -59,8 +59,11 @@ export const encoderObjectInterpreter = interpreter<EncoderURI, ObjectURI>()(() 
             },
             env,
             {
-              encoder: R.map_(encoder, (d) => d.encoder) as any,
-              encoderPartial: R.map_(encoderPartial, (d) => d.encoder) as any
+              encoder: R.map_(encoder as R.Dictionary<any>, (d) => d.encoder) as any,
+              encoderPartial: R.map_(
+                encoderPartial as R.Dictionary<any>,
+                (d) => d.encoder
+              ) as any
             }
           )
         ).setChilds(encoder)

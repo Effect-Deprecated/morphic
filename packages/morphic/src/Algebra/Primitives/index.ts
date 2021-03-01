@@ -1,11 +1,11 @@
 import type { Array } from "@effect-ts/core/Array"
 import type { Branded } from "@effect-ts/core/Branded"
+import type { Dictionary } from "@effect-ts/core/Dictionary"
 import type { Either } from "@effect-ts/core/Either"
 import type { FunctionN } from "@effect-ts/core/Function"
 import type { List } from "@effect-ts/core/List"
 import type { NonEmptyArray } from "@effect-ts/core/NonEmptyArray"
 import type { Option } from "@effect-ts/core/Option"
-import type { Record } from "@effect-ts/core/Record"
 import type { Mutable } from "@effect-ts/system/Mutable"
 
 import type { AnyEnv, ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT"
@@ -16,7 +16,7 @@ export interface UUIDBrand {
 
 export type UUID = Branded<string, UUIDBrand>
 
-export type Keys = Record<string, null>
+export type Keys = Dictionary<null>
 
 export type LiteralT = string | number
 

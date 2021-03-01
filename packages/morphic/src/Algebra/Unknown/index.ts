@@ -1,8 +1,8 @@
-import type { Record } from "@effect-ts/core/Record"
+import type { Dictionary } from "@effect-ts/core/Dictionary"
 
 import type { AnyEnv, ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT"
 
-export type Keys = Record<string, null>
+export type Keys = Dictionary<null>
 
 export const UnknownURI = "UnknownURI" as const
 

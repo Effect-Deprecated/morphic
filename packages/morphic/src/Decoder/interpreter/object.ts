@@ -1,5 +1,5 @@
+import * as R from "@effect-ts/core/Dictionary"
 import { pipe } from "@effect-ts/core/Function"
-import * as R from "@effect-ts/core/Record"
 import * as T from "@effect-ts/core/Sync"
 
 import type { ObjectURI } from "../../Algebra/Object"
@@ -22,7 +22,7 @@ export const decoderObjectInterpreter = interpreter<DecoderURI, ObjectURI>()(() 
           interfaceDecoder(keys, decoder, cfg?.name) as any,
           env,
           {
-            decoder: R.map_(decoder, (d) => d.decoder) as any
+            decoder: R.map_(decoder as R.Dictionary<any>, (d) => d.decoder) as any
           }
         )
       ).setChilds(decoder)
@@ -31,7 +31,7 @@ export const decoderObjectInterpreter = interpreter<DecoderURI, ObjectURI>()(() 
     pipe(projectFieldWithEnv2(props, env), (decoder) => {
       return new DecoderType(
         decoderApplyConfig(cfg?.conf)(partialDecoder(decoder, cfg?.name) as any, env, {
-          decoder: R.map_(decoder, (d) => d.decoder) as any
+          decoder: R.map_(decoder as R.Dictionary<any>, (d) => d.decoder) as any
         })
       ).setChilds(decoder)
     }),
@@ -56,8 +56,11 @@ export const decoderObjectInterpreter = interpreter<DecoderURI, ObjectURI>()(() 
             ),
             env,
             {
-              decoder: R.map_(decoder, (d) => d.decoder) as any,
-              decoderPartial: R.map_(decoderPartial, (d) => d.decoder) as any
+              decoder: R.map_(decoder as R.Dictionary<any>, (d) => d.decoder) as any,
+              decoderPartial: R.map_(
+                decoderPartial as R.Dictionary<any>,
+                (d) => d.decoder
+              ) as any
             }
           )
         ).setChilds({ ...decoder, ...decoderPartial })

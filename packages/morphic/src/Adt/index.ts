@@ -6,9 +6,9 @@ import {
   reduceRight
 } from "@effect-ts/core/Array"
 import { first as AssociativeFirst } from "@effect-ts/core/Associative"
+import { fromFoldable } from "@effect-ts/core/Dictionary"
 import * as Equal from "@effect-ts/core/Equal"
 import { tuple } from "@effect-ts/core/Function"
-import { fromFoldable } from "@effect-ts/core/Record"
 
 import * as CU from "./ctors"
 import * as Ma from "./matcher"

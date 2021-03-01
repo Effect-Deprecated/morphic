@@ -1,4 +1,3 @@
-import type { Record } from "@effect-ts/core/Record"
 import type { UnionToIntersection } from "@effect-ts/core/Utils"
 
 import type { AlgebraIntersections, IntersectionURI } from "../Algebra/Intersection"
@@ -14,7 +13,7 @@ import type { AlgebraUnion, UnionURI } from "../Algebra/Union"
 import type { AlgebraUnknown, UnknownURI } from "../Algebra/Unknown"
 import { memo } from "../Utils"
 
-export type URISIndexedAny = Record<InterpreterURIS, any>
+export type URISIndexedAny = Readonly<Record<InterpreterURIS, any>>
 
 export type AnyEnv = Partial<URISIndexedAny>
 

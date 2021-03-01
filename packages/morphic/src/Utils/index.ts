@@ -1,14 +1,16 @@
 import type { Array } from "@effect-ts/core/Array"
-import * as R from "@effect-ts/core/Record"
+import * as R from "@effect-ts/core/Dictionary"
 
 export const mapRecord = <Dic extends { [k in keyof Dic]: any }, B>(
   d: Dic,
   f: (v: Dic[keyof Dic]) => B
 ): { [k in keyof Dic]: B } => R.map_(d, f) as { [k in keyof Dic]: B }
 
-export const projectField = <T extends R.Record<any, R.Record<any, any>>>(t: T) => <
-  K extends keyof T[keyof T]
+export const projectField = <
+  T extends Readonly<Record<any, Readonly<Record<any, any>>>>
 >(
+  t: T
+) => <K extends keyof T[keyof T]>(
   k: K
 ): {
   [q in keyof T]: T[q][K]
@@ -18,7 +20,7 @@ export const projectField = <T extends R.Record<any, R.Record<any, any>>>(t: T) 
   }
 
 export const projectFieldWithEnv = <
-  T extends R.Record<any, (e: R) => R.Record<any, any>>,
+  T extends Readonly<Record<any, (e: R) => Readonly<Record<any, any>>>>,
   R
 >(
   t: T,
@@ -33,7 +35,7 @@ export const projectFieldWithEnv = <
   }
 
 export const projectFieldWithEnv2 = <
-  T extends R.Record<any, (e: R) => R.Record<any, any>>,
+  T extends Readonly<Record<any, (e: R) => Readonly<Record<any, any>>>>,
   R
 >(
   t: T,
@@ -81,9 +83,11 @@ export function conjunction<R extends unknown[]>(...x: R): any[] {
 export const merge = conjunction
 
 export const collect = <K extends string, A, B>(
-  d: R.Record<K, A>,
+  d: Readonly<Record<K, A>>,
   f: (k: K, a: A) => B
-): Array<B> => R.collect(f)(d)
+): Array<B> =>
+  // @ts-expect-error
+  R.collect(f)(d)
 
 export const memo: <F extends () => any>(get: F) => typeof get = <F extends () => any>(
   get: F

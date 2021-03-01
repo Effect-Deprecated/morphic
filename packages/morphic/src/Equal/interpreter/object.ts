@@ -1,6 +1,6 @@
+import * as R from "@effect-ts/core/Dictionary"
 import * as E from "@effect-ts/core/Equal"
 import { pipe } from "@effect-ts/core/Function"
-import * as R from "@effect-ts/core/Record"
 
 import type { ObjectURI } from "../../Algebra/Object"
 import { interpreter } from "../../HKT"
@@ -24,7 +24,7 @@ export const eqObjectInterpreter = interpreter<EqURI, ObjectURI>()(() => ({
   _F: EqURI,
   interface: (props, config) => (env) =>
     pipe(projectFieldWithEnv2(props, env), (eq) => {
-      const equals = R.map_(eq, (e) => e.eq)
+      const equals = R.map_(eq as R.Dictionary<any>, (e) => e.eq)
       return new EqType(
         eqApplyConfig(config?.conf)(E.struct(equals) as any, env, {
           eq: equals as any
@@ -33,7 +33,7 @@ export const eqObjectInterpreter = interpreter<EqURI, ObjectURI>()(() => ({
     }),
   partial: (props, config) => (env) =>
     pipe(projectFieldWithEnv2(props, env), (eq) => {
-      const equals = R.map_(eq, (e) => e.eq)
+      const equals = R.map_(eq as R.Dictionary<any>, (e) => e.eq)
       return asPartial(
         new EqType(
           eqApplyConfig(config?.conf)(
@@ -48,8 +48,8 @@ export const eqObjectInterpreter = interpreter<EqURI, ObjectURI>()(() => ({
     pipe(
       [projectFieldWithEnv2(props, env), projectFieldWithEnv2(partial, env)] as const,
       ([eq, eqPartial]) => {
-        const equals = R.map_(eq, (e) => e.eq)
-        const equalsPartial = R.map_(eqPartial, (e) => e.eq)
+        const equals = R.map_(eq as R.Dictionary<any>, (e) => e.eq)
+        const equalsPartial = R.map_(eqPartial as R.Dictionary<any>, (e) => e.eq)
         return new EqType(
           eqApplyConfig(config?.conf)(
             E.struct({ ...equals, ...mapRecord(equalsPartial, eqOrUndefined) }),
