@@ -11,6 +11,8 @@ import type {
 import type { ShowURI } from "./base"
 import { modelShowInterpreter } from "./interpreter"
 
+export { ShowURI } from "./base"
+
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (
     _: {

@@ -9,6 +9,8 @@ import type {
 import type { Strict, StrictURI } from "./base"
 import { modelStrictInterpreter } from "./interpreter"
 
+export { StrictURI, Strict } from "./base"
+
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (
     _: {
