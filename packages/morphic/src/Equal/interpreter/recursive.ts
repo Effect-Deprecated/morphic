@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { RecursiveURI } from "../../Algebra/Recursive"
 import { interpreter } from "../../HKT"
 import { eqApplyConfig, EqType, EqURI } from "../base"

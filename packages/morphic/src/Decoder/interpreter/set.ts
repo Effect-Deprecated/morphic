@@ -1,4 +1,7 @@
+// tracing: off
+
 import { pipe } from "@effect-ts/core/Function"
+import * as Ord from "@effect-ts/core/Ord"
 import * as S from "@effect-ts/core/Set"
 import * as T from "@effect-ts/core/Sync"
 
@@ -24,7 +27,7 @@ export const decoderSetInterpreter = interpreter<DecoderURI, SetURI>()(() => ({
                       forEachArray((k, a) =>
                         decoder.validate(a, appendContext(c, String(k), decoder, a))
                       ),
-                      T.map(S.fromArray(_))
+                      T.map(S.fromArray(Ord.getEqual(_)))
                     )
                   : fail(u, c, `${typeof u} is not a Set`),
               "set",

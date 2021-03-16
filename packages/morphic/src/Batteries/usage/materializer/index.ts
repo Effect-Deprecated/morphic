@@ -1,3 +1,5 @@
+// tracing: off
+
 import { MonocleFor } from "../../../Adt/monocle"
 import type { InterpreterResult, InterpreterURI } from "../interpreter-result"
 import type { Overloads } from "../program-infer"

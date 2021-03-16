@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
 import type { HKT, Kind } from "../../HKT"
 import type { Reorder, ReorderURI } from "../base"

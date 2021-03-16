@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { UnionToIntersection } from "@effect-ts/core/Utils"
 
 import type { AlgebraIntersections, IntersectionURI } from "../Algebra/Intersection"

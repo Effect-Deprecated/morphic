@@ -1,3 +1,5 @@
+// tracing: off
+
 import type * as fc from "fast-check"
 
 import type { AnyEnv } from "../../HKT"

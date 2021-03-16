@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { Erase } from "@effect-ts/core/Utils"
 
 import { cacheUnaryFunction } from "../../Algebra/Core"

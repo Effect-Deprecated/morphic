@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { UnionURI } from "../../Algebra/Union"
 import { interpreter } from "../../HKT"
 import { reorderApplyConfig, ReorderType, ReorderURI } from "../base"

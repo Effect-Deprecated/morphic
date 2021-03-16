@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { Array } from "@effect-ts/core/Array"
 import type { Branded } from "@effect-ts/core/Branded"
 import type { Dictionary } from "@effect-ts/core/Dictionary"

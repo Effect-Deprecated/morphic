@@ -1,3 +1,5 @@
+// tracing: off
+
 import { pipe } from "@effect-ts/core/Function"
 import { getEqual as SgetEq } from "@effect-ts/core/Set"
 

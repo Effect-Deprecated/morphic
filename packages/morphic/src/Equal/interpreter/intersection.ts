@@ -1,3 +1,5 @@
+// tracing: off
+
 import * as A from "@effect-ts/core/Array"
 import { all, fold } from "@effect-ts/core/Identity"
 

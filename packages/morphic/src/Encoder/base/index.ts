@@ -1,3 +1,5 @@
+// tracing: off
+
 import type * as T from "@effect-ts/core/Sync"
 
 import { getApplyConfig } from "../../HKT"

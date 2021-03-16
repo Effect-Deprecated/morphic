@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { Show } from "@effect-ts/core/Show"
 
 import type { M, Summoner } from "../Batteries/summoner"

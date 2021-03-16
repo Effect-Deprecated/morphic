@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { UnknownURI } from "../../Algebra/Unknown"
 import { interpreter } from "../../HKT"
 import { hashApplyConfig, HashType, HashURI } from "../base"

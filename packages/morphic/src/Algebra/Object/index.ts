@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { AnyEnv, ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT"
 
 export const ObjectURI = "ObjectURI" as const

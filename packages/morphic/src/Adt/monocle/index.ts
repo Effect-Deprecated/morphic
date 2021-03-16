@@ -1,3 +1,5 @@
+// tracing: off
+
 import * as Lens from "@effect-ts/monocle/Lens"
 import * as Optional from "@effect-ts/monocle/Optional"
 import * as Prism from "@effect-ts/monocle/Prism"

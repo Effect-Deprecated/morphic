@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { Predicate } from "@effect-ts/core/Function"
 
 export const takeUntil = <A = unknown>(predicate: Predicate<A>) => (

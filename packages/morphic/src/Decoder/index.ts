@@ -1,3 +1,5 @@
+// tracing: off
+
 import { flow } from "@effect-ts/core/Function"
 import { runEither } from "@effect-ts/core/Sync"
 

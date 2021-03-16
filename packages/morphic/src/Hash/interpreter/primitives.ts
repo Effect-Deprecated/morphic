@@ -1,3 +1,5 @@
+// tracing: off
+
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import { pipe } from "@effect-ts/core/Function"
 

@@ -1,3 +1,5 @@
+// tracing: off
+
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import { getShow as AgetShow } from "@effect-ts/core/Array"
 import { getShow as EgetShow } from "@effect-ts/core/Either"

@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { Predicate, Refinement } from "@effect-ts/core/Function"
 
 import type { AnyEnv, ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT"

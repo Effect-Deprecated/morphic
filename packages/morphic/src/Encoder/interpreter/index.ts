@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { AnyEnv } from "../../HKT"
 import { memo, merge } from "../../Utils"
 import { encoderIntersectionInterpreter } from "./intersection"

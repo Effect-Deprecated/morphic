@@ -1,3 +1,5 @@
+// tracing: off
+
 import { Array } from "@effect-ts/core/Array"
 import type { Either } from "@effect-ts/core/Either"
 import { pipe } from "@effect-ts/core/Function"

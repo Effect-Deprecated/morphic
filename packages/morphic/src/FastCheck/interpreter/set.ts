@@ -1,4 +1,7 @@
+// tracing: off
+
 import { pipe } from "@effect-ts/core/Function"
+import * as Ord from "@effect-ts/core/Ord"
 import { fromArray } from "@effect-ts/core/Set"
 
 import type { SetURI } from "../../Algebra/Set"
@@ -12,9 +15,15 @@ export const fcSetInterpreter = interpreter<FastCheckURI, SetURI>()(() => ({
       a(env).arb,
       (arb) =>
         new FastCheckType(
-          fcApplyConfig(config?.conf)(accessFC(env).set(arb).map(fromArray(ord)), env, {
-            arb
-          })
+          fcApplyConfig(config?.conf)(
+            accessFC(env)
+              .set(arb)
+              .map(fromArray(Ord.getEqual(ord))),
+            env,
+            {
+              arb
+            }
+          )
         )
     )
 }))

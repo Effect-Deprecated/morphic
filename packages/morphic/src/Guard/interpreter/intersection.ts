@@ -1,3 +1,5 @@
+// tracing: off
+
 import { all, fold } from "@effect-ts/core/Identity"
 
 import type { IntersectionURI } from "../../Algebra/Intersection"

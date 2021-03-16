@@ -1,3 +1,5 @@
+// tracing: off
+
 import { flow } from "@effect-ts/core/Function"
 import { run } from "@effect-ts/core/Sync"
 

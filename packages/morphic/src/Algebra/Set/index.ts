@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { Array } from "@effect-ts/core/Array"
 import type { Ord } from "@effect-ts/core/Ord"
 import type { Set } from "@effect-ts/core/Set"

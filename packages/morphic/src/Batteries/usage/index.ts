@@ -1,3 +1,5 @@
+// tracing: off
+
 import * as interpreterResult from "./interpreter-result"
 import * as materializer from "./materializer"
 import * as programInfer from "./program-infer"

@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { Refinement } from "@effect-ts/core/Function"
 import { pipe } from "@effect-ts/core/Function"
 

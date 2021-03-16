@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { M, M_ } from "./Batteries/summoner"
 import { opaque, opaque_, summonFor } from "./Batteries/summoner"
 

@@ -1,3 +1,5 @@
+// tracing: off
+
 import { getApplyConfig } from "../../HKT"
 
 export const GuardURI = "GuardURI" as const

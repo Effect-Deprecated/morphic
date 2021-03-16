@@ -1,3 +1,5 @@
+// tracing: off
+
 import * as interpreter from "./interpreter"
 import * as program from "./program"
 import * as summoner from "./summoner"

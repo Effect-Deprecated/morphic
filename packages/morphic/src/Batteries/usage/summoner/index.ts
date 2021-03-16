@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { CacheType } from "../../../Algebra/Core"
 import type { AnyEnv, InterpreterURIS } from "../../../HKT"
 import type { InterpreterResult, InterpreterURI } from "../interpreter-result"

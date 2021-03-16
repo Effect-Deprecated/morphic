@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { Equal } from "@effect-ts/core/Equal"
 
 import type { M, Summoner } from "../Batteries/summoner"

@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { TaggedUnionURI } from "../../Algebra/TaggedUnion"
 import { isUnknownRecord } from "../../Guard/interpreter/common"
 import { interpreter } from "../../HKT"

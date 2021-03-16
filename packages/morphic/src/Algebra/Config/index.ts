@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { Materialized } from "../../Batteries/usage/materializer"
 import type * as H from "../../HKT"
 

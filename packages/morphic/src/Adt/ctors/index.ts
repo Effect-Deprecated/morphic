@@ -1,3 +1,5 @@
+// tracing: off
+
 import { mapWithIndex } from "@effect-ts/core/Dictionary"
 
 import type { ExtractUnion, KeysDefinition, Tagged } from "../utils"

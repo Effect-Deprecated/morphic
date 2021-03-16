@@ -1,3 +1,5 @@
+// tracing: off
+
 import { pipe } from "@effect-ts/core/Function"
 import { every_, Set } from "@effect-ts/core/Set"
 

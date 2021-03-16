@@ -1,3 +1,5 @@
+// tracing: off
+
 import * as A from "@effect-ts/core/Array"
 import { getEqual as EgetEq } from "@effect-ts/core/Either"
 import * as Equal from "@effect-ts/core/Equal"

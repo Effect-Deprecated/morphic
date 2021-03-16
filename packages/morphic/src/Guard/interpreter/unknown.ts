@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { UnknownURI } from "../../Algebra/Unknown"
 import { interpreter } from "../../HKT"
 import { guardApplyConfig, GuardType, GuardURI } from "../base"

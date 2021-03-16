@@ -1,3 +1,5 @@
+// tracing: off
+
 import * as S from "@effect-ts/core/Sync"
 
 import type { UnionURI } from "../../Algebra/Union"

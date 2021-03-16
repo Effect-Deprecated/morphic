@@ -1,3 +1,5 @@
+// tracing: off
+
 import { pipe } from "@effect-ts/core/Function"
 import * as T from "@effect-ts/core/Sync"
 

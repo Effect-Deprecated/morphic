@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { Arbitrary } from "fast-check"
 import * as fc from "fast-check"
 

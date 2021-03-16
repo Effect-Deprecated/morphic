@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { IntersectionURI } from "../../Algebra/Intersection"
 import { interpreter } from "../../HKT"
 import { hashApplyConfig, HashType, HashURI } from "../base"

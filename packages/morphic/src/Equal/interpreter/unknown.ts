@@ -1,4 +1,6 @@
-import { circularDeepEqual } from "fast-equals"
+// tracing: off
+
+import { equals } from "@effect-ts/system/Case/_internal/Equals"
 
 import type { UnknownURI } from "../../Algebra/Unknown"
 import { interpreter } from "../../HKT"
@@ -7,7 +9,5 @@ import { eqApplyConfig, EqType, EqURI } from "../base"
 export const eqUnknownInterpreter = interpreter<EqURI, UnknownURI>()(() => ({
   _F: EqURI,
   unknown: (cfg) => (env) =>
-    new EqType(
-      eqApplyConfig(cfg?.conf)({ equals: (x, y) => circularDeepEqual(x, y) }, env, {})
-    )
+    new EqType(eqApplyConfig(cfg?.conf)({ equals: (x, y) => equals(x, y) }, env, {}))
 }))

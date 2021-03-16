@@ -1,3 +1,5 @@
+// tracing: off
+
 /**
  * From https://github.com/gillchristian/io-ts-reporters
  */

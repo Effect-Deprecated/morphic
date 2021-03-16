@@ -1,3 +1,5 @@
+// tracing: off
+
 import { pipe } from "@effect-ts/core/Function"
 import type { Some } from "@effect-ts/core/Option"
 

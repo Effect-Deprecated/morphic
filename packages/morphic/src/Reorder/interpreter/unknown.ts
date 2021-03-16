@@ -1,3 +1,5 @@
+// tracing: off
+
 import * as T from "@effect-ts/core/Sync"
 
 import type { UnknownURI } from "../../Algebra/Unknown"

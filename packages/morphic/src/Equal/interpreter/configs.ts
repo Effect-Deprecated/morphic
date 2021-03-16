@@ -1,3 +1,5 @@
+// tracing: off
+
 import type * as E from "@effect-ts/core/Equal"
 
 import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"

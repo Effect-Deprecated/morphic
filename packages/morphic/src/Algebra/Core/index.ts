@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { InterpreterURIS, Kind } from "../../HKT"
 
 export type OfType<F extends InterpreterURIS, L, A, RC> = Kind<F, RC, L, A>

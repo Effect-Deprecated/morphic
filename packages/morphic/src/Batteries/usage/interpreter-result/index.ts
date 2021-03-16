@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { SelectKeyOfMatchingValues } from "../utils"
 
 export interface InterpreterResult<E, A>

@@ -1,3 +1,5 @@
+// tracing: off
+
 import { getApplyConfig } from "../../HKT"
 import type { Decoder } from "../common"
 

@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { Guard } from "../base"
 
 export const isUnknownRecord = (u: unknown): u is { [key: string]: unknown } => {

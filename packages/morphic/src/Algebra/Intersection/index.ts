@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { UnionToIntersection } from "@effect-ts/core/Utils"
 
 import type { AnyEnv, ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT"

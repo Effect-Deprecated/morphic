@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { M } from "../Batteries/summoner"
 import { guard } from "../Guard"
 

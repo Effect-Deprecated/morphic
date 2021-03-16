@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { Newtype } from "@effect-ts/core/Newtype"
 import type { Iso } from "@effect-ts/monocle/Iso"
 import type { Prism } from "@effect-ts/monocle/Prism"

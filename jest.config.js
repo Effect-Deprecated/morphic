@@ -15,8 +15,8 @@ module.exports = {
   ],
   verbose: true,
   moduleNameMapper: {
-    "@effect-ts/morphic/(.*)$": "<rootDir>/packages/morphic/build/_traced/$1",
-    "@effect-ts/morphic$": "<rootDir>/packages/morphic/build/_traced"
+    "@effect-ts/morphic/(.*)$": "<rootDir>/packages/morphic/build/$1",
+    "@effect-ts/morphic$": "<rootDir>/packages/morphic/build"
   },
   globals: {
     "ts-jest": {

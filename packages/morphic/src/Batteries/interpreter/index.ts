@@ -1,3 +1,5 @@
+// tracing: off
+
 export const InterpreterURI = "InterpreterURI" as const
 export type InterpreterURI = typeof InterpreterURI
 

@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { IntersectionURI } from "../../Algebra/Intersection"
 import type { NewtypeURI } from "../../Algebra/Newtype"
 import type { ObjectURI } from "../../Algebra/Object"

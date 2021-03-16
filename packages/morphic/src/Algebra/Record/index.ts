@@ -1,3 +1,5 @@
+// tracing: off
+
 import type { Dictionary } from "@effect-ts/core/Dictionary"
 
 import type { AnyEnv, ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT"
