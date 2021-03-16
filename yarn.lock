@@ -341,9 +341,9 @@
     "@effect-ts/tracing-utils" "^0.5.0"
 
 "@effect-ts/monocle@^0.24.1":
-  version "0.24.1"
-  resolved "https://registry.yarnpkg.com/@effect-ts/monocle/-/monocle-0.24.1.tgz#e2199c1288b013c7d5da64b49d9170fe07b0fc10"
-  integrity sha512-XfUMf/h0izzbI15OEGOX28tn23+PB9xdaQEqXWjUI5nsUiZki+FBX9/9Wd/Md9Ugh875z9EViiMknonR3PmbHg==
+  version "0.24.2"
+  resolved "https://registry.yarnpkg.com/@effect-ts/monocle/-/monocle-0.24.2.tgz#7d0364c0cc0c14347394f3b889bd417c8788471d"
+  integrity sha512-lQvnkpeaTT52awNiFoLDJhQeSidLkgVRf39FlIKfj+F4kXw0ToZfn/CtS9IBudUx8nFuYsKNVcRjQXrf3DMoUQ==
 
 "@effect-ts/system@^0.24.0":
   version "0.24.0"
