@@ -1,6 +1,7 @@
 // tracing: off
 
 import type { Array } from "@effect-ts/core/Array"
+import type { Equal } from "@effect-ts/core/Equal"
 import type { Ord } from "@effect-ts/core/Ord"
 import type { Set } from "@effect-ts/core/Set"
 
@@ -17,6 +18,7 @@ export interface AlgebraSet<F extends InterpreterURIS, Env extends AnyEnv> {
   set: <L, A>(
     a: Kind<F, Env, L, A>,
     ord: Ord<A>,
+    eq?: Equal<A>,
     config?: Named<ConfigsForType<Env, Array<L>, Set<A>, SetConfig<L, A>>>
   ) => Kind<F, Env, Array<L>, Set<A>>
 }

@@ -11,7 +11,7 @@ import { encoderApplyConfig, EncoderType, EncoderURI } from "../base"
 
 export const encoderSetInterpreter = interpreter<EncoderURI, SetURI>()(() => ({
   _F: EncoderURI,
-  set: (a, _, config) => (env) =>
+  set: (a, _, __, config) => (env) =>
     pipe(
       a(env).encoder,
       (encoder) =>

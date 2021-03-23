@@ -9,7 +9,7 @@ import { showApplyConfig, ShowType, ShowURI } from "../base"
 
 export const showSetInterpreter = interpreter<ShowURI, SetURI>()(() => ({
   _F: ShowURI,
-  set: (getShow, _ord, config) => (env) =>
+  set: (getShow, _ord, _eq, config) => (env) =>
     pipe(
       getShow(env).show,
       (show) =>

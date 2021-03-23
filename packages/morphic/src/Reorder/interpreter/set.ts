@@ -9,7 +9,7 @@ import { reorderApplyConfig, ReorderType, ReorderURI } from "../base"
 
 export const reorderSetInterpreter = interpreter<ReorderURI, SetURI>()(() => ({
   _F: ReorderURI,
-  set: (a, _, config) => (env) =>
+  set: (a, _, __, config) => (env) =>
     pipe(
       a(env).reorder,
       (reorder) =>

@@ -10,7 +10,7 @@ import type { AOfGuard } from "./common"
 
 export const guardSetInterpreter = interpreter<GuardURI, SetURI>()(() => ({
   _F: GuardURI,
-  set: (a, _, config) => (env) =>
+  set: (a, _, __, config) => (env) =>
     pipe(
       a(env).guard,
       (guard) =>
