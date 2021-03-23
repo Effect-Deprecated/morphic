@@ -9,7 +9,7 @@ import { eqApplyConfig, EqType, EqURI } from "../base"
 
 export const eqSetInterpreter = interpreter<EqURI, SetURI>()(() => ({
   _F: EqURI,
-  set: (a, _ord, config) => (env) =>
+  set: (a, _ord, _eq, config) => (env) =>
     pipe(
       a(env).eq,
       (eq) => new EqType(eqApplyConfig(config?.conf)(SgetEq(eq), env, { eq }))

@@ -10,7 +10,7 @@ import { accessFC, FastCheckType, FastCheckURI, fcApplyConfig } from "../base"
 
 export const fcSetInterpreter = interpreter<FastCheckURI, SetURI>()(() => ({
   _F: FastCheckURI,
-  set: (a, ord, config) => (env) =>
+  set: (a, ord, eq, config) => (env) =>
     pipe(
       a(env).arb,
       (arb) =>
@@ -18,7 +18,7 @@ export const fcSetInterpreter = interpreter<FastCheckURI, SetURI>()(() => ({
           fcApplyConfig(config?.conf)(
             accessFC(env)
               .set(arb)
-              .map(fromArray(Ord.getEqual(ord))),
+              .map(fromArray(eq ?? Ord.getEqual(ord))),
             env,
             {
               arb

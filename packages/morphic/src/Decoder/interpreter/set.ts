@@ -13,7 +13,7 @@ import { forEachArray } from "./common"
 
 export const decoderSetInterpreter = interpreter<DecoderURI, SetURI>()(() => ({
   _F: DecoderURI,
-  set: (a, _, cfg) => (env) =>
+  set: (a, ord, eq, cfg) => (env) =>
     pipe(
       a(env).decoder,
       (decoder) =>
@@ -27,7 +27,7 @@ export const decoderSetInterpreter = interpreter<DecoderURI, SetURI>()(() => ({
                       forEachArray((k, a) =>
                         decoder.validate(a, appendContext(c, String(k), decoder, a))
                       ),
-                      T.map(S.fromArray(Ord.getEqual(_)))
+                      T.map(S.fromArray(eq ?? Ord.getEqual(ord)))
                     )
                   : fail(u, c, `${typeof u} is not a Set`),
               "set",

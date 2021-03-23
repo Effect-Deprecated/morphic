@@ -9,7 +9,7 @@ import { strictApplyConfig, StrictType, StrictURI } from "../base"
 
 export const strictSetInterpreter = interpreter<StrictURI, SetURI>()(() => ({
   _F: StrictURI,
-  set: (a, _, config) => (env) =>
+  set: (a, _, __, config) => (env) =>
     pipe(
       a(env).strict,
       (strict) =>

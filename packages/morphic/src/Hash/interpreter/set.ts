@@ -8,7 +8,7 @@ import { hashApplyConfig, HashType, HashURI } from "../base"
 
 export const hashSetInterpreter = interpreter<HashURI, SetURI>()(() => ({
   _F: HashURI,
-  set: (getHash, _ord, config) => (env) =>
+  set: (getHash, _ord, _eq, config) => (env) =>
     pipe(
       getHash(env).hash,
       (hash) =>
