@@ -171,10 +171,7 @@ export const fcPrimitiveInterpreter = interpreter<FastCheckURI, PrimitivesURI>()
     tuple: (...types) => (config) => (env) =>
       new FastCheckType(
         fcApplyConfig(config?.conf)(
-          accessFC(env).tuple(
-            // @ts-expect-error
-            ...types.map((a) => a(env).arb)
-          ) as any,
+          accessFC(env).tuple(...types.map((a) => a(env).arb)) as any,
           env,
           {
             arbs: types.map((a) => a(env).arb) as any
