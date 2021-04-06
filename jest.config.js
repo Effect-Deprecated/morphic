@@ -14,10 +14,6 @@ module.exports = {
     "<rootDir>/_tmp"
   ],
   verbose: true,
-  moduleNameMapper: {
-    "@effect-ts/morphic/(.*)$": "<rootDir>/packages/morphic/build/$1",
-    "@effect-ts/morphic$": "<rootDir>/packages/morphic/build"
-  },
   globals: {
     "ts-jest": {
       tsconfig: "<rootDir>/tsconfig.jest.json",
