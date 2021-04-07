@@ -70,7 +70,7 @@ function partialStrict<PropsA, PropsE, Env extends AnyEnv>(
       pipe(
         strict as Record<string, any>,
         R.forEachWithIndexF(T.Applicative)((k) =>
-          u[k]
+          k in u
             ? typeof u[k] !== "undefined"
               ? T.map_((strict[k] as Strict<any>).shrink(u[k]), O.some)
               : T.succeed(O.some(u[k]))
