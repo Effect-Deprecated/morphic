@@ -2,93 +2,93 @@
 
 import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
 import type { HKT, Kind } from "../../HKT"
-import type { Hash, HashURI } from "../base"
+import type { TypeHash, TypeHashURI } from "../base"
 
 declare module "../../Algebra/Intersection" {
   interface IntersectionConfig<
     L extends readonly unknown[],
     A extends readonly unknown[]
   > {
-    [HashURI]: {
-      hashes: IntersectionLA<L, A, HashURI>
+    [TypeHashURI]: {
+      typeHashes: IntersectionLA<L, A, TypeHashURI>
     }
   }
 }
 
 declare module "../../Algebra/Newtype" {
   interface IsoConfig<L, A, N> {
-    [HashURI]: {
-      hash: Hash
+    [TypeHashURI]: {
+      typeHash: TypeHash
     }
   }
   interface PrismConfig<L, A, N> {
-    [HashURI]: {
-      hash: Hash
+    [TypeHashURI]: {
+      typeHash: TypeHash
     }
   }
 }
 
 declare module "../../Algebra/Object" {
   interface InterfaceConfig<Props> {
-    [HashURI]: {
-      hash: InterfaceLA<Props, HashURI>
+    [TypeHashURI]: {
+      typeHash: InterfaceLA<Props, TypeHashURI>
     }
   }
   interface PartialConfig<Props> {
-    [HashURI]: {
-      hash: InterfaceLA<Props, HashURI>
+    [TypeHashURI]: {
+      typeHash: InterfaceLA<Props, TypeHashURI>
     }
   }
   interface BothConfig<Props, PropsPartial> {
-    [HashURI]: {
-      hash: InterfaceLA<Props & PropsPartial, HashURI>
-      hashPartial: InterfaceLA<PropsPartial, HashURI>
+    [TypeHashURI]: {
+      typeHash: InterfaceLA<Props & PropsPartial, TypeHashURI>
+      typeHashPartial: InterfaceLA<PropsPartial, TypeHashURI>
     }
   }
 }
 
 declare module "../../Algebra/Primitives" {
   interface NonEmptyArrayConfig<L, A> {
-    [HashURI]: {
-      hash: Hash
+    [TypeHashURI]: {
+      typeHash: TypeHash
     }
   }
   interface ArrayConfig<L, A> {
-    [HashURI]: {
-      hash: Hash
+    [TypeHashURI]: {
+      typeHash: TypeHash
     }
   }
   interface NullableConfig<L, A> {
-    [HashURI]: {
-      hash: Hash
+    [TypeHashURI]: {
+      typeHash: TypeHash
     }
   }
   interface MutableConfig<L, A> {
-    [HashURI]: {
-      hash: Hash
+    [TypeHashURI]: {
+      typeHash: TypeHash
     }
   }
   interface OptionalConfig<L, A> {
-    [HashURI]: {
-      hash: Hash
+    [TypeHashURI]: {
+      typeHash: TypeHash
     }
   }
   interface EitherConfig<EE, EA, AE, AA> {
-    [HashURI]: {
-      left: Hash
-      right: Hash
+    [TypeHashURI]: {
+      left: TypeHash
+      right: TypeHash
     }
   }
   interface OptionConfig<L, A> {
-    [HashURI]: {
-      hash: Hash
+    [TypeHashURI]: {
+      typeHash: TypeHash
     }
   }
   interface TupleConfig<Types extends readonly Kind<any, any, any, any>[]> {
-    [HashURI]: {
-      hashes: {
+    [TypeHashURI]: {
+      typeHashes: {
         [k in keyof Types]: [Types[k]] extends [HKT<any, infer E, infer A>]
-          ? Hash
+          ? TypeHash
           : never
       }
     }
@@ -97,47 +97,47 @@ declare module "../../Algebra/Primitives" {
 
 declare module "../../Algebra/Refined" {
   interface RefinedConfig<E, A, B> {
-    [HashURI]: {
-      hash: Hash
-      hashRefined: Hash
+    [TypeHashURI]: {
+      typeHash: TypeHash
+      typeHashRefined: TypeHash
     }
   }
   interface PredicateConfig<E, A> {
-    [HashURI]: {
-      hash: Hash
+    [TypeHashURI]: {
+      typeHash: TypeHash
     }
   }
 }
 
 declare module "../../Algebra/Set" {
   interface SetConfig<L, A> {
-    [HashURI]: {
-      hash: Hash
+    [TypeHashURI]: {
+      typeHash: TypeHash
     }
   }
 }
 
 declare module "../../Algebra/Record" {
   interface RecordConfig<L, A> {
-    [HashURI]: {
-      hash: Hash
+    [TypeHashURI]: {
+      typeHash: TypeHash
     }
   }
 }
 
 declare module "../../Algebra/TaggedUnion" {
   interface TaggedUnionConfig<Types> {
-    [HashURI]: {
-      hashes: TaggedUnionLA<Types, HashURI>
+    [TypeHashURI]: {
+      typeHashes: TaggedUnionLA<Types, TypeHashURI>
     }
   }
 }
 
 declare module "../../Algebra/Union" {
   interface UnionConfig<Types> {
-    [HashURI]: {
-      hashes: {
-        [k in keyof Types]: Hash
+    [TypeHashURI]: {
+      typeHashes: {
+        [k in keyof Types]: TypeHash
       }
     }
   }

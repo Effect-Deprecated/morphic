@@ -6,7 +6,7 @@ import type { AType, EType } from "../src"
 import * as MO from "../src"
 import { decode, report } from "../src/Decoder"
 import { guard } from "../src/Guard"
-import { hash } from "../src/Hash"
+import { hash } from "../src/TypeHash"
 
 const Foo_ = MO.make((F) =>
   F.interface(
@@ -81,7 +81,7 @@ describe("Adt", () => {
     )
   })
   it("Hashes adt", () => {
-    expect(hash(FooBar).hash).toEqual(
+    expect(hash(FooBar).typeHash).toEqual(
       'Tagged(_tag)({"_tag":"Bar","bar":"string"} | {"_tag":"Foo","foo":"string"})'
     )
   })

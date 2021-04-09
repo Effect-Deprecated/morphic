@@ -5,7 +5,7 @@ import { make } from "../src"
 import { decoder, decoderType } from "../src/Decoder"
 import { encoderType } from "../src/Encoder"
 import { equalType } from "../src/Equal"
-import { hash } from "../src/Hash"
+import { hash } from "../src/TypeHash"
 
 const A = make((F) =>
   F.interface({
@@ -55,7 +55,7 @@ describe("Intersection", () => {
     ).toEqual(right({ a: "a", b: "b", c: "c", d: "d", e: "e", g: "g" }))
   })
   it("Hashes all", () => {
-    expect(hash(All).hash).toEqual(
+    expect(hash(All).typeHash).toEqual(
       '{"a":"string"} & {"b":"string"} & {"c":"string"} & {"d":"string"} & {"e":"string"} & {"g":"string"}'
     )
   })

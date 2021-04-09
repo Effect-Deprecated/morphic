@@ -2,10 +2,10 @@
 
 import { pipe } from "@effect-ts/core/Function"
 
-import { mapRecord, projectFieldWithEnv } from "../..//Utils"
 import type { ObjectURI } from "../../Algebra/Object"
 import { interpreter } from "../../HKT"
-import { hashApplyConfig, HashType, HashURI } from "../base"
+import { mapRecord, projectFieldWithEnv } from "../../Utils"
+import { HashType, typeHashApplyConfig, TypeHashURI } from "../base"
 
 const asPartial = <T>(x: HashType<T>): HashType<Partial<T>> => x as any
 
@@ -18,18 +18,18 @@ function sortRecord(x: Record<string, any>): Record<string, any> {
   return r
 }
 
-export const hashObjectInterpreter = interpreter<HashURI, ObjectURI>()(() => ({
-  _F: HashURI,
+export const typeHashObjectInterpreter = interpreter<TypeHashURI, ObjectURI>()(() => ({
+  _F: TypeHashURI,
   interface: (props, config) => (env) =>
     new HashType(
-      pipe(projectFieldWithEnv(props, env)("hash"), (hash) =>
-        hashApplyConfig(config?.conf)(
+      pipe(projectFieldWithEnv(props, env)("typeHash"), (typeHash) =>
+        typeHashApplyConfig(config?.conf)(
           {
-            hash: JSON.stringify(sortRecord(mapRecord(hash, (h) => h.hash)))
+            typeHash: JSON.stringify(sortRecord(mapRecord(typeHash, (h) => h.typeHash)))
           },
           env,
           {
-            hash: hash as any
+            typeHash: typeHash as any
           }
         )
       )
@@ -37,13 +37,13 @@ export const hashObjectInterpreter = interpreter<HashURI, ObjectURI>()(() => ({
   partial: (props, config) => (env) =>
     asPartial(
       new HashType(
-        pipe(projectFieldWithEnv(props, env)("hash"), (hash) =>
-          hashApplyConfig(config?.conf)(
+        pipe(projectFieldWithEnv(props, env)("typeHash"), (typeHash) =>
+          typeHashApplyConfig(config?.conf)(
             {
-              hash: JSON.stringify(
+              typeHash: JSON.stringify(
                 sortRecord(
                   mapRecord(
-                    mapRecord(hash, (h) => h.hash),
+                    mapRecord(typeHash, (h) => h.typeHash),
                     (h) => `${h} | undefined`
                   )
                 )
@@ -51,7 +51,7 @@ export const hashObjectInterpreter = interpreter<HashURI, ObjectURI>()(() => ({
             },
             env,
             {
-              hash: hash as any
+              typeHash: typeHash as any
             }
           )
         )
@@ -59,15 +59,15 @@ export const hashObjectInterpreter = interpreter<HashURI, ObjectURI>()(() => ({
     ),
   both: (props, partial, config) => (env) =>
     new HashType(
-      pipe(projectFieldWithEnv(props, env)("hash"), (hash) =>
-        pipe(projectFieldWithEnv(partial, env)("hash"), (hashPartial) =>
-          hashApplyConfig(config?.conf)(
+      pipe(projectFieldWithEnv(props, env)("typeHash"), (typeHash) =>
+        pipe(projectFieldWithEnv(partial, env)("typeHash"), (typeHashPartial) =>
+          typeHashApplyConfig(config?.conf)(
             {
-              hash: JSON.stringify(
+              typeHash: JSON.stringify(
                 sortRecord({
-                  ...mapRecord(hash, (h) => h.hash),
+                  ...mapRecord(typeHash, (h) => h.typeHash),
                   ...mapRecord(
-                    mapRecord(hashPartial, (h) => h.hash),
+                    mapRecord(typeHashPartial, (h) => h.typeHash),
                     (h) => `${h} | undefined`
                   )
                 })
@@ -75,8 +75,8 @@ export const hashObjectInterpreter = interpreter<HashURI, ObjectURI>()(() => ({
             },
             env,
             {
-              hash: hash as any,
-              hashPartial: hashPartial as any
+              typeHash: typeHash as any,
+              typeHashPartial: typeHashPartial as any
             }
           )
         )
