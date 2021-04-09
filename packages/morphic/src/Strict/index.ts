@@ -12,7 +12,7 @@ import type { Strict, StrictURI } from "./base"
 import { modelStrictInterpreter } from "./interpreter"
 
 export { strictExtension } from "./interpreter"
-export { StrictURI, Strict } from "./base"
+export { StrictURI, Strict, strictApplyConfig, StrictType } from "./base"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (

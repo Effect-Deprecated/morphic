@@ -12,7 +12,7 @@ import type { Guard, GuardURI } from "./base"
 import { modelGuardInterpreter } from "./interpreter"
 
 export { guardExtension } from "./interpreter"
-export { GuardURI, Guard } from "./base"
+export { GuardURI, Guard, guardApplyConfig, GuardType } from "./base"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (

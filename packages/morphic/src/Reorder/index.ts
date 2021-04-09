@@ -12,7 +12,7 @@ import type { Reorder, ReorderURI } from "./base"
 import { modelReorderInterpreter } from "./interpreter"
 
 export { reorderExtension } from "./interpreter"
-export { ReorderURI, Reorder } from "./base"
+export { ReorderURI, Reorder, reorderApplyConfig, ReorderType } from "./base"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (

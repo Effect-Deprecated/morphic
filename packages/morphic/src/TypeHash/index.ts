@@ -12,7 +12,7 @@ import type { TypeHash, TypeHashURI } from "./base"
 import { modelHashInterpreter } from "./interpreter"
 
 export { typeHashExtension } from "./interpreter"
-export { TypeHashURI, TypeHash } from "./base"
+export { TypeHashURI, TypeHash, HashType, typeHashApplyConfig } from "./base"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (

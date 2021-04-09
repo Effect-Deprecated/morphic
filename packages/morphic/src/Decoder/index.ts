@@ -17,7 +17,7 @@ import { modelDecoderInterpreter } from "./interpreter"
 
 export { decoderExtension } from "./interpreter"
 
-export { DecoderType, DecoderURI } from "./base"
+export { DecoderType, DecoderURI, decoderApplyConfig } from "./base"
 
 export {
   appendContext,
