@@ -2,6 +2,7 @@
 
 import type { AnyEnv } from "../../HKT"
 import { memo, merge } from "../../Utils"
+import { fcExtensionsInterpreter } from "./extensions"
 import { fcIntersectionInterpreter } from "./intersection"
 import { fcNewtypeInterpreter } from "./newtype"
 import { fcObjectInterpreter } from "./object"
@@ -26,7 +27,8 @@ export const allModelFC = <Env extends AnyEnv>() =>
     fcRecursiveInterpreter<Env>(),
     fcStrMapInterpreter<Env>(),
     fcSetInterpreter<Env>(),
-    fcUnionInterpreter<Env>()
+    fcUnionInterpreter<Env>(),
+    fcExtensionsInterpreter<Env>()
   )
 
 export const modelFcInterpreter = memo(allModelFC) as typeof allModelFC
@@ -42,3 +44,4 @@ export { fcSetInterpreter } from "./set"
 export { fcTaggedUnionInterpreter } from "./tagged-union"
 export { fcUnionInterpreter } from "./union"
 export { fcUnknownInterpreter } from "./unknown"
+export { fcExtensionsInterpreter, fcExtension } from "./extensions"

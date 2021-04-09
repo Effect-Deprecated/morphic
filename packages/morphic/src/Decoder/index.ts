@@ -15,6 +15,10 @@ import type { DecoderType, DecoderURI } from "./base"
 import type { Decoder } from "./common"
 import { modelDecoderInterpreter } from "./interpreter"
 
+export { decoderExtension } from "./interpreter"
+
+export { DecoderType, DecoderURI } from "./base"
+
 export {
   appendContext,
   Context,

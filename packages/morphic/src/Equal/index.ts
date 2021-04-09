@@ -13,6 +13,7 @@ import type {
 import type { EqType, EqURI } from "./base"
 import { modelEqInterpreter } from "./interpreter"
 
+export { eqExtension } from "./interpreter"
 export { EqURI } from "./base"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {

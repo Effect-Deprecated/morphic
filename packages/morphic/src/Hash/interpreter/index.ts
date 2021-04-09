@@ -2,6 +2,7 @@
 
 import type { AnyEnv } from "../../HKT"
 import { memo, merge } from "../../Utils"
+import { hashExtensionsInterpreter } from "./extensions"
 import { hashIntersectionInterpreter } from "./intersection"
 import { hashNewtypeInterpreter } from "./newtype"
 import { hashObjectInterpreter } from "./object"
@@ -26,7 +27,8 @@ export const allModelHash = <Env extends AnyEnv>() =>
     hashRecursiveInterpreter<Env>(),
     hashSetInterpreter<Env>(),
     hashRecordInterpreter<Env>(),
-    hashUnionInterpreter<Env>()
+    hashUnionInterpreter<Env>(),
+    hashExtensionsInterpreter<Env>()
   )
 
 export const modelHashInterpreter = memo(allModelHash) as typeof allModelHash
@@ -42,3 +44,4 @@ export { hashSetInterpreter } from "./set"
 export { hashTaggedUnionInterpreter } from "./tagged-union"
 export { hashUnionInterpreter } from "./union"
 export { hashUnknownInterpreter } from "./unknown"
+export { hashExtensionsInterpreter, hashExtension } from "./extensions"

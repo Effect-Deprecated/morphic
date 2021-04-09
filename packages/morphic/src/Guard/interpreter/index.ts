@@ -2,6 +2,7 @@
 
 import type { AnyEnv } from "../../HKT"
 import { memo, merge } from "../../Utils"
+import { guardExtensionsInterpreter } from "./extensions"
 import { guardIntersectionInterpreter } from "./intersection"
 import { guardNewtypeInterpreter } from "./newtype"
 import { guardObjectInterpreter } from "./object"
@@ -26,7 +27,8 @@ export const allModelGuard = <Env extends AnyEnv>() =>
     guardRecursiveInterpreter<Env>(),
     guardRecordInterpreter<Env>(),
     guardSetInterpreter<Env>(),
-    guardUnionInterpreter<Env>()
+    guardUnionInterpreter<Env>(),
+    guardExtensionsInterpreter<Env>()
   )
 
 export const modelGuardInterpreter = memo(allModelGuard) as typeof allModelGuard
@@ -42,3 +44,4 @@ export { guardSetInterpreter } from "./set"
 export { guardTaggedUnionInterpreter } from "./tagged-union"
 export { guardUnionInterpreter } from "./union"
 export { guardUnknownInterpreter } from "./unknown"
+export { guardExtensionsInterpreter, guardExtension } from "./extensions"

@@ -1,5 +1,6 @@
 // tracing: off
 
+import type { ExtensionsURI } from "../../Algebra/Extensions"
 import type { IntersectionURI } from "../../Algebra/Intersection"
 import type { NewtypeURI } from "../../Algebra/Newtype"
 import type { ObjectURI } from "../../Algebra/Object"
@@ -39,6 +40,7 @@ declare module "../usage/program-type" {
       | UnknownURI
       | SetURI
       | UnionURI
+      | ExtensionsURI
     >
   }
 

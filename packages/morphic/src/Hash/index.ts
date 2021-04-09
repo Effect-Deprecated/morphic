@@ -11,6 +11,7 @@ import type {
 import type { Hash, HashURI } from "./base"
 import { modelHashInterpreter } from "./interpreter"
 
+export { hashExtension } from "./interpreter"
 export { HashURI, Hash } from "./base"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {

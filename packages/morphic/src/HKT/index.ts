@@ -2,6 +2,7 @@
 
 import type { UnionToIntersection } from "@effect-ts/core/Utils"
 
+import type { AlgebraExtensions, ExtensionsURI } from "../Algebra/Extensions"
 import type { AlgebraIntersections, IntersectionURI } from "../Algebra/Intersection"
 import type { AlgebraNewtypes, NewtypeURI } from "../Algebra/Newtype"
 import type { AlgebraObjects, ObjectURI } from "../Algebra/Object"
@@ -106,6 +107,7 @@ export interface URItoAlgebra<F extends InterpreterURIS, Env extends AnyEnv> {
   [RefinedURI]: AlgebraRefined<F, Env>
   [SetURI]: AlgebraSet<F, Env>
   [UnknownURI]: AlgebraUnknown<F, Env>
+  [ExtensionsURI]: AlgebraExtensions<F, Env>
 }
 
 export type AlgebraURIS = Exclude<keyof URItoAlgebra<never, never>, "_F" | "_R">

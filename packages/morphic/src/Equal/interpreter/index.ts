@@ -2,6 +2,7 @@
 
 import type { AnyEnv } from "../../HKT"
 import { memo, merge } from "../../Utils"
+import { eqExtensionsInterpreter } from "./extensions"
 import { eqIntersectionInterpreter } from "./intersection"
 import { eqNewtypeInterpreter } from "./newtype"
 import { eqObjectInterpreter } from "./object"
@@ -26,7 +27,8 @@ export const allModelEq = <Env extends AnyEnv>() =>
     eqRecursiveInterpreter<Env>(),
     eqRecordMapInterpreter<Env>(),
     eqSetInterpreter<Env>(),
-    eqUnionInterpreter<Env>()
+    eqUnionInterpreter<Env>(),
+    eqExtensionsInterpreter<Env>()
   )
 
 export const modelEqInterpreter = memo(allModelEq) as typeof allModelEq
@@ -42,3 +44,4 @@ export { eqSetInterpreter } from "./set"
 export { eqTaggedUnionInterpreter } from "./tagged-union"
 export { eqUnionInterpreter } from "./union"
 export { eqUnknownInterpreter } from "./unknown"
+export { eqExtensionsInterpreter, eqExtension } from "./extensions"

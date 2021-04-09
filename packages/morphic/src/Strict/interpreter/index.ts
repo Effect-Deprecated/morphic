@@ -2,6 +2,7 @@
 
 import type { AnyEnv } from "../../HKT"
 import { memo, merge } from "../../Utils"
+import { strictExtensionsInterpreter } from "./extensions"
 import { strictIntersectionInterpreter } from "./intersection"
 import { strictNewtypeInterpreter } from "./newtype"
 import { strictObjectInterpreter } from "./object"
@@ -26,7 +27,8 @@ export const allModelStrict = <Env extends AnyEnv>() =>
     strictRecursiveInterpreter<Env>(),
     strictRecordInterpreter<Env>(),
     strictSetInterpreter<Env>(),
-    strictUnionInterpreter<Env>()
+    strictUnionInterpreter<Env>(),
+    strictExtensionsInterpreter<Env>()
   )
 
 export const modelStrictInterpreter = memo(allModelStrict) as typeof allModelStrict
@@ -42,3 +44,4 @@ export { strictSetInterpreter } from "./set"
 export { strictTaggedUnionInterpreter } from "./tagged-union"
 export { strictUnionInterpreter } from "./union"
 export { strictUnknownInterpreter } from "./unknown"
+export { strictExtensionsInterpreter, strictExtension } from "./extensions"

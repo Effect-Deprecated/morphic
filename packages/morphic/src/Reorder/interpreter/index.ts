@@ -2,6 +2,7 @@
 
 import type { AnyEnv } from "../../HKT"
 import { memo, merge } from "../../Utils"
+import { reorderExtensionsInterpreter } from "./extensions"
 import { reorderIntersectionInterpreter } from "./intersection"
 import { reorderNewtypeInterpreter } from "./newtype"
 import { reorderObjectInterpreter } from "./object"
@@ -26,7 +27,8 @@ export const allModelReorder = <Env extends AnyEnv>() =>
     reorderRecursiveInterpreter<Env>(),
     reorderRecordInterpreter<Env>(),
     reorderSetInterpreter<Env>(),
-    reorderUnionInterpreter<Env>()
+    reorderUnionInterpreter<Env>(),
+    reorderExtensionsInterpreter<Env>()
   )
 
 export const modelReorderInterpreter = memo(allModelReorder) as typeof allModelReorder
@@ -42,3 +44,4 @@ export { reorderSetInterpreter } from "./set"
 export { reorderTaggedUnionInterpreter } from "./tagged-union"
 export { reorderUnionInterpreter } from "./union"
 export { reorderUnknownInterpreter } from "./unknown"
+export { reorderExtensionsInterpreter, reorderExtension } from "./extensions"

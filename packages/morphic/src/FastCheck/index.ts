@@ -14,6 +14,7 @@ import type {
 import { FastCheckURI } from "./base"
 import { modelFcInterpreter } from "./interpreter"
 
+export { fcExtension } from "./interpreter"
 export { FastCheckURI } from "./base"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {

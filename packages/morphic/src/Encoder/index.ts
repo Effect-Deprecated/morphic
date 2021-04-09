@@ -14,6 +14,7 @@ import type {
 import type { Encoder, EncoderType, EncoderURI } from "./base"
 import { modelEncoderInterpreter } from "./interpreter"
 
+export { encoderExtension } from "./interpreter"
 export { Encoder, EncoderURI } from "./base"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {

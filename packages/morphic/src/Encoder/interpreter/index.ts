@@ -2,6 +2,7 @@
 
 import type { AnyEnv } from "../../HKT"
 import { memo, merge } from "../../Utils"
+import { encoderExtensionsInterpreter } from "./extensions"
 import { encoderIntersectionInterpreter } from "./intersection"
 import { encoderNewtypeInterpreter } from "./newtype"
 import { encoderObjectInterpreter } from "./object"
@@ -26,7 +27,8 @@ export const allModelEncoder = <Env extends AnyEnv>() =>
     encoderRecursiveInterpreter<Env>(),
     encoderRecordInterpreter<Env>(),
     encoderSetInterpreter<Env>(),
-    encoderUnionInterpreter<Env>()
+    encoderUnionInterpreter<Env>(),
+    encoderExtensionsInterpreter<Env>()
   )
 
 export const modelEncoderInterpreter = memo(allModelEncoder) as typeof allModelEncoder
@@ -42,3 +44,4 @@ export { encoderSetInterpreter } from "./set"
 export { encoderTaggedUnionInterpreter } from "./tagged-union"
 export { encoderUnionInterpreter } from "./union"
 export { encoderUnknownInterpreter } from "./unknown"
+export { encoderExtensionsInterpreter, encoderExtension } from "./extensions"

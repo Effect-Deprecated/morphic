@@ -2,6 +2,7 @@
 
 import type { AnyEnv } from "../../HKT"
 import { memo, merge } from "../../Utils"
+import { showExtensionsInterpreter } from "./extensions"
 import { showIntersectionInterpreter } from "./intersection"
 import { showNewtypeInterpreter } from "./newtype"
 import { showObjectInterpreter } from "./object"
@@ -26,7 +27,8 @@ export const allModelShow = <Env extends AnyEnv>() =>
     showRecursiveInterpreter<Env>(),
     showSetInterpreter<Env>(),
     showRecordInterpreter<Env>(),
-    showUnionInterpreter<Env>()
+    showUnionInterpreter<Env>(),
+    showExtensionsInterpreter<Env>()
   )
 
 export const modelShowInterpreter = memo(allModelShow) as typeof allModelShow
@@ -42,3 +44,4 @@ export { showSetInterpreter } from "./set"
 export { showTaggedUnionInterpreter } from "./tagged-union"
 export { showUnionInterpreter } from "./union"
 export { showUnknownInterpreter } from "./unknown"
+export { showExtensionsInterpreter, showExtension } from "./extensions"
