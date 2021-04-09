@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/Effect-TS/morphic/compare/@effect-ts/morphic@0.26.2...@effect-ts/morphic@0.27.0) (2021-04-09)
+
+
+### Features
+
+* **morphic:** export apply config ([47ba798](https://github.com/Effect-TS/morphic/commit/47ba798c77d40adc5e99957e4cdfb0c13b2f1794))
+* **morphic:** rename Hash to TypeHash ([09e4b1c](https://github.com/Effect-TS/morphic/commit/09e4b1c73d588ac6633b09ebef2ff4e6b429dbd9))
+* **morphic:** unsafe extensions ([da3a02f](https://github.com/Effect-TS/morphic/commit/da3a02fb527089807bcd5253652ee5a5b1efa371))
+
+
+
+
+
 ## [0.26.2](https://github.com/Effect-TS/morphic/compare/@effect-ts/morphic@0.26.1...@effect-ts/morphic@0.26.2) (2021-04-07)
 
 
