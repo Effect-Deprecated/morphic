@@ -1,8 +1,8 @@
 // tracing: off
 
+import * as S from "@effect-ts/core/Collections/Immutable/Set"
 import { pipe } from "@effect-ts/core/Function"
 import * as Ord from "@effect-ts/core/Ord"
-import * as S from "@effect-ts/core/Set"
 import * as T from "@effect-ts/core/Sync"
 
 import type { SetURI } from "../../Algebra/Set"

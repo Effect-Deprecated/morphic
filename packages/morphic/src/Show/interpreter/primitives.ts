@@ -1,10 +1,10 @@
 // tracing: off
 
 /* eslint-disable @typescript-eslint/no-empty-interface */
-import { getShow as AgetShow } from "@effect-ts/core/Array"
+import { getShow as AgetShow } from "@effect-ts/core/Collections/Immutable/Array"
+import { getShow as LgetShow } from "@effect-ts/core/Collections/Immutable/List"
 import { getShow as EgetShow } from "@effect-ts/core/Either"
 import { absurd, pipe } from "@effect-ts/core/Function"
-import { getShow as LgetShow } from "@effect-ts/core/List"
 import { getShow as OgetShow } from "@effect-ts/core/Option"
 import type { Show } from "@effect-ts/core/Show"
 import {

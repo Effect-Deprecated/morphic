@@ -93,8 +93,8 @@
     ]
   },
   "peerDependencies": {
-    "@effect-ts/core": ">= 0.28.12",
-    "@effect-ts/monocle": ">= 0.25.2",
+    "@effect-ts/core": ">= 0.29.0",
+    "@effect-ts/monocle": ">= 0.26.1",
     "fast-check": ">= 2.14.0"
   }
 }

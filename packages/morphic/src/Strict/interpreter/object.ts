@@ -1,6 +1,6 @@
 // tracing: off
 
-import * as R from "@effect-ts/core/Dictionary"
+import * as R from "@effect-ts/core/Collections/Immutable/Dictionary"
 import { pipe } from "@effect-ts/core/Function"
 import * as O from "@effect-ts/core/Option"
 import * as T from "@effect-ts/core/Sync"

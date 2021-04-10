@@ -1,9 +1,9 @@
 // tracing: off
 
-import * as A from "@effect-ts/core/Array"
+import * as A from "@effect-ts/core/Collections/Immutable/Array"
+import * as List from "@effect-ts/core/Collections/Immutable/List"
 import * as E from "@effect-ts/core/Either"
 import { pipe } from "@effect-ts/core/Function"
-import * as List from "@effect-ts/core/List"
 import * as O from "@effect-ts/core/Option"
 import { none, some } from "@effect-ts/core/Option"
 import * as T from "@effect-ts/core/Sync"

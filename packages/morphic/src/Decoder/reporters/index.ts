@@ -3,10 +3,10 @@
 /**
  * From https://github.com/gillchristian/io-ts-reporters
  */
-import * as A from "@effect-ts/core/Array"
-import * as R from "@effect-ts/core/Dictionary"
+import * as A from "@effect-ts/core/Collections/Immutable/Array"
+import * as R from "@effect-ts/core/Collections/Immutable/Dictionary"
+import * as NEA from "@effect-ts/core/Collections/Immutable/NonEmptyArray"
 import { pipe } from "@effect-ts/core/Function"
-import * as NEA from "@effect-ts/core/NonEmptyArray"
 import * as O from "@effect-ts/core/Option"
 import * as S from "@effect-ts/core/Sync"
 

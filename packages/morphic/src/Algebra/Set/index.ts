@@ -1,9 +1,9 @@
 // tracing: off
 
-import type { Array } from "@effect-ts/core/Array"
+import type { Array } from "@effect-ts/core/Collections/Immutable/Array"
+import type { Set } from "@effect-ts/core/Collections/Immutable/Set"
 import type { Equal } from "@effect-ts/core/Equal"
 import type { Ord } from "@effect-ts/core/Ord"
-import type { Set } from "@effect-ts/core/Set"
 
 import type { AnyEnv, ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT"
 

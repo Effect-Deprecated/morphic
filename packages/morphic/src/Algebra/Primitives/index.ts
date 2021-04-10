@@ -1,14 +1,14 @@
 // tracing: off
 
-import type { Array } from "@effect-ts/core/Array"
 import type { Branded } from "@effect-ts/core/Branded"
-import type { Dictionary } from "@effect-ts/core/Dictionary"
+import type { Array } from "@effect-ts/core/Collections/Immutable/Array"
+import type { Dictionary } from "@effect-ts/core/Collections/Immutable/Dictionary"
+import type { List } from "@effect-ts/core/Collections/Immutable/List"
+import type { NonEmptyArray } from "@effect-ts/core/Collections/Immutable/NonEmptyArray"
 import type { Either } from "@effect-ts/core/Either"
 import type { FunctionN } from "@effect-ts/core/Function"
-import type { List } from "@effect-ts/core/List"
-import type { NonEmptyArray } from "@effect-ts/core/NonEmptyArray"
 import type { Option } from "@effect-ts/core/Option"
-import type { Mutable } from "@effect-ts/system/Mutable"
+import type { Mutable } from "@effect-ts/core/Support/Mutable"
 
 import type { AnyEnv, ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT"
 

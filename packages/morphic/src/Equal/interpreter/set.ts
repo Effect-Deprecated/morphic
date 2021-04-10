@@ -1,7 +1,7 @@
 // tracing: off
 
+import { getEqual as SgetEq } from "@effect-ts/core/Collections/Immutable/Set"
 import { pipe } from "@effect-ts/core/Function"
-import { getEqual as SgetEq } from "@effect-ts/core/Set"
 
 import type { SetURI } from "../../Algebra/Set"
 import { interpreter } from "../../HKT"

@@ -1,6 +1,6 @@
 // tracing: off
 
-import { getShow as RgetShow } from "@effect-ts/core/Dictionary"
+import { getShow as RgetShow } from "@effect-ts/core/Collections/Immutable/Dictionary"
 import { pipe } from "@effect-ts/core/Function"
 
 import type { RecordURI } from "../../Algebra/Record"

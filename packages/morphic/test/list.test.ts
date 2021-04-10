@@ -1,6 +1,6 @@
+import * as L from "@effect-ts/core/Collections/Immutable/List"
 import { right } from "@effect-ts/core/Either"
 import { pipe } from "@effect-ts/core/Function"
-import * as L from "@effect-ts/core/List"
 import * as S from "@effect-ts/core/Sync"
 
 import * as MO from "../src"

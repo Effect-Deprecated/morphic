@@ -1,6 +1,6 @@
 // tracing: off
 
-import type { Dictionary } from "@effect-ts/core/Dictionary"
+import type { Dictionary } from "@effect-ts/core/Collections/Immutable/Dictionary"
 
 import type { AnyEnv, ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT"
 

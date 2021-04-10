@@ -1,10 +1,10 @@
 // tracing: off
 
-import * as A from "@effect-ts/core/Array"
+import * as A from "@effect-ts/core/Collections/Immutable/Array"
+import { getEqual as LgetEq } from "@effect-ts/core/Collections/Immutable/List"
 import { getEqual as EgetEq } from "@effect-ts/core/Either"
 import * as Equal from "@effect-ts/core/Equal"
 import { pipe } from "@effect-ts/core/Function"
-import { getEqual as LgetEq } from "@effect-ts/core/List"
 import { getEqual as OgetEq } from "@effect-ts/core/Option"
 
 import type { PrimitivesURI, UUID } from "../../Algebra/Primitives"

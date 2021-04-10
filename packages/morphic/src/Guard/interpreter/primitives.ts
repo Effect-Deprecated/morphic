@@ -1,10 +1,10 @@
 // tracing: off
 
-import { Array } from "@effect-ts/core/Array"
+import { Array } from "@effect-ts/core/Collections/Immutable/Array"
+import * as L from "@effect-ts/core/Collections/Immutable/List"
+import type { NonEmptyArray } from "@effect-ts/core/Collections/Immutable/NonEmptyArray"
 import type { Either } from "@effect-ts/core/Either"
 import { pipe } from "@effect-ts/core/Function"
-import * as L from "@effect-ts/core/List"
-import type { NonEmptyArray } from "@effect-ts/core/NonEmptyArray"
 import type { Option } from "@effect-ts/core/Option"
 
 import type { PrimitivesURI, UUID } from "../../Algebra/Primitives"

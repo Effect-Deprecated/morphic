@@ -1,14 +1,14 @@
 // tracing: off
 
-import type { Array } from "@effect-ts/core/Array"
+import { first as AssociativeFirst } from "@effect-ts/core/Associative"
+import type { Array } from "@effect-ts/core/Collections/Immutable/Array"
 import {
   difference,
   Foldable as foldableArray,
   intersection,
   reduceRight
-} from "@effect-ts/core/Array"
-import { first as AssociativeFirst } from "@effect-ts/core/Associative"
-import { fromFoldable } from "@effect-ts/core/Dictionary"
+} from "@effect-ts/core/Collections/Immutable/Array"
+import { fromFoldable } from "@effect-ts/core/Collections/Immutable/Dictionary"
 import * as Equal from "@effect-ts/core/Equal"
 import { tuple } from "@effect-ts/core/Function"
 

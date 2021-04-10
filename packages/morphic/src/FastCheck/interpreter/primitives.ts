@@ -1,9 +1,9 @@
 // tracing: off
 
-import { isNonEmpty } from "@effect-ts/core/Array"
+import { isNonEmpty } from "@effect-ts/core/Collections/Immutable/Array"
+import * as L from "@effect-ts/core/Collections/Immutable/List"
 import { left, right } from "@effect-ts/core/Either"
 import { pipe } from "@effect-ts/core/Function"
-import * as L from "@effect-ts/core/List"
 import { fromNullable, none, some } from "@effect-ts/core/Option"
 
 import type { PrimitivesURI } from "../../Algebra/Primitives"

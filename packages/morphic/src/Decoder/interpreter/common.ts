@@ -1,9 +1,9 @@
 // tracing: off
 
-import * as A from "@effect-ts/core/Array"
 import { makeAssociative } from "@effect-ts/core/Associative"
-import * as R from "@effect-ts/core/Dictionary"
-import * as NA from "@effect-ts/core/NonEmptyArray"
+import * as A from "@effect-ts/core/Collections/Immutable/Array"
+import * as R from "@effect-ts/core/Collections/Immutable/Dictionary"
+import * as NA from "@effect-ts/core/Collections/Immutable/NonEmptyArray"
 import * as DSL from "@effect-ts/core/Prelude/DSL"
 import * as T from "@effect-ts/core/Sync"
 

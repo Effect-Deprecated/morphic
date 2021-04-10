@@ -1,8 +1,8 @@
 // tracing: off
 
-import { Foldable as array } from "@effect-ts/core/Array"
 import { first } from "@effect-ts/core/Associative"
-import { fromFoldable } from "@effect-ts/core/Dictionary"
+import { Foldable as array } from "@effect-ts/core/Collections/Immutable/Array"
+import { fromFoldable } from "@effect-ts/core/Collections/Immutable/Dictionary"
 import { pipe } from "@effect-ts/core/Function"
 
 import type { RecordURI } from "../../Algebra/Record"

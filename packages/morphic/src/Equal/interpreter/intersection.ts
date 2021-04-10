@@ -1,6 +1,6 @@
 // tracing: off
 
-import * as A from "@effect-ts/core/Array"
+import * as A from "@effect-ts/core/Collections/Immutable/Array"
 import { all, fold } from "@effect-ts/core/Identity"
 
 import type { IntersectionURI } from "../../Algebra/Intersection"

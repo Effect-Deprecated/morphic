@@ -1,7 +1,7 @@
 // tracing: off
 
-import type { Array } from "@effect-ts/core/Array"
-import * as R from "@effect-ts/core/Dictionary"
+import type { Array } from "@effect-ts/core/Collections/Immutable/Array"
+import * as R from "@effect-ts/core/Collections/Immutable/Dictionary"
 
 export const mapRecord = <Dic extends { [k in keyof Dic]: any }, B>(
   d: Dic,
