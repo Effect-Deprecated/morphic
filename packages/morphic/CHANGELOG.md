@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.28.0](https://github.com/Effect-TS/morphic/compare/@effect-ts/morphic@0.27.0...@effect-ts/morphic@0.28.0) (2021-04-10)
+
+
+### Bug Fixes
+
+* **morphic:** update to effect-ts 0.29.0, update to monocle 0.26.1 ([d1db23a](https://github.com/Effect-TS/morphic/commit/d1db23a16e623dcf05fdcd8e8965de423791c3fa))
+
+
+
+
+
 # [0.27.0](https://github.com/Effect-TS/morphic/compare/@effect-ts/morphic@0.26.2...@effect-ts/morphic@0.27.0) (2021-04-09)
 
 
