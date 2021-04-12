@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/Effect-TS/morphic/compare/@effect-ts/morphic@0.28.0...@effect-ts/morphic@0.29.0) (2021-04-12)
+
+**Note:** Version bump only for package @effect-ts/morphic
+
+
+
+
+
 # [0.28.0](https://github.com/Effect-TS/morphic/compare/@effect-ts/morphic@0.27.0...@effect-ts/morphic@0.28.0) (2021-04-10)
 
 
