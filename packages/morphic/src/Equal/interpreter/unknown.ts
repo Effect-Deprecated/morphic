@@ -1,6 +1,6 @@
 // tracing: off
 
-import { equals } from "@effect-ts/system/Case/_internal/Equals"
+import { equals } from "@effect-ts/system/Structural"
 
 import type { UnknownURI } from "../../Algebra/Unknown"
 import { interpreter } from "../../HKT"
