@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.30.0](https://github.com/Effect-TS/morphic/compare/@effect-ts/morphic@0.29.1...@effect-ts/morphic@0.30.0) (2021-04-13)
+
+
+### Features
+
+* **morphic:** use refinement in union guards ([39ff1ef](https://github.com/Effect-TS/morphic/commit/39ff1ef4bc852539e85f1d57065087b319377ea3))
+
+
+
+
+
 ## [0.29.1](https://github.com/Effect-TS/morphic/compare/@effect-ts/morphic@0.29.0...@effect-ts/morphic@0.29.1) (2021-04-12)
 
 
