@@ -6,7 +6,7 @@ import { guardApplyConfig, GuardType, GuardURI } from "../base"
 
 export const guardUnionInterpreter = interpreter<GuardURI, UnionURI>()(() => ({
   _F: GuardURI,
-  union: (...types) => (_guards, config) => (env) => {
+  union: (...types) => (config) => (env) => {
     const guards = types.map((a) => a(env).guard)
 
     return new GuardType(

@@ -1,6 +1,7 @@
 // tracing: off
 
-import type { Option } from "@effect-ts/core/Option"
+import type { NonEmptyArray } from "@effect-ts/core/Collections/Immutable/NonEmptyArray"
+import type { Refinement } from "@effect-ts/system/Function"
 
 import type {
   AnyEnv,
@@ -26,31 +27,28 @@ export type UnionTypes<F extends InterpreterURIS, E, A, R> = {
 
 export interface AlgebraUnion<F extends InterpreterURIS, Env extends AnyEnv> {
   _F: F
-  union<Types extends readonly [Kind<F, Env, any, any>, ...Kind<F, Env, any, any>[]]>(
+  union<Types extends NonEmptyArray<Kind<F, Env, any, any>>>(
     ...types: Types
   ): (
-    guards: {
-      [k in keyof Types]: (
-        _: {
-          [h in keyof Types]: [Types[h]] extends [Kind<F, Env, infer E, infer A>]
-            ? A
+    config: {
+      guards: {
+        [k in keyof Types]: [Types[number]] extends [HKT<Env, any, infer All>]
+          ? [Types[k]] extends [HKT<Env, any, infer Single>]
+            ? Single extends All
+              ? Refinement<All, Single>
+              : never
             : never
-        }[keyof Types & number]
-      ) => Option<Types[k] extends HKT<any, any, any> ? Types[k]["_A"] : never>
-    },
-    config?: Named<
+          : never
+      }
+    } & Named<
       ConfigsForType<
         Env,
         {
-          [h in keyof Types]: [Types[h]] extends [Kind<F, Env, infer E, infer A>]
-            ? E
-            : never
-        }[keyof Types & number],
+          [h in keyof Types]: [Types[h]] extends [HKT<Env, infer E, any>] ? E : never
+        }[number],
         {
-          [h in keyof Types]: [Types[h]] extends [Kind<F, Env, infer E, infer A>]
-            ? A
-            : never
-        }[keyof Types & number],
+          [h in keyof Types]: [Types[h]] extends [HKT<Env, any, infer A>] ? A : never
+        }[number],
         UnionConfig<Types>
       >
     >
@@ -58,14 +56,10 @@ export interface AlgebraUnion<F extends InterpreterURIS, Env extends AnyEnv> {
     F,
     Env,
     {
-      [h in keyof Types]: [Types[h]] extends [Kind<F, Env, infer E, infer A>]
-        ? E
-        : never
-    }[keyof Types & number],
+      [h in keyof Types]: [Types[h]] extends [HKT<Env, infer E, any>] ? E : never
+    }[number],
     {
-      [h in keyof Types]: [Types[h]] extends [Kind<F, Env, infer E, infer A>]
-        ? A
-        : never
-    }[keyof Types & number]
+      [h in keyof Types]: [Types[h]] extends [HKT<Env, any, infer A>] ? A : never
+    }[number]
   >
 }

@@ -6,15 +6,15 @@ import { encoderApplyConfig, EncoderType, EncoderURI } from "../base"
 
 export const encoderUnionInterpreter = interpreter<EncoderURI, UnionURI>()(() => ({
   _F: EncoderURI,
-  union: (...types) => (guards, config) => (env) => {
+  union: (...types) => (config) => (env) => {
     const encoders = types.map((a: any) => a(env).encoder)
 
     return new EncoderType(
       encoderApplyConfig(config?.conf)(
         {
           encode: (u) => {
-            for (const i in guards) {
-              if (guards[i](u)._tag === "Some") {
+            for (const i in config.guards) {
+              if (config.guards[i](u)) {
                 return encoders[i].encode(u)
               }
             }

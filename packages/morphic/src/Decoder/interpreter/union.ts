@@ -10,7 +10,7 @@ import { appendContext, failures, makeDecoder } from "../common"
 
 export const decoderUnionInterpreter = interpreter<DecoderURI, UnionURI>()(() => ({
   _F: DecoderURI,
-  union: (...types) => (_, cfg) => (env) => {
+  union: (...types) => (cfg) => (env) => {
     const decoders = types.map((a) => a(env))
 
     return new DecoderType(

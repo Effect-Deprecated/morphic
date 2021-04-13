@@ -6,15 +6,15 @@ import { reorderApplyConfig, ReorderType, ReorderURI } from "../base"
 
 export const reorderUnionInterpreter = interpreter<ReorderURI, UnionURI>()(() => ({
   _F: ReorderURI,
-  union: (...types) => (guards, config) => (env) => {
+  union: (...types) => (config) => (env) => {
     const reorders = types.map((a) => a(env).reorder)
 
     return new ReorderType(
       reorderApplyConfig(config?.conf)(
         {
           reorder: (u) => {
-            for (const i in guards) {
-              if (guards[i](u)._tag === "Some") {
+            for (const i in config.guards) {
+              if (config.guards[i](u)) {
                 return reorders[i].reorder(u)
               }
             }

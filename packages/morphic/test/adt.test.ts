@@ -1,5 +1,4 @@
 import * as E from "@effect-ts/core/Either"
-import * as O from "@effect-ts/core/Option"
 import * as Sync from "@effect-ts/core/Sync"
 
 import type { AType, EType } from "../src"
@@ -43,11 +42,15 @@ const Bar = MO.opaque<BarRaw, Bar>()(Bar_)
 export const FooBar = MO.makeADT("_tag")({ Foo, Bar })
 export type FooBar = MO.AType<typeof FooBar>
 
-const isString = O.fromPredicate(guard(MO.make((F) => F.string())).is)
-const isNumber = O.fromPredicate(guard(MO.make((F) => F.number())).is)
-
 const CustomUnion = MO.make((F) =>
-  F.union(F.string(), F.number())([isString, isNumber], {
+  F.union(
+    F.string(),
+    F.number()
+  )({
+    guards: [
+      guard(MO.make((F) => F.string())).is,
+      guard(MO.make((F) => F.number())).is
+    ],
     conf: {
       [MO.DecoderURI]: (_, __, ___) => _
     }

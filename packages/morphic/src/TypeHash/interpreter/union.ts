@@ -6,7 +6,7 @@ import { HashType, typeHashApplyConfig, TypeHashURI } from "../base"
 
 export const typeHashUnionInterpreter = interpreter<TypeHashURI, UnionURI>()(() => ({
   _F: TypeHashURI,
-  union: (...types) => (_, config) => (env) => {
+  union: (...types) => (config) => (env) => {
     const typeHashes = types.map((a) => a(env).typeHash)
     return new HashType(
       typeHashApplyConfig(config?.conf)(

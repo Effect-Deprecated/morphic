@@ -6,15 +6,15 @@ import { strictApplyConfig, StrictType, StrictURI } from "../base"
 
 export const strictUnionInterpreter = interpreter<StrictURI, UnionURI>()(() => ({
   _F: StrictURI,
-  union: (...types) => (guards, config) => (env) => {
+  union: (...types) => (config) => (env) => {
     const stricts = types.map((a) => a(env).strict)
 
     return new StrictType(
       strictApplyConfig(config?.conf)(
         {
           shrink: (u) => {
-            for (const i in guards) {
-              if (guards[i](u)._tag === "Some") {
+            for (const i in config.guards) {
+              if (config.guards[i](u)) {
                 return stricts[i].shrink(u)
               }
             }

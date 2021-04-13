@@ -6,7 +6,7 @@ import { eqApplyConfig, EqType, EqURI } from "../base"
 
 export const eqUnionInterpreter = interpreter<EqURI, UnionURI>()(() => ({
   _F: EqURI,
-  union: (...types) => (guards, config) => (env) => {
+  union: (...types) => (config) => (env) => {
     const equals = types.map((a) => a(env).eq)
 
     return new EqType(
@@ -16,9 +16,9 @@ export const eqUnionInterpreter = interpreter<EqURI, UnionURI>()(() => ({
             if (a === b) {
               return true
             }
-            for (const i in guards) {
-              if (guards[i](a)._tag === "Some") {
-                if (guards[i](b)._tag === "Some") {
+            for (const i in config.guards) {
+              if (config.guards[i](a)) {
+                if (config.guards[i](b)) {
                   return equals[i].equals(a, b)
                 }
               }

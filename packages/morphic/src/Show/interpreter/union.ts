@@ -6,15 +6,15 @@ import { showApplyConfig, ShowType, ShowURI } from "../base"
 
 export const showUnionInterpreter = interpreter<ShowURI, UnionURI>()(() => ({
   _F: ShowURI,
-  union: (...types) => (guards, config) => (env) => {
+  union: (...types) => (config) => (env) => {
     const shows = types.map((a) => a(env).show)
 
     return new ShowType(
       showApplyConfig(config?.conf)(
         {
           show: (a): string => {
-            for (const i in guards) {
-              if (guards[i](a)._tag === "Some") {
+            for (const i in config.guards) {
+              if (config.guards[i](a)) {
                 return shows[i].show(a)
               }
             }
