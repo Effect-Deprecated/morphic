@@ -40,7 +40,7 @@ export const encoderPrimitiveInterpreter = interpreter<EncoderURI, PrimitivesURI
       new EncoderType(
         encoderApplyConfig(config?.conf)(
           {
-            encode: (u) => T.sync(() => u.toISOString())
+            encode: (u) => T.succeedWith(() => u.toISOString())
           },
           env,
           {}

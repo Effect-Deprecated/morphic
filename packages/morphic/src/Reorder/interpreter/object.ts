@@ -16,7 +16,7 @@ export const reorderObjectInterpreter = interpreter<ReorderURI, ObjectURI>()(() 
         reorderApplyConfig(config?.conf)(
           {
             reorder: (u) =>
-              T.sync(() => {
+              T.succeedWith(() => {
                 const r: any = {}
                 for (const k of Object.keys(reorder)) {
                   r[k] = u[k]
@@ -37,7 +37,7 @@ export const reorderObjectInterpreter = interpreter<ReorderURI, ObjectURI>()(() 
         reorderApplyConfig(config?.conf)(
           {
             reorder: (u) =>
-              T.sync(() => {
+              T.succeedWith(() => {
                 const s = new Set(Object.keys(u))
                 const r: any = {}
                 for (const k of Object.keys(reorder)) {
@@ -62,7 +62,7 @@ export const reorderObjectInterpreter = interpreter<ReorderURI, ObjectURI>()(() 
           reorderApplyConfig(config?.conf)(
             {
               reorder: (u) =>
-                T.sync(() => {
+                T.succeedWith(() => {
                   const s = new Set(Object.keys(u))
                   const r: any = {}
                   for (const k of Object.keys(reorder)) {
