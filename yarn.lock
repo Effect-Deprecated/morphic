@@ -376,10 +376,10 @@
   dependencies:
     "@effect-ts/system" "^0.33.2"
 
-"@effect-ts/monocle@^0.29.0":
-  version "0.29.0"
-  resolved "https://registry.yarnpkg.com/@effect-ts/monocle/-/monocle-0.29.0.tgz#421ffc46c0dced002f512d2ea2d9eaf47b4e0ef9"
-  integrity sha512-FyHunvHd3bDdGRLUowGhciYglj+8wj0yAK4X9g27FbBcZxzAmRISMrLQ1pxTW/glumqM+ryM4PpwzkrgrGVKKg==
+"@effect-ts/monocle@^0.30.0":
+  version "0.30.0"
+  resolved "https://registry.yarnpkg.com/@effect-ts/monocle/-/monocle-0.30.0.tgz#8aebe638bb4e6b2910a6bdb16cc0c3f163290e08"
+  integrity sha512-v5LK7ZLJAH1tA1ZHOPJobSBzRPDIhUYgHHIzCX8JKco267i734qmlWTnkw5URu465G6CCkZz/QX2Tugd7syzNA==
 
 "@effect-ts/system@^0.33.2":
   version "0.33.2"
