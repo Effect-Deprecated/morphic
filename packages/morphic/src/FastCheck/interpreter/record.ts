@@ -3,6 +3,7 @@
 import { first } from "@effect-ts/core/Associative"
 import { Foldable as array } from "@effect-ts/core/Collections/Immutable/Array"
 import { fromFoldable } from "@effect-ts/core/Collections/Immutable/Dictionary"
+import { tuple } from "@effect-ts/core/Collections/Immutable/Tuple"
 import { pipe } from "@effect-ts/core/Function"
 
 import type { RecordURI } from "../../Algebra/Record"
@@ -21,6 +22,7 @@ export const fcStrMapInterpreter = interpreter<FastCheckURI, RecordURI>()(() => 
           fcApplyConfig(config?.conf)(
             accessFC(env)
               .array(accessFC(env).tuple(accessFC(env).string(), arb))
+              .map((a) => a.map((b) => tuple(...b)))
               .map(recordFromArray()),
             env,
             {
