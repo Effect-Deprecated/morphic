@@ -3,13 +3,15 @@
 import { first } from "@effect-ts/core/Associative"
 import { Foldable as array } from "@effect-ts/core/Collections/Immutable/Array"
 import { fromFoldable } from "@effect-ts/core/Collections/Immutable/Dictionary"
+import { fromNative } from "@effect-ts/core/Collections/Immutable/Tuple"
 import { pipe } from "@effect-ts/core/Function"
 
 import type { RecordURI } from "../../Algebra/Record"
 import { interpreter } from "../../HKT"
 import { accessFC, FastCheckType, FastCheckURI, fcApplyConfig } from "../base"
 
-const recordFromArray = <A>() => fromFoldable(first<A>(), array)
+const recordFromArray = <A>(fa: [string, A][]) =>
+  fromFoldable(first<A>(), array)(fa.map(fromNative))
 
 export const fcStrMapInterpreter = interpreter<FastCheckURI, RecordURI>()(() => ({
   _F: FastCheckURI,
@@ -21,7 +23,7 @@ export const fcStrMapInterpreter = interpreter<FastCheckURI, RecordURI>()(() => 
           fcApplyConfig(config?.conf)(
             accessFC(env)
               .array(accessFC(env).tuple(accessFC(env).string(), arb))
-              .map(recordFromArray()),
+              .map(recordFromArray),
             env,
             {
               arb

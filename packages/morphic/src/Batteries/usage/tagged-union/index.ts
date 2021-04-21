@@ -11,8 +11,8 @@ import {
   fromFoldable as RfromFoldable,
   mapWithIndex as RmapWithIndex
 } from "@effect-ts/core/Collections/Immutable/Dictionary"
+import { tuple } from "@effect-ts/core/Collections/Immutable/Tuple"
 import * as Equal from "@effect-ts/core/Equal"
-import { tuple } from "@effect-ts/core/Function"
 
 import type { ADT } from "../../../Adt"
 import { makeADT } from "../../../Adt"

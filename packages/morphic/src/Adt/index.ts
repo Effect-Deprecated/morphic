@@ -9,8 +9,8 @@ import {
   reduceRight
 } from "@effect-ts/core/Collections/Immutable/Array"
 import { fromFoldable } from "@effect-ts/core/Collections/Immutable/Dictionary"
+import { tuple } from "@effect-ts/core/Collections/Immutable/Tuple"
 import * as Equal from "@effect-ts/core/Equal"
-import { tuple } from "@effect-ts/core/Function"
 
 import * as CU from "./ctors"
 import * as Ma from "./matcher"
