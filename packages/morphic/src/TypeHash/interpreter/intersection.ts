@@ -9,21 +9,24 @@ export const typeHashIntersectionInterpreter = interpreter<
   IntersectionURI
 >()(() => ({
   _F: TypeHashURI,
-  intersection: (...types) => (config) => (env) => {
-    const typeHashes = types.map((getHash) => getHash(env).typeHash)
-    return new HashType(
-      typeHashApplyConfig(config?.conf)(
-        {
-          typeHash: typeHashes
-            .map((s) => s.typeHash)
-            .sort()
-            .join(" & ")
-        },
-        env,
-        {
-          typeHashes: typeHashes as any
-        }
+  intersection:
+    (...types) =>
+    (config) =>
+    (env) => {
+      const typeHashes = types.map((getHash) => getHash(env).typeHash)
+      return new HashType(
+        typeHashApplyConfig(config?.conf)(
+          {
+            typeHash: typeHashes
+              .map((s) => s.typeHash)
+              .sort()
+              .join(" & ")
+          },
+          env,
+          {
+            typeHashes: typeHashes as any
+          }
+        )
       )
-    )
-  }
+    }
 }))

@@ -6,10 +6,8 @@ import { interpreter } from "../../HKT"
 import { mapRecord } from "../../Utils"
 import { FastCheckURI } from "../base"
 
-export const interpreters: Omit<
-  Algebra<ExtensionsURI, FastCheckURI, any>,
-  "_F"
-> = {} as any
+export const interpreters: Omit<Algebra<ExtensionsURI, FastCheckURI, any>, "_F"> =
+  {} as any
 
 export function fcExtension<
   K extends Exclude<keyof AlgebraExtensions<FastCheckURI, any>, "_F">

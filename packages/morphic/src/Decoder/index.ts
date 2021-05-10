@@ -45,12 +45,14 @@ export {
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (
-    _: {
-      [k in DecoderURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
-    }
-  ) => <L, A>(
-    F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
-  ) => F.derive(modelDecoderInterpreter<SummonerEnv<S>>())(_)
+      _: {
+        [k in DecoderURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
+      }
+    ) =>
+    <L, A>(
+      F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
+    ) =>
+      F.derive(modelDecoderInterpreter<SummonerEnv<S>>())(_)
 }
 
 const decoders = new Map<any, any>()

@@ -51,15 +51,14 @@ export type ThreadURI<C, URI extends InterpreterURIS> = URI extends keyof C
 
 export const getApplyConfig: <Uri extends InterpreterURIS>(
   uri: Uri
-) => <Config>(config?: Config) => NonNullable<ThreadURI<Config, Uri>> = (uri) => (
-  config
-) =>
-  ((a: any, r: any, k: any) =>
-    ((config && (config as any)[uri] ? (config as any)[uri] : <A>(a: A) => a) as any)(
-      a,
-      r[uri],
-      k
-    )) as any
+) => <Config>(config?: Config) => NonNullable<ThreadURI<Config, Uri>> =
+  (uri) => (config) =>
+    ((a: any, r: any, k: any) =>
+      ((config && (config as any)[uri] ? (config as any)[uri] : <A>(a: A) => a) as any)(
+        a,
+        r[uri],
+        k
+      )) as any
 
 export type Named<A> = {
   name?: string

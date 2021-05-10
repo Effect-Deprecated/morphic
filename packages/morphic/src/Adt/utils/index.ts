@@ -18,6 +18,7 @@ export type KeysDefinition<A, Tag extends keyof A> = {
 
 export type Tagged<Tag extends string> = { [t in Tag]: string }
 
-export const isIn = <A, Tag extends keyof A>(keys: KeysDefinition<A, Tag>) => (
-  k: string
-) => k in keys
+export const isIn =
+  <A, Tag extends keyof A>(keys: KeysDefinition<A, Tag>) =>
+  (k: string) =>
+    k in keys

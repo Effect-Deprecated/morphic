@@ -13,30 +13,33 @@ export const reorderIntersectionInterpreter = interpreter<
   IntersectionURI
 >()(() => ({
   _F: ReorderURI,
-  intersection: (...types) => (config) => (env) => {
-    const reorders = types.map((getReorder) => getReorder(env).reorder)
+  intersection:
+    (...types) =>
+    (config) =>
+    (env) => {
+      const reorders = types.map((getReorder) => getReorder(env).reorder)
 
-    return new ReorderType(
-      reorderApplyConfig(config?.conf)(
-        {
-          reorder: (u) =>
-            pipe(
-              reorders,
-              A.forEachF(T.Applicative)((d) => d.reorder(u)),
-              T.map((u) => {
-                const r: any = {}
-                u.forEach((o) => {
-                  Object.assign(r, o)
+      return new ReorderType(
+        reorderApplyConfig(config?.conf)(
+          {
+            reorder: (u) =>
+              pipe(
+                reorders,
+                A.forEachF(T.Applicative)((d) => d.reorder(u)),
+                T.map((u) => {
+                  const r: any = {}
+                  u.forEach((o) => {
+                    Object.assign(r, o)
+                  })
+                  return r
                 })
-                return r
-              })
-            )
-        },
-        env,
-        {
-          reorders: reorders as any
-        }
+              )
+          },
+          env,
+          {
+            reorders: reorders as any
+          }
+        )
       )
-    )
-  }
+    }
 }))

@@ -8,9 +8,11 @@ import { interpreter } from "../../HKT"
 import type { TypeHash } from "../base"
 import { HashType, typeHashApplyConfig, TypeHashURI } from "../base"
 
-export const named = (name?: string | undefined) => (s: TypeHash): TypeHash => ({
-  typeHash: name ? `<${name}>(${s.typeHash})` : s.typeHash
-})
+export const named =
+  (name?: string | undefined) =>
+  (s: TypeHash): TypeHash => ({
+    typeHash: name ? `<${name}>(${s.typeHash})` : s.typeHash
+  })
 
 export const typeHashPrimitiveInterpreter = interpreter<TypeHashURI, PrimitivesURI>()(
   () => ({
@@ -91,16 +93,19 @@ export const typeHashPrimitiveInterpreter = interpreter<TypeHashURI, PrimitivesU
           {}
         )
       ),
-    oneOfLiterals: (...ls) => (config) => (env) =>
-      new HashType(
-        typeHashApplyConfig(config?.conf)(
-          named(config?.name)({
-            typeHash: `${ls.join(",")}`
-          }),
-          env,
-          {}
-        )
-      ),
+    oneOfLiterals:
+      (...ls) =>
+      (config) =>
+      (env) =>
+        new HashType(
+          typeHashApplyConfig(config?.conf)(
+            named(config?.name)({
+              typeHash: `${ls.join(",")}`
+            }),
+            env,
+            {}
+          )
+        ),
     keysOf: (_keys, config) => (env) =>
       new HashType(
         typeHashApplyConfig(config?.conf)(
@@ -230,17 +235,20 @@ export const typeHashPrimitiveInterpreter = interpreter<TypeHashURI, PrimitivesU
           )
         )
       ),
-    tuple: (...types) => (config) => (env) =>
-      new HashType(
-        typeHashApplyConfig(config?.conf)(
-          named(config?.name)({
-            typeHash: `Tuple<${types.map((h) => h(env).typeHash).join(",")}>`
-          }),
-          env,
-          {
-            typeHashes: types.map((h) => h(env).typeHash) as any
-          }
+    tuple:
+      (...types) =>
+      (config) =>
+      (env) =>
+        new HashType(
+          typeHashApplyConfig(config?.conf)(
+            named(config?.name)({
+              typeHash: `Tuple<${types.map((h) => h(env).typeHash).join(",")}>`
+            }),
+            env,
+            {
+              typeHashes: types.map((h) => h(env).typeHash) as any
+            }
+          )
         )
-      )
   })
 )

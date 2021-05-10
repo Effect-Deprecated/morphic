@@ -26,9 +26,15 @@ export interface M_<R, A> extends MM_<R & BaseFC, A> {}
 
 export interface M<R, L, A> extends MM<R & BaseFC, L, A> {}
 
-export const opaque = <E, A>() => <R extends {}>(x: M<R, E, A>): M<R, E, A> => x
+export const opaque =
+  <E, A>() =>
+  <R extends {}>(x: M<R, E, A>): M<R, E, A> =>
+    x
 
-export const opaque_ = <A>() => <R extends {}>(x: M<R, any, A>): M_<R, A> => x
+export const opaque_ =
+  <A>() =>
+  <R extends {}>(x: M<R, any, A>): M_<R, A> =>
+    x
 
 export interface Summoner<R> extends Summoners<ProgramURI, InterpreterURI, R> {
   <L, A>(F: ProgramType<R, L, A>[ProgramURI]): M<

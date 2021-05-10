@@ -15,7 +15,8 @@ import { decoderApplyConfig, DecoderType, DecoderURI } from "../base"
 import { appendContext, fail, makeDecoder } from "../common"
 import { forEachArray, forEachNonEmptyArray } from "./common"
 
-export const regexUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+export const regexUUID =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
 export const decoderPrimitiveInterpreter = interpreter<DecoderURI, PrimitivesURI>()(
   () => ({
@@ -151,21 +152,24 @@ export const decoderPrimitiveInterpreter = interpreter<DecoderURI, PrimitivesURI
           {}
         )
       ),
-    oneOfLiterals: (...ls) => (cfg) => (env) =>
-      new DecoderType(
-        decoderApplyConfig(cfg?.conf)(
-          makeDecoder(
-            (u, c) =>
-              (typeof u === "string" || typeof u === "number") && ls.includes(u)
-                ? T.succeed(u)
-                : fail(u, c, `${u} is not any of ${ls.join(",")}`),
-            "oneOfLiterals",
-            cfg?.name || "OneOfLiterals"
-          ),
-          env,
-          {}
-        )
-      ),
+    oneOfLiterals:
+      (...ls) =>
+      (cfg) =>
+      (env) =>
+        new DecoderType(
+          decoderApplyConfig(cfg?.conf)(
+            makeDecoder(
+              (u, c) =>
+                (typeof u === "string" || typeof u === "number") && ls.includes(u)
+                  ? T.succeed(u)
+                  : fail(u, c, `${u} is not any of ${ls.join(",")}`),
+              "oneOfLiterals",
+              cfg?.name || "OneOfLiterals"
+            ),
+            env,
+            {}
+          )
+        ),
     keysOf: (keys, cfg) => (env) =>
       new DecoderType<keyof typeof keys & string>(
         decoderApplyConfig(cfg?.conf)(
@@ -399,41 +403,44 @@ export const decoderPrimitiveInterpreter = interpreter<DecoderURI, PrimitivesURI
             )
           )
       ),
-    tuple: (...types) => (cfg) => (env) =>
-      new DecoderType(
-        decoderApplyConfig(cfg?.conf)(
-          makeDecoder(
-            (u, c) => {
-              if (typeof u === "object" && Array.isArray(u)) {
-                if (u.length !== types.length) {
-                  return fail(
-                    u,
-                    c,
-                    `input array has ${u.length} elements, expected ${types.length}`
-                  )
-                } else {
-                  return pipe(
-                    types,
-                    forEachNonEmptyArray((i, d) => {
-                      const decoder = d(env).decoder
-                      return decoder.validate(
-                        u[i],
-                        appendContext(c, String(i), decoder, u[i])
-                      )
-                    })
-                  ) as any
+    tuple:
+      (...types) =>
+      (cfg) =>
+      (env) =>
+        new DecoderType(
+          decoderApplyConfig(cfg?.conf)(
+            makeDecoder(
+              (u, c) => {
+                if (typeof u === "object" && Array.isArray(u)) {
+                  if (u.length !== types.length) {
+                    return fail(
+                      u,
+                      c,
+                      `input array has ${u.length} elements, expected ${types.length}`
+                    )
+                  } else {
+                    return pipe(
+                      types,
+                      forEachNonEmptyArray((i, d) => {
+                        const decoder = d(env).decoder
+                        return decoder.validate(
+                          u[i],
+                          appendContext(c, String(i), decoder, u[i])
+                        )
+                      })
+                    ) as any
+                  }
                 }
-              }
-              return fail(u, c, `${typeof u} is not an array`)
-            },
-            "tuple",
-            cfg?.name || "Tuple"
-          ),
-          env,
-          {
-            decoders: types.map((d) => d(env).decoder) as any
-          }
+                return fail(u, c, `${typeof u} is not an array`)
+              },
+              "tuple",
+              cfg?.name || "Tuple"
+            ),
+            env,
+            {
+              decoders: types.map((d) => d(env).decoder) as any
+            }
+          )
         )
-      )
   })
 )

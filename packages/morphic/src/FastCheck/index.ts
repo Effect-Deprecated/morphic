@@ -19,12 +19,14 @@ export { FastCheckURI, accessFC, fcApplyConfig, BaseFC, FastCheckType } from "./
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (
-    _: {
-      [k in FastCheckURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
-    }
-  ) => <L, A>(
-    F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
-  ) => F.derive(modelFcInterpreter<SummonerEnv<S>>())(_).arb
+      _: {
+        [k in FastCheckURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
+      }
+    ) =>
+    <L, A>(
+      F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
+    ) =>
+      F.derive(modelFcInterpreter<SummonerEnv<S>>())(_).arb
 }
 
 const arbitraries = new Map<any, any>()

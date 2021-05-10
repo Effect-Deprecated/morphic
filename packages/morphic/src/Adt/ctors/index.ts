@@ -25,17 +25,17 @@ export interface Ctors<A, Tag extends keyof A & string> {
   make: (a: A) => A
 }
 
-export const Ctors = <A extends Tagged<Tag>, Tag extends string>(tag: Tag) => (
-  keys: KeysDefinition<A, Tag>
-): Ctors<A, Tag> => {
-  const ctors = mapWithIndex((key, _) => (props: object) => ({
-    [tag]: key,
-    ...props
-  }))(keys)
-  return {
-    of: ctors as Of<A, Tag>,
-    as: ctors as As<A, Tag>,
-    make: <A>(a: A) => a,
-    tag
+export const Ctors =
+  <A extends Tagged<Tag>, Tag extends string>(tag: Tag) =>
+  (keys: KeysDefinition<A, Tag>): Ctors<A, Tag> => {
+    const ctors = mapWithIndex((key, _) => (props: object) => ({
+      [tag]: key,
+      ...props
+    }))(keys)
+    return {
+      of: ctors as Of<A, Tag>,
+      as: ctors as As<A, Tag>,
+      make: <A>(a: A) => a,
+      tag
+    }
   }
-}

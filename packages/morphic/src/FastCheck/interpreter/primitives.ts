@@ -51,10 +51,13 @@ export const fcPrimitiveInterpreter = interpreter<FastCheckURI, PrimitivesURI>()
       new FastCheckType(
         fcApplyConfig(config?.conf)(accessFC(env).constant(l), env, {})
       ),
-    oneOfLiterals: (...ls) => (config) => (env) =>
-      new FastCheckType(
-        fcApplyConfig(config?.conf)(accessFC(env).constantFrom(...ls), env, {})
-      ),
+    oneOfLiterals:
+      (...ls) =>
+      (config) =>
+      (env) =>
+        new FastCheckType(
+          fcApplyConfig(config?.conf)(accessFC(env).constantFrom(...ls), env, {})
+        ),
     keysOf: (k, config) => (env) =>
       new FastCheckType(
         fcApplyConfig(config?.conf)(
@@ -168,15 +171,18 @@ export const fcPrimitiveInterpreter = interpreter<FastCheckURI, PrimitivesURI>()
             )
           )
       ),
-    tuple: (...types) => (config) => (env) =>
-      new FastCheckType(
-        fcApplyConfig(config?.conf)(
-          accessFC(env).tuple(...types.map((a) => a(env).arb)) as any,
-          env,
-          {
-            arbs: types.map((a) => a(env).arb) as any
-          }
+    tuple:
+      (...types) =>
+      (config) =>
+      (env) =>
+        new FastCheckType(
+          fcApplyConfig(config?.conf)(
+            accessFC(env).tuple(...types.map((a) => a(env).arb)) as any,
+            env,
+            {
+              arbs: types.map((a) => a(env).arb) as any
+            }
+          )
         )
-      )
   })
 )

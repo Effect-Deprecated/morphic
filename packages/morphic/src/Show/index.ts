@@ -18,12 +18,14 @@ export { ShowURI, ShowType, showApplyConfig } from "./base"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (
-    _: {
-      [k in ShowURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
-    }
-  ) => <L, A>(
-    F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
-  ) => F.derive(modelShowInterpreter<SummonerEnv<S>>())(_).show
+      _: {
+        [k in ShowURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
+      }
+    ) =>
+    <L, A>(
+      F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
+    ) =>
+      F.derive(modelShowInterpreter<SummonerEnv<S>>())(_).show
 }
 
 const shows = new Map<any, any>()

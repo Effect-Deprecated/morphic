@@ -17,9 +17,11 @@ import type { LiteralT, PrimitivesURI, UUID } from "../../Algebra/Primitives"
 import { interpreter } from "../../HKT"
 import { showApplyConfig, ShowType, ShowURI } from "../base"
 
-export const named = (name?: string | undefined) => <A>(s: Show<A>): Show<A> => ({
-  show: (a) => (name ? `<${name}>(${s.show(a)})` : s.show(a))
-})
+export const named =
+  (name?: string | undefined) =>
+  <A>(s: Show<A>): Show<A> => ({
+    show: (a) => (name ? `<${name}>(${s.show(a)})` : s.show(a))
+  })
 
 export const showPrimitiveInterpreter = interpreter<ShowURI, PrimitivesURI>()(() => ({
   _F: ShowURI,
@@ -81,21 +83,24 @@ export const showPrimitiveInterpreter = interpreter<ShowURI, PrimitivesURI>()(()
         {}
       )
     ),
-  oneOfLiterals: (..._ls) => (config) => (env) =>
-    new ShowType(
-      showApplyConfig(config?.conf)(
-        named(config?.name)(<Show<LiteralT>>{
-          show: (t) =>
-            typeof t === "string"
-              ? showString.show(t)
-              : typeof t === "number"
-              ? showNumber.show(t)
-              : absurd(t)
-        }),
-        env,
-        {}
-      )
-    ),
+  oneOfLiterals:
+    (..._ls) =>
+    (config) =>
+    (env) =>
+      new ShowType(
+        showApplyConfig(config?.conf)(
+          named(config?.name)(<Show<LiteralT>>{
+            show: (t) =>
+              typeof t === "string"
+                ? showString.show(t)
+                : typeof t === "number"
+                ? showNumber.show(t)
+                : absurd(t)
+          }),
+          env,
+          {}
+        )
+      ),
   keysOf: (_keys, config) => (env) =>
     new ShowType(
       showApplyConfig(config?.conf)(
@@ -199,19 +204,22 @@ export const showPrimitiveInterpreter = interpreter<ShowURI, PrimitivesURI>()(()
         )
       )
     ),
-  tuple: (...types) => (cfg) => (env) =>
-    new ShowType(
-      showApplyConfig(cfg?.conf)(
-        named(cfg?.name)({
-          show: (u) =>
-            `[${((u as unknown) as Array<any>)
-              .map((v, i) => types[i](env).show.show(v))
-              .join(",")}]`
-        }),
-        env,
-        {
-          shows: types.map((s) => s(env).show) as any
-        }
+  tuple:
+    (...types) =>
+    (cfg) =>
+    (env) =>
+      new ShowType(
+        showApplyConfig(cfg?.conf)(
+          named(cfg?.name)({
+            show: (u) =>
+              `[${(u as unknown as Array<any>)
+                .map((v, i) => types[i](env).show.show(v))
+                .join(",")}]`
+          }),
+          env,
+          {
+            shows: types.map((s) => s(env).show) as any
+          }
+        )
       )
-    )
 }))

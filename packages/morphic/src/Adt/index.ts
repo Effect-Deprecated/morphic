@@ -107,41 +107,41 @@ type TypeOfDef<X extends TypeDef<any>> = X["_TD"]
 
 export const ofType = <T>(): TypeDef<T> => 1 as any
 
-export const makeADT = <Tag extends string>(tag: Tag) => <
-  R extends { [x in keyof R]: TypeDef<{ [t in Tag]: x }> }
->(
-  _keys: R
-): ADT<TypeOfDef<R[keyof R]>, Tag> => {
-  type Tag = typeof tag
-  type A = TypeOfDef<R[keyof R]>
-  type B = A & Tagged<Tag>
-  const keys = _keys as KeysDefinition<Tagged<Tag>, Tag> // any
+export const makeADT =
+  <Tag extends string>(tag: Tag) =>
+  <R extends { [x in keyof R]: TypeDef<{ [t in Tag]: x }> }>(
+    _keys: R
+  ): ADT<TypeOfDef<R[keyof R]>, Tag> => {
+    type Tag = typeof tag
+    type A = TypeOfDef<R[keyof R]>
+    type B = A & Tagged<Tag>
+    const keys = _keys as KeysDefinition<Tagged<Tag>, Tag> // any
 
-  const ctors = CU.Ctors(tag)(keys)
-  const predicates = PU.Predicates<A, Tag>(tag)(keys)
-  const monocles = M.MonocleFor<A>()
-  const matchers = Ma.Matchers<B, Tag>(tag)(keys)
+    const ctors = CU.Ctors(tag)(keys)
+    const predicates = PU.Predicates<A, Tag>(tag)(keys)
+    const monocles = M.MonocleFor<A>()
+    const matchers = Ma.Matchers<B, Tag>(tag)(keys)
 
-  const select = <Keys extends A[Tag][]>(
-    selectedKeys: Keys
-  ): ADT<ExtractUnion<A, Tag, ElemType<Keys>>, Tag> =>
-    makeADT(tag)(keepKeys(keys, selectedKeys as string[]) as any)
+    const select = <Keys extends A[Tag][]>(
+      selectedKeys: Keys
+    ): ADT<ExtractUnion<A, Tag, ElemType<Keys>>, Tag> =>
+      makeADT(tag)(keepKeys(keys, selectedKeys as string[]) as any)
 
-  const exclude = <Keys extends B[Tag][]>(
-    excludedKeys: Keys
-  ): ADT<ExcludeUnion<B, Tag, ElemType<Keys>>, Tag> =>
-    makeADT(tag)(excludeKeys(keys, excludedKeys) as any)
+    const exclude = <Keys extends B[Tag][]>(
+      excludedKeys: Keys
+    ): ADT<ExcludeUnion<B, Tag, ElemType<Keys>>, Tag> =>
+      makeADT(tag)(excludeKeys(keys, excludedKeys) as any)
 
-  const res: ADT<B, Tag> = {
-    ...ctors,
-    ...predicates,
-    ...monocles,
-    ...matchers,
-    tag,
-    keys,
-    select,
-    exclude
+    const res: ADT<B, Tag> = {
+      ...ctors,
+      ...predicates,
+      ...monocles,
+      ...matchers,
+      tag,
+      keys,
+      select,
+      exclude
+    }
+
+    return res as ADT<A, Tag>
   }
-
-  return res as ADT<A, Tag>
-}

@@ -15,26 +15,29 @@ export const decoderIntersectionInterpreter = interpreter<
   IntersectionURI
 >()(() => ({
   _F: DecoderURI,
-  intersection: (...types) => (cfg) => (env) => {
-    const decoders = types.map((getDecoder) => getDecoder(env))
+  intersection:
+    (...types) =>
+    (cfg) =>
+    (env) => {
+      const decoders = types.map((getDecoder) => getDecoder(env))
 
-    return new DecoderType(
-      decoderApplyConfig(cfg?.conf)(
-        makeDecoder(
-          (u, c) =>
-            pipe(
-              decoders,
-              forEachArray((_, d) => d.decoder.validate(u, c)),
-              T.map(A.reduce({} as any, (b, a) => mergePrefer(u, b, a)))
-            ),
-          "intersection",
-          cfg?.name || "Intersection"
-        ),
-        env,
-        {
-          decoders: A.map_(decoders, (d) => d.decoder) as any
-        }
-      )
-    ).setChilds(A.reduce_(decoders, {}, (b, d) => ({ ...b, ...d.getChilds() })))
-  }
+      return new DecoderType(
+        decoderApplyConfig(cfg?.conf)(
+          makeDecoder(
+            (u, c) =>
+              pipe(
+                decoders,
+                forEachArray((_, d) => d.decoder.validate(u, c)),
+                T.map(A.reduce({} as any, (b, a) => mergePrefer(u, b, a)))
+              ),
+            "intersection",
+            cfg?.name || "Intersection"
+          ),
+          env,
+          {
+            decoders: A.map_(decoders, (d) => d.decoder) as any
+          }
+        )
+      ).setChilds(A.reduce_(decoders, {}, (b, d) => ({ ...b, ...d.getChilds() })))
+    }
 }))

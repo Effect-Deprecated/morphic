@@ -16,12 +16,14 @@ export { ReorderURI, Reorder, reorderApplyConfig, ReorderType } from "./base"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (
-    _: {
-      [k in ReorderURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
-    }
-  ) => <L, A>(
-    F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
-  ) => F.derive(modelReorderInterpreter<SummonerEnv<S>>())(_).reorder
+      _: {
+        [k in ReorderURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
+      }
+    ) =>
+    <L, A>(
+      F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
+    ) =>
+      F.derive(modelReorderInterpreter<SummonerEnv<S>>())(_).reorder
 }
 
 const reorders = new Map<any, any>()

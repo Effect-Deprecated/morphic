@@ -11,25 +11,28 @@ import { strictApplyConfig, StrictType, StrictURI } from "../base"
 export const strictIntersectionInterpreter = interpreter<StrictURI, IntersectionURI>()(
   () => ({
     _F: StrictURI,
-    intersection: (...types) => (config) => (env) => {
-      const stricts = types.map((getStrict) => getStrict(env).strict)
+    intersection:
+      (...types) =>
+      (config) =>
+      (env) => {
+        const stricts = types.map((getStrict) => getStrict(env).strict)
 
-      return new StrictType(
-        strictApplyConfig(config?.conf)(
-          {
-            shrink: (u) =>
-              pipe(
-                stricts,
-                A.forEachF(T.Applicative)((d) => d.shrink(u)),
-                T.map(A.reduce(({} as unknown) as any, (b, a) => ({ ...b, ...a })))
-              )
-          },
-          env,
-          {
-            stricts: stricts as any
-          }
+        return new StrictType(
+          strictApplyConfig(config?.conf)(
+            {
+              shrink: (u) =>
+                pipe(
+                  stricts,
+                  A.forEachF(T.Applicative)((d) => d.shrink(u)),
+                  T.map(A.reduce({} as unknown as any, (b, a) => ({ ...b, ...a })))
+                )
+            },
+            env,
+            {
+              stricts: stricts as any
+            }
+          )
         )
-      )
-    }
+      }
   })
 )

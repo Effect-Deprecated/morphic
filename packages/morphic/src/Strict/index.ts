@@ -16,12 +16,14 @@ export { StrictURI, Strict, strictApplyConfig, StrictType } from "./base"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (
-    _: {
-      [k in StrictURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
-    }
-  ) => <L, A>(
-    F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
-  ) => F.derive(modelStrictInterpreter<SummonerEnv<S>>())(_).strict
+      _: {
+        [k in StrictURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
+      }
+    ) =>
+    <L, A>(
+      F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
+    ) =>
+      F.derive(modelStrictInterpreter<SummonerEnv<S>>())(_).strict
 }
 
 const stricts = new Map<any, any>()

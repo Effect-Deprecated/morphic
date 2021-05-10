@@ -16,12 +16,14 @@ export { TypeHashURI, TypeHash, HashType, typeHashApplyConfig } from "./base"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (
-    _: {
-      [k in TypeHashURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
-    }
-  ) => <L, A>(
-    F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
-  ) => F.derive(modelHashInterpreter<SummonerEnv<S>>())(_).typeHash
+      _: {
+        [k in TypeHashURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
+      }
+    ) =>
+    <L, A>(
+      F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
+    ) =>
+      F.derive(modelHashInterpreter<SummonerEnv<S>>())(_).typeHash
 }
 
 const hashes = new Map<any, any>()

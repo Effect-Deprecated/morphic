@@ -12,7 +12,8 @@ import type { PrimitivesURI, UUID } from "../../Algebra/Primitives"
 import { interpreter } from "../../HKT"
 import { reorderApplyConfig, ReorderType, ReorderURI } from "../base"
 
-export const regexUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+export const regexUUID =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
 export const reorderPrimitiveInterpreter = interpreter<ReorderURI, PrimitivesURI>()(
   () => ({
@@ -99,16 +100,19 @@ export const reorderPrimitiveInterpreter = interpreter<ReorderURI, PrimitivesURI
           {}
         )
       ),
-    oneOfLiterals: (..._ls) => (config) => (env) =>
-      new ReorderType(
-        reorderApplyConfig(config?.conf)(
-          {
-            reorder: T.succeed
-          },
-          env,
-          {}
-        )
-      ),
+    oneOfLiterals:
+      (..._ls) =>
+      (config) =>
+      (env) =>
+        new ReorderType(
+          reorderApplyConfig(config?.conf)(
+            {
+              reorder: T.succeed
+            },
+            env,
+            {}
+          )
+        ),
     keysOf: (keys, config) => (env) =>
       new ReorderType<keyof typeof keys & string>(
         reorderApplyConfig(config?.conf)(
@@ -249,23 +253,26 @@ export const reorderPrimitiveInterpreter = interpreter<ReorderURI, PrimitivesURI
             )
           )
       ),
-    tuple: (...types) => (cfg) => (env) =>
-      new ReorderType(
-        reorderApplyConfig(cfg?.conf)(
-          {
-            reorder: (u) =>
-              pipe(
-                u,
-                A.forEachWithIndexF(T.Applicative)((i, v) =>
-                  types[i](env).reorder.reorder(v)
-                ) as any
-              )
-          },
-          env,
-          {
-            reorders: types.map((r) => r(env).reorder) as any
-          }
+    tuple:
+      (...types) =>
+      (cfg) =>
+      (env) =>
+        new ReorderType(
+          reorderApplyConfig(cfg?.conf)(
+            {
+              reorder: (u) =>
+                pipe(
+                  u,
+                  A.forEachWithIndexF(T.Applicative)((i, v) =>
+                    types[i](env).reorder.reorder(v)
+                  ) as any
+                )
+            },
+            env,
+            {
+              reorders: types.map((r) => r(env).reorder) as any
+            }
+          )
         )
-      )
   })
 )

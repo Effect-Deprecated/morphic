@@ -5,10 +5,8 @@ import type { Algebra, AnyEnv } from "../../HKT"
 import { interpreter } from "../../HKT"
 import { ReorderURI } from "../base"
 
-export const interpreters: Omit<
-  Algebra<ExtensionsURI, ReorderURI, any>,
-  "_F"
-> = {} as any
+export const interpreters: Omit<Algebra<ExtensionsURI, ReorderURI, any>, "_F"> =
+  {} as any
 
 export function reorderExtension<
   K extends Exclude<keyof AlgebraExtensions<ReorderURI, any>, "_F">

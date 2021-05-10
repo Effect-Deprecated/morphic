@@ -18,12 +18,14 @@ export { EqURI, eqApplyConfig, EqType } from "./base"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (
-    _: {
-      [k in EqURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
-    }
-  ) => <L, A>(
-    F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
-  ) => F.derive(modelEqInterpreter<SummonerEnv<S>>())(_)
+      _: {
+        [k in EqURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
+      }
+    ) =>
+    <L, A>(
+      F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
+    ) =>
+      F.derive(modelEqInterpreter<SummonerEnv<S>>())(_)
 }
 
 const equals = new Map<any, any>()

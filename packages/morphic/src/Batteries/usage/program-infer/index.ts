@@ -15,11 +15,8 @@ export const interpretable = <T extends { [overloadsSymb]?: any }>(
   program: T
 ): Overloads<T> => program as Overloads<T>
 
-export type InferredAlgebra<
-  F extends InterpreterURIS,
-  PURI extends ProgramURI,
-  R
-> = Algebra<ProgramAlgebraURI[PURI], F, R>
+export type InferredAlgebra<F extends InterpreterURIS, PURI extends ProgramURI, R> =
+  Algebra<ProgramAlgebraURI[PURI], F, R>
 
 export type Overloads<I extends { [overloadsSymb]?: any }> = NonNullable<
   I[typeof overloadsSymb]

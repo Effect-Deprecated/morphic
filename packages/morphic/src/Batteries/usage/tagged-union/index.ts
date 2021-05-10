@@ -38,13 +38,8 @@ export type TaggedUnionProg<R, E, A, ProgURI extends ProgramURI> = ProgramType<
 >[ProgURI] &
   (<G extends InterpreterURIS>(a: URItoAlgebra<G, R>[TaggedUnionURI]) => HKT<R, E, A>)
 
-export type M<
-  R,
-  E,
-  A,
-  ProgURI extends ProgramURI,
-  InterpURI extends InterpreterURI
-> = Materialized<R, E, A, ProgURI, InterpURI>
+export type M<R, E, A, ProgURI extends ProgramURI, InterpURI extends InterpreterURI> =
+  Materialized<R, E, A, ProgURI, InterpURI>
 
 export type AnyTypes = Dictionary<InhabitedTypes<any, any, any>>
 

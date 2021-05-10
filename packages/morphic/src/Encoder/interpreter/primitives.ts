@@ -13,7 +13,8 @@ import { forEachNonEmptyArray } from "../../Decoder/interpreter/common"
 import { interpreter } from "../../HKT"
 import { encoderApplyConfig, EncoderType, EncoderURI } from "../base"
 
-export const regexUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+export const regexUUID =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
 export const encoderPrimitiveInterpreter = interpreter<EncoderURI, PrimitivesURI>()(
   () => ({
@@ -106,16 +107,19 @@ export const encoderPrimitiveInterpreter = interpreter<EncoderURI, PrimitivesURI
           {}
         )
       ),
-    oneOfLiterals: (..._ls) => (config) => (env) =>
-      new EncoderType(
-        encoderApplyConfig(config?.conf)(
-          {
-            encode: T.succeed
-          },
-          env,
-          {}
-        )
-      ),
+    oneOfLiterals:
+      (..._ls) =>
+      (config) =>
+      (env) =>
+        new EncoderType(
+          encoderApplyConfig(config?.conf)(
+            {
+              encode: T.succeed
+            },
+            env,
+            {}
+          )
+        ),
     keysOf: (keys, config) => (env) =>
       new EncoderType(
         encoderApplyConfig(config?.conf)(
@@ -256,21 +260,24 @@ export const encoderPrimitiveInterpreter = interpreter<EncoderURI, PrimitivesURI
             )
           )
       ),
-    tuple: (...types) => (cfg) => (env) =>
-      new EncoderType(
-        encoderApplyConfig(cfg?.conf)(
-          {
-            encode: (values) =>
-              pipe(
-                values,
-                forEachNonEmptyArray((i, a) => types[i](env).encoder.encode(a)) as any
-              )
-          },
-          env,
-          {
-            encoders: types.map((d) => d(env).encoder) as any
-          }
+    tuple:
+      (...types) =>
+      (cfg) =>
+      (env) =>
+        new EncoderType(
+          encoderApplyConfig(cfg?.conf)(
+            {
+              encode: (values) =>
+                pipe(
+                  values,
+                  forEachNonEmptyArray((i, a) => types[i](env).encoder.encode(a)) as any
+                )
+            },
+            env,
+            {
+              encoders: types.map((d) => d(env).encoder) as any
+            }
+          )
         )
-      )
   })
 )

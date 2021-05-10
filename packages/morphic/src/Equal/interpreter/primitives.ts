@@ -43,11 +43,14 @@ export const eqPrimitiveInterpreter = interpreter<EqURI, PrimitivesURI>()(() => 
     new EqType<typeof k>(eqApplyConfig(config?.conf)(Equal.string, env, {})),
   numberLiteral: (k, config) => (env) =>
     new EqType<typeof k>(eqApplyConfig(config?.conf)(Equal.number, env, {})),
-  oneOfLiterals: (..._ls) => (config) => (env) =>
-    pipe(
-      Equal.strict(),
-      (eq) => new EqType(eqApplyConfig(config?.conf)(eq, env, { eq }))
-    ),
+  oneOfLiterals:
+    (..._ls) =>
+    (config) =>
+    (env) =>
+      pipe(
+        Equal.strict(),
+        (eq) => new EqType(eqApplyConfig(config?.conf)(eq, env, { eq }))
+      ),
   keysOf: (keys, config) => (env) =>
     new EqType<keyof typeof keys & string>(
       eqApplyConfig(config?.conf)(Equal.strict(), env, {})
@@ -123,17 +126,20 @@ export const eqPrimitiveInterpreter = interpreter<EqURI, PrimitivesURI>()(() => 
           })
         )
     ),
-  tuple: (...types) => (cfg) => (env) =>
-    new EqType(
-      eqApplyConfig(cfg?.conf)(
-        {
-          equals: (x, y) =>
-            x.length === y.length &&
-            x.length === types.length &&
-            types.every((e, i) => e(env).eq.equals(x[i], y[i]))
-        },
-        env,
-        { eqs: types.map((e) => e(env).eq) as any }
+  tuple:
+    (...types) =>
+    (cfg) =>
+    (env) =>
+      new EqType(
+        eqApplyConfig(cfg?.conf)(
+          {
+            equals: (x, y) =>
+              x.length === y.length &&
+              x.length === types.length &&
+              types.every((e, i) => e(env).eq.equals(x[i], y[i]))
+          },
+          env,
+          { eqs: types.map((e) => e(env).eq) as any }
+        )
       )
-    )
 }))

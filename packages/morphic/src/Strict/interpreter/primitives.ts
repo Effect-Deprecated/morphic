@@ -12,7 +12,8 @@ import type { PrimitivesURI, UUID } from "../../Algebra/Primitives"
 import { interpreter } from "../../HKT"
 import { strictApplyConfig, StrictType, StrictURI } from "../base"
 
-export const regexUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+export const regexUUID =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
 export const strictPrimitiveInterpreter = interpreter<StrictURI, PrimitivesURI>()(
   () => ({
@@ -99,16 +100,19 @@ export const strictPrimitiveInterpreter = interpreter<StrictURI, PrimitivesURI>(
           {}
         )
       ),
-    oneOfLiterals: (..._ls) => (config) => (env) =>
-      new StrictType(
-        strictApplyConfig(config?.conf)(
-          {
-            shrink: T.succeed
-          },
-          env,
-          {}
-        )
-      ),
+    oneOfLiterals:
+      (..._ls) =>
+      (config) =>
+      (env) =>
+        new StrictType(
+          strictApplyConfig(config?.conf)(
+            {
+              shrink: T.succeed
+            },
+            env,
+            {}
+          )
+        ),
     keysOf: (keys, config) => (env) =>
       new StrictType<keyof typeof keys & string>(
         strictApplyConfig(config?.conf)(
@@ -250,23 +254,26 @@ export const strictPrimitiveInterpreter = interpreter<StrictURI, PrimitivesURI>(
             )
           )
       ),
-    tuple: (...types) => (cfg) => (env) =>
-      new StrictType(
-        strictApplyConfig(cfg?.conf)(
-          {
-            shrink: (u) =>
-              pipe(
-                u,
-                A.forEachWithIndexF(T.Applicative)((i, a) =>
-                  types[i](env).strict.shrink(a)
-                ) as any
-              )
-          },
-          env,
-          {
-            stricts: types.map((s) => s(env).strict) as any
-          }
+    tuple:
+      (...types) =>
+      (cfg) =>
+      (env) =>
+        new StrictType(
+          strictApplyConfig(cfg?.conf)(
+            {
+              shrink: (u) =>
+                pipe(
+                  u,
+                  A.forEachWithIndexF(T.Applicative)((i, a) =>
+                    types[i](env).strict.shrink(a)
+                  ) as any
+                )
+            },
+            env,
+            {
+              stricts: types.map((s) => s(env).strict) as any
+            }
+          )
         )
-      )
   })
 )

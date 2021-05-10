@@ -13,7 +13,8 @@ import { guardApplyConfig, GuardType, GuardURI } from "../base"
 import type { AOfGuard } from "./common"
 import { isNumber, isString } from "./common"
 
-export const regexUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+export const regexUUID =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
 export const guardPrimitiveInterpreter = interpreter<GuardURI, PrimitivesURI>()(() => ({
   _F: GuardURI,
@@ -97,17 +98,20 @@ export const guardPrimitiveInterpreter = interpreter<GuardURI, PrimitivesURI>()(
         {}
       )
     ),
-  oneOfLiterals: (...ls) => (config) => (env) =>
-    new GuardType(
-      guardApplyConfig(config?.conf)(
-        {
-          is: (u: unknown): u is typeof ls[number] =>
-            (typeof u === "string" || typeof u === "number") && ls.includes(u)
-        },
-        env,
-        {}
-      )
-    ),
+  oneOfLiterals:
+    (...ls) =>
+    (config) =>
+    (env) =>
+      new GuardType(
+        guardApplyConfig(config?.conf)(
+          {
+            is: (u: unknown): u is typeof ls[number] =>
+              (typeof u === "string" || typeof u === "number") && ls.includes(u)
+          },
+          env,
+          {}
+        )
+      ),
   keysOf: (keys, config) => (env) =>
     new GuardType<keyof typeof keys & string>(
       guardApplyConfig(config?.conf)(
@@ -256,20 +260,23 @@ export const guardPrimitiveInterpreter = interpreter<GuardURI, PrimitivesURI>()(
           )
         )
     ),
-  tuple: (...types) => (cfg) => (env) =>
-    new GuardType(
-      guardApplyConfig(cfg?.conf)(
-        {
-          is: (u): u is any =>
-            typeof u === "object" &&
-            Array.isArray(u) &&
-            u.length === types.length &&
-            types.every((g, i) => g(env).guard.is(u[i]))
-        },
-        env,
-        {
-          guards: types.map((g) => g(env).guard) as any
-        }
+  tuple:
+    (...types) =>
+    (cfg) =>
+    (env) =>
+      new GuardType(
+        guardApplyConfig(cfg?.conf)(
+          {
+            is: (u): u is any =>
+              typeof u === "object" &&
+              Array.isArray(u) &&
+              u.length === types.length &&
+              types.every((g, i) => g(env).guard.is(u[i]))
+          },
+          env,
+          {
+            guards: types.map((g) => g(env).guard) as any
+          }
+        )
       )
-    )
 }))

@@ -5,10 +5,8 @@ import type { Algebra, AnyEnv } from "../../HKT"
 import { interpreter } from "../../HKT"
 import { StrictURI } from "../base"
 
-export const interpreters: Omit<
-  Algebra<ExtensionsURI, StrictURI, any>,
-  "_F"
-> = {} as any
+export const interpreters: Omit<Algebra<ExtensionsURI, StrictURI, any>, "_F"> =
+  {} as any
 
 export function strictExtension<
   K extends Exclude<keyof AlgebraExtensions<StrictURI, any>, "_F">

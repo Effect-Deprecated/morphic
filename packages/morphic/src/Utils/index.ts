@@ -8,33 +8,30 @@ export const mapRecord = <Dic extends { [k in keyof Dic]: any }, B>(
   f: (v: Dic[keyof Dic]) => B
 ): { [k in keyof Dic]: B } => R.map_(d, f) as { [k in keyof Dic]: B }
 
-export const projectField = <
-  T extends Readonly<Record<any, Readonly<Record<any, any>>>>
->(
-  t: T
-) => <K extends keyof T[keyof T]>(
-  k: K
-): {
-  [q in keyof T]: T[q][K]
-} =>
-  R.map_(t, (p) => p[k]) as {
+export const projectField =
+  <T extends Readonly<Record<any, Readonly<Record<any, any>>>>>(t: T) =>
+  <K extends keyof T[keyof T]>(
+    k: K
+  ): {
     [q in keyof T]: T[q][K]
-  }
+  } =>
+    R.map_(t, (p) => p[k]) as {
+      [q in keyof T]: T[q][K]
+    }
 
-export const projectFieldWithEnv = <
-  T extends Readonly<Record<any, (e: R) => Readonly<Record<any, any>>>>,
-  R
->(
-  t: T,
-  env: R
-) => <K extends keyof ReturnType<T[keyof T]>>(
-  k: K
-): {
-  [q in keyof T]: ReturnType<T[q]>[K]
-} =>
-  R.map_(t, (p) => p(env)[k]) as {
+export const projectFieldWithEnv =
+  <T extends Readonly<Record<any, (e: R) => Readonly<Record<any, any>>>>, R>(
+    t: T,
+    env: R
+  ) =>
+  <K extends keyof ReturnType<T[keyof T]>>(
+    k: K
+  ): {
     [q in keyof T]: ReturnType<T[q]>[K]
-  }
+  } =>
+    R.map_(t, (p) => p(env)[k]) as {
+      [q in keyof T]: ReturnType<T[q]>[K]
+    }
 
 export const projectFieldWithEnv2 = <
   T extends Readonly<Record<any, (e: R) => Readonly<Record<any, any>>>>,
