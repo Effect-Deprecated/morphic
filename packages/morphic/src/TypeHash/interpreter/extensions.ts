@@ -5,8 +5,10 @@ import type { Algebra, AnyEnv } from "../../HKT"
 import { interpreter } from "../../HKT"
 import { TypeHashURI } from "../base"
 
-export const interpreters: Omit<Algebra<ExtensionsURI, TypeHashURI, any>, "_F"> =
-  {} as any
+export const interpreters: Omit<
+  Algebra<ExtensionsURI, TypeHashURI, any>,
+  "_F"
+> = {} as any
 
 export function typeHashExtension<
   K extends Exclude<keyof AlgebraExtensions<TypeHashURI, any>, "_F">
