@@ -15,11 +15,9 @@ export { strictExtension } from "./interpreter"
 export { StrictURI, Strict, strictApplyConfig, StrictType } from "./base"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
-  return (
-      _: {
-        [k in StrictURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
-      }
-    ) =>
+  return (_: {
+      [k in StrictURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
+    }) =>
     <L, A>(
       F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
     ) =>

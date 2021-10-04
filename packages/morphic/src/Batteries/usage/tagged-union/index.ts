@@ -235,11 +235,9 @@ export interface Refinable<
         {
           [k in Extract<keyof Types, ElemType<Keys>>]: Types[k][1]
         }[Extract<keyof Types, ElemType<Keys>>],
-        TaggedUnionConfig<
-          {
-            [k in Extract<keyof Types, ElemType<Keys>>]: Types[k]
-          }
-        >
+        TaggedUnionConfig<{
+          [k in Extract<keyof Types, ElemType<Keys>>]: Types[k]
+        }>
       >
     }
   ) => MorphADT<
@@ -263,11 +261,9 @@ export interface Refinable<
         {
           [k in Exclude<keyof Types, ElemType<Keys>>]: Types[k][1]
         }[Exclude<keyof Types, ElemType<Keys>>],
-        TaggedUnionConfig<
-          {
-            [k in Exclude<keyof Types, ElemType<Keys>>]: Types[k]
-          }
-        >
+        TaggedUnionConfig<{
+          [k in Exclude<keyof Types, ElemType<Keys>>]: Types[k]
+        }>
       >
     }
   ) => MorphADT<

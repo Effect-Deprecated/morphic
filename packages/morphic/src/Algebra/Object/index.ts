@@ -21,37 +21,29 @@ export interface AlgebraObjects<F extends InterpreterURIS, Env extends AnyEnv> {
     config?: Named<
       ConfigsForType<
         Env,
-        Readonly<
-          {
-            [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-              ? E
-              : never
-          }
-        >,
-        Readonly<
-          {
-            [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-              ? A
-              : never
-          }
-        >,
+        Readonly<{
+          [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+            ? E
+            : never
+        }>,
+        Readonly<{
+          [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+            ? A
+            : never
+        }>,
         InterfaceConfig<
           PropsKind<
             F,
-            Readonly<
-              {
-                [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-                  ? E
-                  : never
-              }
-            >,
-            Readonly<
-              {
-                [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-                  ? A
-                  : never
-              }
-            >,
+            Readonly<{
+              [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+                ? E
+                : never
+            }>,
+            Readonly<{
+              [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+                ? A
+                : never
+            }>,
             Env
           >
         >
@@ -60,20 +52,16 @@ export interface AlgebraObjects<F extends InterpreterURIS, Env extends AnyEnv> {
   ) => Kind<
     F,
     Env,
-    Readonly<
-      {
-        [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-          ? E
-          : never
-      }
-    >,
-    Readonly<
-      {
-        [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-          ? A
-          : never
-      }
-    >
+    Readonly<{
+      [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+        ? E
+        : never
+    }>,
+    Readonly<{
+      [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+        ? A
+        : never
+    }>
   >
   partial: <Props extends { [k in keyof Props]: Kind<F, Env, any, any> }>(
     props: Props,
@@ -81,40 +69,32 @@ export interface AlgebraObjects<F extends InterpreterURIS, Env extends AnyEnv> {
       ConfigsForType<
         Env,
         Partial<
-          Readonly<
-            {
-              [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-                ? E
-                : never
-            }
-          >
+          Readonly<{
+            [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+              ? E
+              : never
+          }>
         >,
         Partial<
-          Readonly<
-            {
-              [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-                ? A
-                : never
-            }
-          >
+          Readonly<{
+            [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+              ? A
+              : never
+          }>
         >,
         PartialConfig<
           PropsKind<
             F,
-            Readonly<
-              {
-                [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-                  ? E
-                  : never
-              }
-            >,
-            Readonly<
-              {
-                [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-                  ? A
-                  : never
-              }
-            >,
+            Readonly<{
+              [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+                ? E
+                : never
+            }>,
+            Readonly<{
+              [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+                ? A
+                : never
+            }>,
             Env
           >
         >
@@ -124,22 +104,18 @@ export interface AlgebraObjects<F extends InterpreterURIS, Env extends AnyEnv> {
     F,
     Env,
     Partial<
-      Readonly<
-        {
-          [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-            ? E
-            : never
-        }
-      >
+      Readonly<{
+        [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+          ? E
+          : never
+      }>
     >,
     Partial<
-      Readonly<
-        {
-          [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-            ? A
-            : never
-        }
-      >
+      Readonly<{
+        [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+          ? A
+          : never
+      }>
     >
   >
   both: <
@@ -151,59 +127,47 @@ export interface AlgebraObjects<F extends InterpreterURIS, Env extends AnyEnv> {
     config?: Named<
       ConfigsForType<
         Env,
-        Readonly<
-          {
-            [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-              ? E
-              : never
-          }
-        > &
+        Readonly<{
+          [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+            ? E
+            : never
+        }> &
           Partial<
-            Readonly<
-              {
-                [k in keyof PropsPartial]: [PropsPartial[k]] extends [
-                  Kind<F, any, infer E, infer A>
-                ]
-                  ? E
-                  : never
-              }
-            >
+            Readonly<{
+              [k in keyof PropsPartial]: [PropsPartial[k]] extends [
+                Kind<F, any, infer E, infer A>
+              ]
+                ? E
+                : never
+            }>
           >,
-        Readonly<
-          {
-            [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-              ? A
-              : never
-          }
-        > &
+        Readonly<{
+          [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+            ? A
+            : never
+        }> &
           Partial<
-            Readonly<
-              {
-                [k in keyof PropsPartial]: [PropsPartial[k]] extends [
-                  Kind<F, any, infer E, infer A>
-                ]
-                  ? A
-                  : never
-              }
-            >
+            Readonly<{
+              [k in keyof PropsPartial]: [PropsPartial[k]] extends [
+                Kind<F, any, infer E, infer A>
+              ]
+                ? A
+                : never
+            }>
           >,
         BothConfig<
           PropsKind<
             F,
-            Readonly<
-              {
-                [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-                  ? E
-                  : never
-              }
-            >,
-            Readonly<
-              {
-                [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-                  ? A
-                  : never
-              }
-            >,
+            Readonly<{
+              [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+                ? E
+                : never
+            }>,
+            Readonly<{
+              [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+                ? A
+                : never
+            }>,
             Env
           >,
           PropsKind<
@@ -233,41 +197,33 @@ export interface AlgebraObjects<F extends InterpreterURIS, Env extends AnyEnv> {
   ) => Kind<
     F,
     Env,
-    Readonly<
-      {
-        [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-          ? E
-          : never
-      }
-    > &
+    Readonly<{
+      [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+        ? E
+        : never
+    }> &
       Partial<
-        Readonly<
-          {
-            [k in keyof PropsPartial]: [PropsPartial[k]] extends [
-              Kind<F, any, infer E, infer A>
-            ]
-              ? E
-              : never
-          }
-        >
+        Readonly<{
+          [k in keyof PropsPartial]: [PropsPartial[k]] extends [
+            Kind<F, any, infer E, infer A>
+          ]
+            ? E
+            : never
+        }>
       >,
-    Readonly<
-      {
-        [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
-          ? A
-          : never
-      }
-    > &
+    Readonly<{
+      [k in keyof Props]: [Props[k]] extends [Kind<F, any, infer E, infer A>]
+        ? A
+        : never
+    }> &
       Partial<
-        Readonly<
-          {
-            [k in keyof PropsPartial]: [PropsPartial[k]] extends [
-              Kind<F, any, infer E, infer A>
-            ]
-              ? A
-              : never
-          }
-        >
+        Readonly<{
+          [k in keyof PropsPartial]: [PropsPartial[k]] extends [
+            Kind<F, any, infer E, infer A>
+          ]
+            ? A
+            : never
+        }>
       >
   >
 }

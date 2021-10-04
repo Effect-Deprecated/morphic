@@ -17,11 +17,9 @@ export { showExtension } from "./interpreter"
 export { ShowURI, ShowType, showApplyConfig } from "./base"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
-  return (
-      _: {
-        [k in ShowURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
-      }
-    ) =>
+  return (_: {
+      [k in ShowURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
+    }) =>
     <L, A>(
       F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
     ) =>

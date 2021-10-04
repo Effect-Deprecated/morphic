@@ -58,13 +58,11 @@ export const strictObjectInterpreter = interpreter<StrictURI, ObjectURI>()(() =>
     )
 }))
 
-function partialStrict<PropsA, PropsE, Env extends AnyEnv>(
-  strict: {
-    [q in keyof PropsKind<StrictURI, PropsA, PropsE, Env>]: ReturnType<
-      PropsKind<StrictURI, PropsA, PropsE, Env>[q]
-    >["strict"]
-  }
-): Strict<Partial<Readonly<PropsA>>> {
+function partialStrict<PropsA, PropsE, Env extends AnyEnv>(strict: {
+  [q in keyof PropsKind<StrictURI, PropsA, PropsE, Env>]: ReturnType<
+    PropsKind<StrictURI, PropsA, PropsE, Env>[q]
+  >["strict"]
+}): Strict<Partial<Readonly<PropsA>>> {
   return {
     shrink: (u) =>
       pipe(
@@ -82,13 +80,11 @@ function partialStrict<PropsA, PropsE, Env extends AnyEnv>(
   }
 }
 
-function interfaceStrict<PropsA, PropsE, Env extends AnyEnv>(
-  strict: {
-    [q in keyof PropsKind<StrictURI, PropsA, PropsE, Env>]: ReturnType<
-      PropsKind<StrictURI, PropsA, PropsE, Env>[q]
-    >["strict"]
-  }
-): Strict<Readonly<PropsA>> {
+function interfaceStrict<PropsA, PropsE, Env extends AnyEnv>(strict: {
+  [q in keyof PropsKind<StrictURI, PropsA, PropsE, Env>]: ReturnType<
+    PropsKind<StrictURI, PropsA, PropsE, Env>[q]
+  >["strict"]
+}): Strict<Readonly<PropsA>> {
   return {
     shrink: (u) =>
       pipe(

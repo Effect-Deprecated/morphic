@@ -44,11 +44,9 @@ export {
 } from "./reporters"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
-  return (
-      _: {
-        [k in DecoderURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
-      }
-    ) =>
+  return (_: {
+      [k in DecoderURI & keyof SummonerEnv<S>]: SummonerEnv<S>[k]
+    }) =>
     <L, A>(
       F: Materialized<SummonerEnv<S>, L, A, SummonerProgURI<S>, SummonerInterpURI<S>>
     ) =>

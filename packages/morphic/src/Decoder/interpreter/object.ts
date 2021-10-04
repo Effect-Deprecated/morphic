@@ -78,13 +78,11 @@ function partialDecoder<
   name?: string
 ): Decoder<
   Partial<
-    Readonly<
-      {
-        [k in keyof Props]: [Props[k]] extends [Kind<DecoderURI, any, infer E, infer A>]
-          ? A
-          : never
-      }
-    >
+    Readonly<{
+      [k in keyof Props]: [Props[k]] extends [Kind<DecoderURI, any, infer E, infer A>]
+        ? A
+        : never
+    }>
   >
 > {
   return makeDecoder(
@@ -117,13 +115,11 @@ function interfaceDecoder<
   decoder: any,
   name?: string
 ): Decoder<
-  Readonly<
-    {
-      [k in keyof Props]: [Props[k]] extends [Kind<DecoderURI, any, infer E, infer A>]
-        ? A
-        : never
-    }
-  >
+  Readonly<{
+    [k in keyof Props]: [Props[k]] extends [Kind<DecoderURI, any, infer E, infer A>]
+      ? A
+      : never
+  }>
 > {
   return makeDecoder(
     (u, c) => {
