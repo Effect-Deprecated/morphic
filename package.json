@@ -15,14 +15,23 @@
     "autofix": "ultra -r autofix",
     "lint": "ultra -r lint",
     "tc": "ultra -r tc",
-    "postinstall": "husky install",
+    "postinstall": "husky install && ts-patch install -s",
     "version:alpha": "lerna version prerelease --conventional-commits --preid=alpha",
     "version:preminor": "lerna version preminor --conventional-commits",
     "version:minor": "lerna version minor --conventional-commits",
     "version:prepatch": "lerna version prepatch --conventional-commits",
     "version:patch": "lerna version patch --conventional-commits",
     "version:graduate": "lerna version --conventional-commits --conventional-graduate",
-    "commit": "cz"
+    "commit": "cz",
+    "ets:rimraf": "cd $INIT_CWD && rimraf",
+    "ets:tsc": "cd $INIT_CWD && tsc",
+    "ets:eslint": "cd $INIT_CWD && eslint",
+    "ets:prettier": "cd $INIT_CWD && prettier",
+    "ets:concurrently": "cd $INIT_CWD && concurrently",
+    "ets:build-utils": "cd $INIT_CWD && build-utils",
+    "ets:madge": "cd $INIT_CWD && madge",
+    "ets:ts-node": "cd $INIT_CWD && ts-node",
+    "version": "yarn && git add yarn.lock && git add package.json && git commit -m \"chore: update package.json and yarn.lock\""
   },
   "config": {
     "commitizen": {
@@ -40,13 +49,14 @@
     "@types/glob": "^7.1.3",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.10.2",
+    "@types/rimraf": "^3",
     "@typescript-eslint/eslint-plugin": "^4.32.0",
     "@typescript-eslint/parser": "^4.32.0",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "chalk": "^4.1.2",
+    "concurrently": "^7.0.0",
     "cpx": "^1.5.0",
     "cz-conventional-changelog": "^3.3.0",
-    "dtslint": "github:gcanti/dtslint",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-typescript": "^2.3.0",
@@ -63,12 +73,13 @@
     "lerna": "^4.0.0",
     "prettier": "^2.4.1",
     "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
     "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",
-    "ttypescript": "^1.5.12",
+    "ts-patch": "^2.0.1",
     "typescript": "4.4.3",
     "ultra-runner": "^3.10.5",
     "yarn-deduplicate": "^3.0.0"
   },
-  "dependencies": {}
+  "packageManager": "yarn@3.1.1"
 }
