@@ -1,7 +1,7 @@
-// tracing: off
+// ets_tracing: off
 
-import type { M } from "../Batteries/summoner"
-import { guard } from "../Guard"
+import type { M } from "../Batteries/summoner/index.js"
+import { guard } from "../Guard/index.js"
 
 export function asserts<E, A>(
   F: M<{}, E, A>,

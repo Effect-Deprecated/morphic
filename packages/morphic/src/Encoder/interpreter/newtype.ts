@@ -1,10 +1,10 @@
-// tracing: off
+// ets_tracing: off
 
 import { flow, pipe } from "@effect-ts/core/Function"
 
-import type { NewtypeURI } from "../../Algebra/Newtype"
-import { interpreter } from "../../HKT"
-import { encoderApplyConfig, EncoderType, EncoderURI } from "../base"
+import type { NewtypeURI } from "../../Algebra/Newtype/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { encoderApplyConfig, EncoderType, EncoderURI } from "../base/index.js"
 
 export const encoderNewtypeInterpreter = interpreter<EncoderURI, NewtypeURI>()(() => ({
   _F: EncoderURI,

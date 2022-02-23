@@ -1,9 +1,15 @@
-// tracing: off
+// ets_tracing: off
 
 import type { UnionToIntersection } from "@effect-ts/core/Utils"
 
-import type { AnyEnv, ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT"
-import type { OfType } from "../Core"
+import type {
+  AnyEnv,
+  ConfigsForType,
+  InterpreterURIS,
+  Kind,
+  Named
+} from "../../HKT/index.js"
+import type { OfType } from "../Core/index.js"
 
 export const IntersectionURI = "IntersectionURI" as const
 export type IntersectionURI = typeof IntersectionURI

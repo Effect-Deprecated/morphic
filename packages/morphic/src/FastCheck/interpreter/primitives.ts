@@ -1,4 +1,4 @@
-// tracing: off
+// ets_tracing: off
 
 import { isNonEmpty } from "@effect-ts/core/Collections/Immutable/Array"
 import * as L from "@effect-ts/core/Collections/Immutable/List"
@@ -6,9 +6,9 @@ import { left, right } from "@effect-ts/core/Either"
 import { pipe } from "@effect-ts/core/Function"
 import { fromNullable, none, some } from "@effect-ts/core/Option"
 
-import type { PrimitivesURI } from "../../Algebra/Primitives"
-import { interpreter } from "../../HKT"
-import { accessFC, FastCheckType, FastCheckURI, fcApplyConfig } from "../base"
+import type { PrimitivesURI } from "../../Algebra/Primitives/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { accessFC, FastCheckType, FastCheckURI, fcApplyConfig } from "../base/index.js"
 
 export const fcPrimitiveInterpreter = interpreter<FastCheckURI, PrimitivesURI>()(
   () => ({

@@ -1,10 +1,14 @@
-// tracing: off
+// ets_tracing: off
 
-import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
-import type { HKT, Kind } from "../../HKT"
-import type { Strict, StrictURI } from "../base"
+import type {
+  InterfaceLA,
+  IntersectionLA,
+  TaggedUnionLA
+} from "../../Algebra/Config/index.js"
+import type { HKT, Kind } from "../../HKT/index.js"
+import type { Strict, StrictURI } from "../base/index.js"
 
-declare module "../../Algebra/Intersection" {
+declare module "../../Algebra/Intersection/index.js" {
   interface IntersectionConfig<
     L extends readonly unknown[],
     A extends readonly unknown[]
@@ -15,7 +19,7 @@ declare module "../../Algebra/Intersection" {
   }
 }
 
-declare module "../../Algebra/Newtype" {
+declare module "../../Algebra/Newtype/index.js" {
   interface NewtypeConfig<L, A, N> {
     [StrictURI]: {
       strict: Strict<A>
@@ -38,7 +42,7 @@ declare module "../../Algebra/Newtype" {
   }
 }
 
-declare module "../../Algebra/Object" {
+declare module "../../Algebra/Object/index.js" {
   interface InterfaceConfig<Props> {
     [StrictURI]: {
       strict: InterfaceLA<Props, StrictURI>
@@ -57,7 +61,7 @@ declare module "../../Algebra/Object" {
   }
 }
 
-declare module "../../Algebra/Primitives" {
+declare module "../../Algebra/Primitives/index.js" {
   interface NonEmptyArrayConfig<L, A> {
     [StrictURI]: {
       strict: Strict<A>
@@ -105,7 +109,7 @@ declare module "../../Algebra/Primitives" {
   }
 }
 
-declare module "../../Algebra/Refined" {
+declare module "../../Algebra/Refined/index.js" {
   interface RefinedConfig<E, A, B> {
     [StrictURI]: {
       strict: Strict<A>
@@ -118,7 +122,7 @@ declare module "../../Algebra/Refined" {
   }
 }
 
-declare module "../../Algebra/Set" {
+declare module "../../Algebra/Set/index.js" {
   interface SetConfig<L, A> {
     [StrictURI]: {
       strict: Strict<A>
@@ -126,7 +130,7 @@ declare module "../../Algebra/Set" {
   }
 }
 
-declare module "../../Algebra/Record" {
+declare module "../../Algebra/Record/index.js" {
   interface RecordConfig<L, A> {
     [StrictURI]: {
       strict: Strict<A>
@@ -134,7 +138,7 @@ declare module "../../Algebra/Record" {
   }
 }
 
-declare module "../../Algebra/TaggedUnion" {
+declare module "../../Algebra/TaggedUnion/index.js" {
   interface TaggedUnionConfig<Types> {
     [StrictURI]: {
       stricts: TaggedUnionLA<Types, StrictURI>
@@ -142,7 +146,7 @@ declare module "../../Algebra/TaggedUnion" {
   }
 }
 
-declare module "../../Algebra/Union" {
+declare module "../../Algebra/Union/index.js" {
   interface UnionConfig<Types> {
     [StrictURI]: {
       stricts: {

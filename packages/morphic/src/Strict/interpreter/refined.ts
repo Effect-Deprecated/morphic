@@ -1,11 +1,11 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 import * as T from "@effect-ts/core/Sync"
 
-import type { RefinedURI } from "../../Algebra/Refined"
-import { interpreter } from "../../HKT"
-import { strictApplyConfig, StrictType, StrictURI } from "../base"
+import type { RefinedURI } from "../../Algebra/Refined/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { strictApplyConfig, StrictType, StrictURI } from "../base/index.js"
 
 export const strictRefinedInterpreter = interpreter<StrictURI, RefinedURI>()(() => ({
   _F: StrictURI,

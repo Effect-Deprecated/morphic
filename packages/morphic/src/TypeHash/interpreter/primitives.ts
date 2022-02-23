@@ -1,12 +1,12 @@
-// tracing: off
+// ets_tracing: off
 
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import { pipe } from "@effect-ts/core/Function"
 
-import type { PrimitivesURI } from "../../Algebra/Primitives"
-import { interpreter } from "../../HKT"
-import type { TypeHash } from "../base"
-import { HashType, typeHashApplyConfig, TypeHashURI } from "../base"
+import type { PrimitivesURI } from "../../Algebra/Primitives/index.js"
+import { interpreter } from "../../HKT/index.js"
+import type { TypeHash } from "../base/index.js"
+import { HashType, typeHashApplyConfig, TypeHashURI } from "../base/index.js"
 
 export const named =
   (name?: string | undefined) =>

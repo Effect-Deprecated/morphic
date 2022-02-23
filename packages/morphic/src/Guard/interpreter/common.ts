@@ -1,6 +1,6 @@
-// tracing: off
+// ets_tracing: off
 
-import type { Guard } from "../base"
+import type { Guard } from "../base/index.js"
 
 export const isUnknownRecord = (u: unknown): u is { [key: string]: unknown } => {
   const s = Object.prototype.toString.call(u)

@@ -1,10 +1,13 @@
-// tracing: off
+// ets_tracing: off
 
-import type { AlgebraExtensions, ExtensionsURI } from "../../Algebra/Extensions"
-import type { Algebra, AnyEnv } from "../../HKT"
-import { interpreter } from "../../HKT"
-import { mapRecord } from "../../Utils"
-import { FastCheckURI } from "../base"
+import type {
+  AlgebraExtensions,
+  ExtensionsURI
+} from "../../Algebra/Extensions/index.js"
+import type { Algebra, AnyEnv } from "../../HKT/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { mapRecord } from "../../Utils/index.js"
+import { FastCheckURI } from "../base/index.js"
 
 export const interpreters: Omit<
   Algebra<ExtensionsURI, FastCheckURI, any>,

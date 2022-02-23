@@ -1,8 +1,8 @@
-// tracing: off
+// ets_tracing: off
 
 import type { Show } from "@effect-ts/core/Show"
 
-import { getApplyConfig } from "../../HKT"
+import { getApplyConfig } from "../../HKT/index.js"
 
 export const ShowURI = "ShowURI" as const
 
@@ -10,7 +10,7 @@ export type ShowURI = typeof ShowURI
 
 export const showApplyConfig = getApplyConfig(ShowURI)
 
-declare module "../../HKT" {
+declare module "../../HKT/index.js" {
   interface ConfigType<E, A> {
     [ShowURI]: Show<A>
   }

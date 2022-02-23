@@ -1,12 +1,16 @@
-// tracing: off
+// ets_tracing: off
 
 import type * as S from "@effect-ts/core/Show"
 
-import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
-import type { HKT, Kind } from "../../HKT"
-import type { ShowURI } from "../base"
+import type {
+  InterfaceLA,
+  IntersectionLA,
+  TaggedUnionLA
+} from "../../Algebra/Config/index.js"
+import type { HKT, Kind } from "../../HKT/index.js"
+import type { ShowURI } from "../base/index.js"
 
-declare module "../../Algebra/Intersection" {
+declare module "../../Algebra/Intersection/index.js" {
   interface IntersectionConfig<
     L extends readonly unknown[],
     A extends readonly unknown[]
@@ -17,7 +21,7 @@ declare module "../../Algebra/Intersection" {
   }
 }
 
-declare module "../../Algebra/Newtype" {
+declare module "../../Algebra/Newtype/index.js" {
   interface IsoConfig<L, A, N> {
     [ShowURI]: {
       show: S.Show<A>
@@ -30,7 +34,7 @@ declare module "../../Algebra/Newtype" {
   }
 }
 
-declare module "../../Algebra/Object" {
+declare module "../../Algebra/Object/index.js" {
   interface InterfaceConfig<Props> {
     [ShowURI]: {
       show: InterfaceLA<Props, ShowURI>
@@ -49,7 +53,7 @@ declare module "../../Algebra/Object" {
   }
 }
 
-declare module "../../Algebra/Primitives" {
+declare module "../../Algebra/Primitives/index.js" {
   interface NonEmptyArrayConfig<L, A> {
     [ShowURI]: {
       show: S.Show<A>
@@ -97,7 +101,7 @@ declare module "../../Algebra/Primitives" {
   }
 }
 
-declare module "../../Algebra/Refined" {
+declare module "../../Algebra/Refined/index.js" {
   interface RefinedConfig<E, A, B> {
     [ShowURI]: {
       show: S.Show<A>
@@ -111,7 +115,7 @@ declare module "../../Algebra/Refined" {
   }
 }
 
-declare module "../../Algebra/Set" {
+declare module "../../Algebra/Set/index.js" {
   interface SetConfig<L, A> {
     [ShowURI]: {
       show: S.Show<A>
@@ -119,7 +123,7 @@ declare module "../../Algebra/Set" {
   }
 }
 
-declare module "../../Algebra/Record" {
+declare module "../../Algebra/Record/index.js" {
   interface RecordConfig<L, A> {
     [ShowURI]: {
       show: S.Show<A>
@@ -127,7 +131,7 @@ declare module "../../Algebra/Record" {
   }
 }
 
-declare module "../../Algebra/TaggedUnion" {
+declare module "../../Algebra/TaggedUnion/index.js" {
   interface TaggedUnionConfig<Types> {
     [ShowURI]: {
       shows: TaggedUnionLA<Types, ShowURI>
@@ -135,7 +139,7 @@ declare module "../../Algebra/TaggedUnion" {
   }
 }
 
-declare module "../../Algebra/Union" {
+declare module "../../Algebra/Union/index.js" {
   interface UnionConfig<Types> {
     [ShowURI]: {
       shows: {

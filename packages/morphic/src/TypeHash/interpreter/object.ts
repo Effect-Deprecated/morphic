@@ -1,11 +1,11 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 
-import type { ObjectURI } from "../../Algebra/Object"
-import { interpreter } from "../../HKT"
-import { mapRecord, projectFieldWithEnv } from "../../Utils"
-import { HashType, typeHashApplyConfig, TypeHashURI } from "../base"
+import type { ObjectURI } from "../../Algebra/Object/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { mapRecord, projectFieldWithEnv } from "../../Utils/index.js"
+import { HashType, typeHashApplyConfig, TypeHashURI } from "../base/index.js"
 
 const asPartial = <T>(x: HashType<T>): HashType<Partial<T>> => x as any
 

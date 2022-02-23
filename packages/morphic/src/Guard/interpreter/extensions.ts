@@ -1,9 +1,12 @@
-// tracing: off
+// ets_tracing: off
 
-import type { AlgebraExtensions, ExtensionsURI } from "../../Algebra/Extensions"
-import type { Algebra, AnyEnv } from "../../HKT"
-import { interpreter } from "../../HKT"
-import { GuardURI } from "../base"
+import type {
+  AlgebraExtensions,
+  ExtensionsURI
+} from "../../Algebra/Extensions/index.js"
+import type { Algebra, AnyEnv } from "../../HKT/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { GuardURI } from "../base/index.js"
 
 export const interpreters: Omit<Algebra<ExtensionsURI, GuardURI, any>, "_F"> = {} as any
 

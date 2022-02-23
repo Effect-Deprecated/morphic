@@ -1,12 +1,12 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 import * as S from "@effect-ts/core/Show"
 
-import { mapRecord, projectFieldWithEnv } from "../..//Utils"
-import type { ObjectURI } from "../../Algebra/Object"
-import { interpreter } from "../../HKT"
-import { showApplyConfig, ShowType, ShowURI } from "../base"
+import { mapRecord, projectFieldWithEnv } from "../..//Utils/index.js"
+import type { ObjectURI } from "../../Algebra/Object/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { showApplyConfig, ShowType, ShowURI } from "../base/index.js"
 
 const asPartial = <T>(x: ShowType<T>): ShowType<Partial<T>> => x as any
 

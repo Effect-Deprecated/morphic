@@ -1,4 +1,4 @@
-// tracing: off
+// ets_tracing: off
 
 /**
  * From https://github.com/gillchristian/io-ts-reporters
@@ -10,7 +10,7 @@ import { pipe } from "@effect-ts/core/Function"
 import * as O from "@effect-ts/core/Option"
 import * as S from "@effect-ts/core/Sync"
 
-import type * as t from "../common"
+import type * as t from "../common/index.js"
 
 const isUnionType = (_: t.ContextEntry) => _.type.codecType === "union"
 
@@ -75,7 +75,7 @@ const findExpectedType = (ctx: t.ContextEntry[]) =>
   pipe(
     ctx,
     A.findIndex(isUnionType),
-    O.chain((n) => A.lookup_(ctx, n + 1))
+    O.chain((n) => A.get_(ctx, n + 1))
   )
 
 const formatValidationErrorOfUnion = (

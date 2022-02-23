@@ -1,13 +1,13 @@
-// tracing: off
+// ets_tracing: off
 
 import * as R from "@effect-ts/core/Collections/Immutable/Dictionary"
 import * as E from "@effect-ts/core/Equal"
 import { pipe } from "@effect-ts/core/Function"
 
-import type { ObjectURI } from "../../Algebra/Object"
-import { interpreter } from "../../HKT"
-import { mapRecord, projectFieldWithEnv2 } from "../../Utils"
-import { eqApplyConfig, EqType, EqURI } from "../base"
+import type { ObjectURI } from "../../Algebra/Object/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { mapRecord, projectFieldWithEnv2 } from "../../Utils/index.js"
+import { eqApplyConfig, EqType, EqURI } from "../base/index.js"
 
 const asPartial = <T>(x: EqType<T>): EqType<Partial<T>> => x as any
 

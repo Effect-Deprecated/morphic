@@ -1,23 +1,23 @@
-// tracing: off
+// ets_tracing: off
 
 import { flow } from "@effect-ts/core/Function"
 import { runEither } from "@effect-ts/core/Sync"
 
-import type { M, Summoner } from "../Batteries/summoner"
-import { summonFor } from "../Batteries/summoner"
-import type { Materialized } from "../Batteries/usage/materializer"
+import type { M, Summoner } from "../Batteries/summoner/index.js"
+import { summonFor } from "../Batteries/summoner/index.js"
+import type { Materialized } from "../Batteries/usage/materializer/index.js"
 import type {
   SummonerEnv,
   SummonerInterpURI,
   SummonerProgURI
-} from "../Batteries/usage/summoner"
-import type { DecoderType, DecoderURI } from "./base"
-import type { Decoder } from "./common"
-import { modelDecoderInterpreter } from "./interpreter"
+} from "../Batteries/usage/summoner/index.js"
+import type { DecoderType, DecoderURI } from "./base/index.js"
+import type { Decoder } from "./common/index.js"
+import { modelDecoderInterpreter } from "./interpreter/index.js"
 
-export { decoderExtension } from "./interpreter"
+export { decoderExtension } from "./interpreter/index.js"
 
-export { DecoderType, DecoderURI, decoderApplyConfig } from "./base"
+export { DecoderType, DecoderURI, decoderApplyConfig } from "./base/index.js"
 
 export {
   appendContext,
@@ -33,7 +33,7 @@ export {
   Validation,
   ValidationError,
   Reporter
-} from "./common"
+} from "./common/index.js"
 
 export {
   report,
@@ -41,7 +41,7 @@ export {
   formatValidationError,
   TYPE_MAX_LEN,
   ReporterOptions
-} from "./reporters"
+} from "./reporters/index.js"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (_: {

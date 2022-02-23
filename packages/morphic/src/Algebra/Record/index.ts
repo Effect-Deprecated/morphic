@@ -1,8 +1,14 @@
-// tracing: off
+// ets_tracing: off
 
 import type { Dictionary } from "@effect-ts/core/Collections/Immutable/Dictionary"
 
-import type { AnyEnv, ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT"
+import type {
+  AnyEnv,
+  ConfigsForType,
+  InterpreterURIS,
+  Kind,
+  Named
+} from "../../HKT/index.js"
 
 export const RecordURI = "RecordURI" as const
 

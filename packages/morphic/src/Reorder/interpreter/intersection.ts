@@ -1,12 +1,12 @@
-// tracing: off
+// ets_tracing: off
 
 import * as A from "@effect-ts/core/Collections/Immutable/Array"
 import { pipe } from "@effect-ts/core/Function"
 import * as T from "@effect-ts/core/Sync"
 
-import type { IntersectionURI } from "../../Algebra/Intersection"
-import { interpreter } from "../../HKT"
-import { reorderApplyConfig, ReorderType, ReorderURI } from "../base"
+import type { IntersectionURI } from "../../Algebra/Intersection/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { reorderApplyConfig, ReorderType, ReorderURI } from "../base/index.js"
 
 export const reorderIntersectionInterpreter = interpreter<
   ReorderURI,

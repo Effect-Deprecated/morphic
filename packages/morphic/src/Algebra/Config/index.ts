@@ -1,7 +1,7 @@
-// tracing: off
+// ets_tracing: off
 
-import type { Materialized } from "../../Batteries/usage/materializer"
-import type * as H from "../../HKT"
+import type { Materialized } from "../../Batteries/usage/materializer/index.js"
+import type * as H from "../../HKT/index.js"
 
 export type TaggedUnionLA<Types, URI extends H.ConfigTypeURIS> = {
   [k in keyof Types]: Types[k] extends H.HKT<infer R, infer E, infer A>

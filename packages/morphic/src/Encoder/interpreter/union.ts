@@ -1,8 +1,8 @@
-// tracing: off
+// ets_tracing: off
 
-import type { UnionURI } from "../../Algebra/Union"
-import { interpreter } from "../../HKT"
-import { encoderApplyConfig, EncoderType, EncoderURI } from "../base"
+import type { UnionURI } from "../../Algebra/Union/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { encoderApplyConfig, EncoderType, EncoderURI } from "../base/index.js"
 
 export const encoderUnionInterpreter = interpreter<EncoderURI, UnionURI>()(() => ({
   _F: EncoderURI,

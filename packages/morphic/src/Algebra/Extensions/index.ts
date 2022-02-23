@@ -1,6 +1,6 @@
-// tracing: off
+// ets_tracing: off
 
-import type { AnyEnv, InterpreterURIS } from "../../HKT"
+import type { AnyEnv, InterpreterURIS } from "../../HKT/index.js"
 
 export const ExtensionsURI = "ExtensionsURI"
 export type ExtensionsURI = typeof ExtensionsURI

@@ -1,8 +1,8 @@
-// tracing: off
+// ets_tracing: off
 
-import type { IntersectionURI } from "../../Algebra/Intersection"
-import { interpreter } from "../../HKT"
-import { HashType, typeHashApplyConfig, TypeHashURI } from "../base"
+import type { IntersectionURI } from "../../Algebra/Intersection/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { HashType, typeHashApplyConfig, TypeHashURI } from "../base/index.js"
 
 export const typeHashIntersectionInterpreter = interpreter<
   TypeHashURI,

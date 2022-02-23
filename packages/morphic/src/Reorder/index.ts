@@ -1,18 +1,18 @@
-// tracing: off
+// ets_tracing: off
 
-import type { M, Summoner } from "../Batteries/summoner"
-import { summonFor } from "../Batteries/summoner"
-import type { Materialized } from "../Batteries/usage/materializer"
+import type { M, Summoner } from "../Batteries/summoner/index.js"
+import { summonFor } from "../Batteries/summoner/index.js"
+import type { Materialized } from "../Batteries/usage/materializer/index.js"
 import type {
   SummonerEnv,
   SummonerInterpURI,
   SummonerProgURI
-} from "../Batteries/usage/summoner"
-import type { Reorder, ReorderURI } from "./base"
-import { modelReorderInterpreter } from "./interpreter"
+} from "../Batteries/usage/summoner/index.js"
+import type { Reorder, ReorderURI } from "./base/index.js"
+import { modelReorderInterpreter } from "./interpreter/index.js"
 
-export { reorderExtension } from "./interpreter"
-export { ReorderURI, Reorder, reorderApplyConfig, ReorderType } from "./base"
+export { reorderExtension } from "./interpreter/index.js"
+export { ReorderURI, Reorder, reorderApplyConfig, ReorderType } from "./base/index.js"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (_: {

@@ -1,8 +1,8 @@
-// tracing: off
+// ets_tracing: off
 
 import * as T from "@effect-ts/core/Sync"
 
-import type { CoreAlgebra } from "../../Batteries/program"
+import type { CoreAlgebra } from "../../Batteries/program/index.js"
 
 export type CodecTypes = keyof CoreAlgebra<any, any>
 

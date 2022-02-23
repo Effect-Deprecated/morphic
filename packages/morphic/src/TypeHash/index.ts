@@ -1,18 +1,18 @@
-// tracing: off
+// ets_tracing: off
 
-import type { M, Summoner } from "../Batteries/summoner"
-import { summonFor } from "../Batteries/summoner"
-import type { Materialized } from "../Batteries/usage/materializer"
+import type { M, Summoner } from "../Batteries/summoner/index.js"
+import { summonFor } from "../Batteries/summoner/index.js"
+import type { Materialized } from "../Batteries/usage/materializer/index.js"
 import type {
   SummonerEnv,
   SummonerInterpURI,
   SummonerProgURI
-} from "../Batteries/usage/summoner"
-import type { TypeHash, TypeHashURI } from "./base"
-import { modelHashInterpreter } from "./interpreter"
+} from "../Batteries/usage/summoner/index.js"
+import type { TypeHash, TypeHashURI } from "./base/index.js"
+import { modelHashInterpreter } from "./interpreter/index.js"
 
-export { typeHashExtension } from "./interpreter"
-export { TypeHashURI, TypeHash, HashType, typeHashApplyConfig } from "./base"
+export { typeHashExtension } from "./interpreter/index.js"
+export { TypeHashURI, TypeHash, HashType, typeHashApplyConfig } from "./base/index.js"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (_: {

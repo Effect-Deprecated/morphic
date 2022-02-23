@@ -1,21 +1,27 @@
-// tracing: off
+// ets_tracing: off
 
 import type { Arbitrary } from "fast-check"
 import * as fc from "fast-check"
 
-import type { M, Summoner } from "../Batteries/summoner"
-import { summonFor } from "../Batteries/summoner"
-import type { Materialized } from "../Batteries/usage/materializer"
+import type { M, Summoner } from "../Batteries/summoner/index.js"
+import { summonFor } from "../Batteries/summoner/index.js"
+import type { Materialized } from "../Batteries/usage/materializer/index.js"
 import type {
   SummonerEnv,
   SummonerInterpURI,
   SummonerProgURI
-} from "../Batteries/usage/summoner"
-import { FastCheckURI } from "./base"
-import { modelFcInterpreter } from "./interpreter"
+} from "../Batteries/usage/summoner/index.js"
+import { FastCheckURI } from "./base/index.js"
+import { modelFcInterpreter } from "./interpreter/index.js"
 
-export { fcExtension } from "./interpreter"
-export { FastCheckURI, accessFC, fcApplyConfig, BaseFC, FastCheckType } from "./base"
+export { fcExtension } from "./interpreter/index.js"
+export {
+  FastCheckURI,
+  accessFC,
+  fcApplyConfig,
+  BaseFC,
+  FastCheckType
+} from "./base/index.js"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (_: {

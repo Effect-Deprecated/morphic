@@ -1,10 +1,10 @@
-// tracing: off
+// ets_tracing: off
 
 import type { Newtype } from "@effect-ts/core/Newtype"
 import type { Iso } from "@effect-ts/monocle/Iso"
 import type { Prism } from "@effect-ts/monocle/Prism"
 
-import type { ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT"
+import type { ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT/index.js"
 
 export const NewtypeURI = "NewtypeURI" as const
 export type NewtypeURI = typeof NewtypeURI

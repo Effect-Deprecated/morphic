@@ -1,13 +1,13 @@
-// tracing: off
+// ets_tracing: off
 
 import * as A from "@effect-ts/core/Collections/Immutable/Array"
 import * as S from "@effect-ts/core/Collections/Immutable/Set"
 import { flow, pipe } from "@effect-ts/core/Function"
 import * as T from "@effect-ts/core/Sync"
 
-import type { SetURI } from "../../Algebra/Set"
-import { interpreter } from "../../HKT"
-import { encoderApplyConfig, EncoderType, EncoderURI } from "../base"
+import type { SetURI } from "../../Algebra/Set/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { encoderApplyConfig, EncoderType, EncoderURI } from "../base/index.js"
 
 export const encoderSetInterpreter = interpreter<EncoderURI, SetURI>()(() => ({
   _F: EncoderURI,

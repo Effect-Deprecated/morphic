@@ -1,12 +1,12 @@
-// tracing: off
+// ets_tracing: off
 
 import { every_, Set } from "@effect-ts/core/Collections/Immutable/Set"
 import { pipe } from "@effect-ts/core/Function"
 
-import type { SetURI } from "../../Algebra/Set"
-import { interpreter } from "../../HKT"
-import { guardApplyConfig, GuardType, GuardURI } from "../base"
-import type { AOfGuard } from "./common"
+import type { SetURI } from "../../Algebra/Set/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { guardApplyConfig, GuardType, GuardURI } from "../base/index.js"
+import type { AOfGuard } from "./common.js"
 
 export const guardSetInterpreter = interpreter<GuardURI, SetURI>()(() => ({
   _F: GuardURI,

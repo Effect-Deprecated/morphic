@@ -1,9 +1,9 @@
-// tracing: off
+// ets_tracing: off
 
 import type * as fc from "fast-check"
 
-import type { AnyEnv } from "../../HKT"
-import { getApplyConfig } from "../../HKT"
+import type { AnyEnv } from "../../HKT/index.js"
+import { getApplyConfig } from "../../HKT/index.js"
 
 export const FastCheckURI = "FastCheckURI" as const
 
@@ -26,7 +26,7 @@ export class FastCheckType<A> {
   constructor(public arb: fc.Arbitrary<A>) {}
 }
 
-declare module "../../HKT" {
+declare module "../../HKT/index.js" {
   interface URItoKind<R, E, A> {
     [FastCheckURI]: (env: R) => FastCheckType<A>
   }

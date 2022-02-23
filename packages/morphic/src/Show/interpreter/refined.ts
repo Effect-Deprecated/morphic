@@ -1,10 +1,10 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 
-import type { RefinedURI } from "../../Algebra/Refined"
-import { interpreter } from "../../HKT"
-import { showApplyConfig, ShowType, ShowURI } from "../base"
+import type { RefinedURI } from "../../Algebra/Refined/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { showApplyConfig, ShowType, ShowURI } from "../base/index.js"
 
 export const showRefinedInterpreter = interpreter<ShowURI, RefinedURI>()(() => ({
   _F: ShowURI,

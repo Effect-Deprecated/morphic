@@ -1,8 +1,8 @@
-// tracing: off
+// ets_tracing: off
 
 import { mapWithIndex } from "@effect-ts/core/Collections/Immutable/Dictionary"
 
-import type { ElemType, ExtractUnion, KeysDefinition } from "../utils"
+import type { ElemType, ExtractUnion, KeysDefinition } from "../utils/index.js"
 
 export type Is<A, Tag extends keyof A> = {
   [key in A[Tag] & string]: (a: A) => a is ExtractUnion<A, Tag, key>

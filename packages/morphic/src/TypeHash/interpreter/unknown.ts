@@ -1,8 +1,8 @@
-// tracing: off
+// ets_tracing: off
 
-import type { UnknownURI } from "../../Algebra/Unknown"
-import { interpreter } from "../../HKT"
-import { HashType, typeHashApplyConfig, TypeHashURI } from "../base"
+import type { UnknownURI } from "../../Algebra/Unknown/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { HashType, typeHashApplyConfig, TypeHashURI } from "../base/index.js"
 
 export const typeHashUnknownInterpreter = interpreter<TypeHashURI, UnknownURI>()(
   () => ({

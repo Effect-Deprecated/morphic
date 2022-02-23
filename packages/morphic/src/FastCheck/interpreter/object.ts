@@ -1,11 +1,11 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 
-import type { ObjectURI } from "../../Algebra/Object"
-import { interpreter } from "../../HKT"
-import { projectFieldWithEnv } from "../../Utils"
-import { accessFC, FastCheckType, FastCheckURI, fcApplyConfig } from "../base"
+import type { ObjectURI } from "../../Algebra/Object/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { projectFieldWithEnv } from "../../Utils/index.js"
+import { accessFC, FastCheckType, FastCheckURI, fcApplyConfig } from "../base/index.js"
 
 export const fcObjectInterpreter = interpreter<FastCheckURI, ObjectURI>()(() => ({
   _F: FastCheckURI,

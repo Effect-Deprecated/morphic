@@ -1,14 +1,14 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 
-import type { ObjectURI, PropsKind } from "../../Algebra/Object"
-import type { AnyEnv } from "../../HKT"
-import { interpreter } from "../../HKT"
-import { projectFieldWithEnv } from "../../Utils"
-import type { Guard } from "../base"
-import { guardApplyConfig, GuardType, GuardURI } from "../base"
-import { isUnknownRecord } from "./common"
+import type { ObjectURI, PropsKind } from "../../Algebra/Object/index.js"
+import type { AnyEnv } from "../../HKT/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { projectFieldWithEnv } from "../../Utils/index.js"
+import type { Guard } from "../base/index.js"
+import { guardApplyConfig, GuardType, GuardURI } from "../base/index.js"
+import { isUnknownRecord } from "./common.js"
 
 const hasOwnProperty = Object.prototype.hasOwnProperty
 

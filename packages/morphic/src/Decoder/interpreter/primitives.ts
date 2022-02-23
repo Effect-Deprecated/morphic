@@ -1,4 +1,4 @@
-// tracing: off
+// ets_tracing: off
 
 import * as A from "@effect-ts/core/Collections/Immutable/Array"
 import * as List from "@effect-ts/core/Collections/Immutable/List"
@@ -8,12 +8,12 @@ import * as O from "@effect-ts/core/Option"
 import { none, some } from "@effect-ts/core/Option"
 import * as T from "@effect-ts/core/Sync"
 
-import type { PrimitivesURI, UUID } from "../../Algebra/Primitives"
-import { isUnknownRecord } from "../../Guard/interpreter/common"
-import { interpreter } from "../../HKT"
-import { decoderApplyConfig, DecoderType, DecoderURI } from "../base"
-import { appendContext, fail, makeDecoder } from "../common"
-import { forEachArray, forEachNonEmptyArray } from "./common"
+import type { PrimitivesURI, UUID } from "../../Algebra/Primitives/index.js"
+import { isUnknownRecord } from "../../Guard/interpreter/common.js"
+import { interpreter } from "../../HKT/index.js"
+import { decoderApplyConfig, DecoderType, DecoderURI } from "../base/index.js"
+import { appendContext, fail, makeDecoder } from "../common/index.js"
+import { forEachArray, forEachNonEmptyArray } from "./common.js"
 
 export const regexUUID =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i

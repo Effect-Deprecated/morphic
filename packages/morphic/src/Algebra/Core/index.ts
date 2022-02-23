@@ -1,6 +1,6 @@
-// tracing: off
+// ets_tracing: off
 
-import type { InterpreterURIS, Kind } from "../../HKT"
+import type { InterpreterURIS, Kind } from "../../HKT/index.js"
 
 export type OfType<F extends InterpreterURIS, L, A, RC> = Kind<F, RC, L, A>
 

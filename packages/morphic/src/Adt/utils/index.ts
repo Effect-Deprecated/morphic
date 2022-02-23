@@ -1,4 +1,4 @@
-// tracing: off
+// ets_tracing: off
 
 export type ElemType<A> = A extends Array<infer E> ? E : never
 

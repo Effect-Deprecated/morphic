@@ -1,17 +1,17 @@
-// tracing: off
+// ets_tracing: off
 
 import * as R from "@effect-ts/core/Collections/Immutable/Dictionary"
 import { pipe } from "@effect-ts/core/Function"
 import * as O from "@effect-ts/core/Option"
 import * as T from "@effect-ts/core/Sync"
 
-import type { ObjectURI, PropsKind } from "../../Algebra/Object"
-import { mergePrefer, originalSort } from "../../Decoder/interpreter/common"
-import type { AnyEnv } from "../../HKT"
-import { interpreter } from "../../HKT"
-import { projectFieldWithEnv } from "../../Utils"
-import type { Strict } from "../base"
-import { strictApplyConfig, StrictType, StrictURI } from "../base"
+import type { ObjectURI, PropsKind } from "../../Algebra/Object/index.js"
+import { mergePrefer, originalSort } from "../../Decoder/interpreter/common.js"
+import type { AnyEnv } from "../../HKT/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { projectFieldWithEnv } from "../../Utils/index.js"
+import type { Strict } from "../base/index.js"
+import { strictApplyConfig, StrictType, StrictURI } from "../base/index.js"
 
 export const strictObjectInterpreter = interpreter<StrictURI, ObjectURI>()(() => ({
   _F: StrictURI,

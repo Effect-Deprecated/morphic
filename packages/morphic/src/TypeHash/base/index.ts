@@ -1,6 +1,6 @@
-// tracing: off
+// ets_tracing: off
 
-import { getApplyConfig } from "../../HKT"
+import { getApplyConfig } from "../../HKT/index.js"
 
 export interface TypeHash {
   typeHash: string
@@ -11,7 +11,7 @@ export type TypeHashURI = typeof TypeHashURI
 
 export const typeHashApplyConfig = getApplyConfig(TypeHashURI)
 
-declare module "../../HKT" {
+declare module "../../HKT/index.js" {
   interface ConfigType<E, A> {
     [TypeHashURI]: TypeHash
   }

@@ -1,8 +1,8 @@
-// tracing: off
+// ets_tracing: off
 
-import type { UnionURI } from "../../Algebra/Union"
-import { interpreter } from "../../HKT"
-import { strictApplyConfig, StrictType, StrictURI } from "../base"
+import type { UnionURI } from "../../Algebra/Union/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { strictApplyConfig, StrictType, StrictURI } from "../base/index.js"
 
 export const strictUnionInterpreter = interpreter<StrictURI, UnionURI>()(() => ({
   _F: StrictURI,

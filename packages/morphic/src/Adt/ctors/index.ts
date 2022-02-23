@@ -1,8 +1,8 @@
-// tracing: off
+// ets_tracing: off
 
 import { mapWithIndex } from "@effect-ts/core/Collections/Immutable/Dictionary"
 
-import type { ExtractUnion, KeysDefinition, Tagged } from "../utils"
+import type { ExtractUnion, KeysDefinition, Tagged } from "../utils/index.js"
 
 export type CtorType<C extends Ctors<any, any>> = C extends Ctors<infer A, any>
   ? A

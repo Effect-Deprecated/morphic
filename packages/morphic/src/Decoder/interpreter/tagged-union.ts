@@ -1,12 +1,12 @@
-// tracing: off
+// ets_tracing: off
 
-import type { TaggedUnionURI } from "../../Algebra/TaggedUnion"
-import { isUnknownRecord } from "../../Guard/interpreter/common"
-import { interpreter } from "../../HKT"
-import { mapRecord } from "../../Utils"
-import { decoderApplyConfig, DecoderType, DecoderURI } from "../base"
-import type { Decoder } from "../common"
-import { appendContext, fail, makeDecoder } from "../common"
+import type { TaggedUnionURI } from "../../Algebra/TaggedUnion/index.js"
+import { isUnknownRecord } from "../../Guard/interpreter/common.js"
+import { interpreter } from "../../HKT/index.js"
+import { mapRecord } from "../../Utils/index.js"
+import { decoderApplyConfig, DecoderType, DecoderURI } from "../base/index.js"
+import type { Decoder } from "../common/index.js"
+import { appendContext, fail, makeDecoder } from "../common/index.js"
 
 export const decoderTaggedUnionInterpreter = interpreter<DecoderURI, TaggedUnionURI>()(
   () => ({

@@ -1,4 +1,4 @@
-// tracing: off
+// ets_tracing: off
 
 export const assignFunction = <F extends Function, C>(ab: F, c: C): F & C => {
   const newF: typeof ab = ((...x: any[]) => ab(...x)) as any

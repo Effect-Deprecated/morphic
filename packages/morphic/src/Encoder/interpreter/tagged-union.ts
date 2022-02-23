@@ -1,10 +1,10 @@
-// tracing: off
+// ets_tracing: off
 
-import type { TaggedUnionURI } from "../../Algebra/TaggedUnion"
-import { interpreter } from "../../HKT"
-import { mapRecord } from "../../Utils"
-import type { Encoder } from "../base"
-import { encoderApplyConfig, EncoderType, EncoderURI } from "../base"
+import type { TaggedUnionURI } from "../../Algebra/TaggedUnion/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { mapRecord } from "../../Utils/index.js"
+import type { Encoder } from "../base/index.js"
+import { encoderApplyConfig, EncoderType, EncoderURI } from "../base/index.js"
 
 export const encoderTaggedUnionInterpreter = interpreter<EncoderURI, TaggedUnionURI>()(
   () => ({

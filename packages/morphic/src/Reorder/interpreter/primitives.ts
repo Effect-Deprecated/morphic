@@ -1,4 +1,4 @@
-// tracing: off
+// ets_tracing: off
 
 import * as A from "@effect-ts/core/Collections/Immutable/Array"
 import * as L from "@effect-ts/core/Collections/Immutable/List"
@@ -8,9 +8,9 @@ import { flow, pipe } from "@effect-ts/core/Function"
 import * as O from "@effect-ts/core/Option"
 import * as T from "@effect-ts/core/Sync"
 
-import type { PrimitivesURI, UUID } from "../../Algebra/Primitives"
-import { interpreter } from "../../HKT"
-import { reorderApplyConfig, ReorderType, ReorderURI } from "../base"
+import type { PrimitivesURI, UUID } from "../../Algebra/Primitives/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { reorderApplyConfig, ReorderType, ReorderURI } from "../base/index.js"
 
 export const regexUUID =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i

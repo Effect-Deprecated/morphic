@@ -1,21 +1,21 @@
-// tracing: off
+// ets_tracing: off
 
 import { flow } from "@effect-ts/core/Function"
 import { run } from "@effect-ts/core/Sync"
 
-import type { M, Summoner } from "../Batteries/summoner"
-import { summonFor } from "../Batteries/summoner"
-import type { Materialized } from "../Batteries/usage/materializer"
+import type { M, Summoner } from "../Batteries/summoner/index.js"
+import { summonFor } from "../Batteries/summoner/index.js"
+import type { Materialized } from "../Batteries/usage/materializer/index.js"
 import type {
   SummonerEnv,
   SummonerInterpURI,
   SummonerProgURI
-} from "../Batteries/usage/summoner"
-import type { Encoder, EncoderType, EncoderURI } from "./base"
-import { modelEncoderInterpreter } from "./interpreter"
+} from "../Batteries/usage/summoner/index.js"
+import type { Encoder, EncoderType, EncoderURI } from "./base/index.js"
+import { modelEncoderInterpreter } from "./interpreter/index.js"
 
-export { encoderExtension } from "./interpreter"
-export { Encoder, EncoderURI, encoderApplyConfig, EncoderType } from "./base"
+export { encoderExtension } from "./interpreter/index.js"
+export { Encoder, EncoderURI, encoderApplyConfig, EncoderType } from "./base/index.js"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (_: {

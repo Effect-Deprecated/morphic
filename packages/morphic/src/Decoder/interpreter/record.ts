@@ -1,13 +1,13 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 
-import type { RecordURI } from "../../Algebra/Record"
-import { isUnknownRecord } from "../../Guard/interpreter/common"
-import { interpreter } from "../../HKT"
-import { decoderApplyConfig, DecoderType, DecoderURI } from "../base"
-import { appendContext, fail, makeDecoder } from "../common"
-import { forEachRecordWithIndex } from "./common"
+import type { RecordURI } from "../../Algebra/Record/index.js"
+import { isUnknownRecord } from "../../Guard/interpreter/common.js"
+import { interpreter } from "../../HKT/index.js"
+import { decoderApplyConfig, DecoderType, DecoderURI } from "../base/index.js"
+import { appendContext, fail, makeDecoder } from "../common/index.js"
+import { forEachRecordWithIndex } from "./common.js"
 
 export const decoderRecordInterpreter = interpreter<DecoderURI, RecordURI>()(() => ({
   _F: DecoderURI,

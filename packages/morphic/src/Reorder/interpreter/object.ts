@@ -1,12 +1,12 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 import * as T from "@effect-ts/core/Sync"
 
-import type { ObjectURI } from "../../Algebra/Object"
-import { interpreter } from "../../HKT"
-import { projectFieldWithEnv } from "../../Utils"
-import { reorderApplyConfig, ReorderType, ReorderURI } from "../base"
+import type { ObjectURI } from "../../Algebra/Object/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { projectFieldWithEnv } from "../../Utils/index.js"
+import { reorderApplyConfig, ReorderType, ReorderURI } from "../base/index.js"
 
 export const reorderObjectInterpreter = interpreter<ReorderURI, ObjectURI>()(() => ({
   _F: ReorderURI,

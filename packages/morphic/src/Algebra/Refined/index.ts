@@ -1,8 +1,14 @@
-// tracing: off
+// ets_tracing: off
 
 import type { Predicate, Refinement } from "@effect-ts/core/Function"
 
-import type { AnyEnv, ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT"
+import type {
+  AnyEnv,
+  ConfigsForType,
+  InterpreterURIS,
+  Kind,
+  Named
+} from "../../HKT/index.js"
 
 export const RefinedURI = "RefinedURI" as const
 

@@ -1,10 +1,10 @@
-// tracing: off
+// ets_tracing: off
 
 import { all, fold } from "@effect-ts/core/Identity"
 
-import type { IntersectionURI } from "../../Algebra/Intersection"
-import { interpreter } from "../../HKT"
-import { guardApplyConfig, GuardType, GuardURI } from "../base"
+import type { IntersectionURI } from "../../Algebra/Intersection/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { guardApplyConfig, GuardType, GuardURI } from "../base/index.js"
 
 export const guardIntersectionInterpreter = interpreter<GuardURI, IntersectionURI>()(
   () => ({

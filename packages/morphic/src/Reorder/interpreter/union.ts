@@ -1,8 +1,8 @@
-// tracing: off
+// ets_tracing: off
 
-import type { UnionURI } from "../../Algebra/Union"
-import { interpreter } from "../../HKT"
-import { reorderApplyConfig, ReorderType, ReorderURI } from "../base"
+import type { UnionURI } from "../../Algebra/Union/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { reorderApplyConfig, ReorderType, ReorderURI } from "../base/index.js"
 
 export const reorderUnionInterpreter = interpreter<ReorderURI, UnionURI>()(() => ({
   _F: ReorderURI,

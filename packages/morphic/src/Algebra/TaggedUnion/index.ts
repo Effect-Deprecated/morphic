@@ -1,6 +1,12 @@
-// tracing: off
+// ets_tracing: off
 
-import type { AnyEnv, ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT"
+import type {
+  AnyEnv,
+  ConfigsForType,
+  InterpreterURIS,
+  Kind,
+  Named
+} from "../../HKT/index.js"
 
 export const TaggedUnionURI = "TaggedUnionURI" as const
 export type TaggedUnionURI = typeof TaggedUnionURI

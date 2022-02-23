@@ -1,10 +1,14 @@
-// tracing: off
+// ets_tracing: off
 
-import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
-import type { HKT, Kind } from "../../HKT"
-import type { TypeHash, TypeHashURI } from "../base"
+import type {
+  InterfaceLA,
+  IntersectionLA,
+  TaggedUnionLA
+} from "../../Algebra/Config/index.js"
+import type { HKT, Kind } from "../../HKT/index.js"
+import type { TypeHash, TypeHashURI } from "../base/index.js"
 
-declare module "../../Algebra/Intersection" {
+declare module "../../Algebra/Intersection/index.js" {
   interface IntersectionConfig<
     L extends readonly unknown[],
     A extends readonly unknown[]
@@ -15,7 +19,7 @@ declare module "../../Algebra/Intersection" {
   }
 }
 
-declare module "../../Algebra/Newtype" {
+declare module "../../Algebra/Newtype/index.js" {
   interface IsoConfig<L, A, N> {
     [TypeHashURI]: {
       typeHash: TypeHash
@@ -28,7 +32,7 @@ declare module "../../Algebra/Newtype" {
   }
 }
 
-declare module "../../Algebra/Object" {
+declare module "../../Algebra/Object/index.js" {
   interface InterfaceConfig<Props> {
     [TypeHashURI]: {
       typeHash: InterfaceLA<Props, TypeHashURI>
@@ -47,7 +51,7 @@ declare module "../../Algebra/Object" {
   }
 }
 
-declare module "../../Algebra/Primitives" {
+declare module "../../Algebra/Primitives/index.js" {
   interface NonEmptyArrayConfig<L, A> {
     [TypeHashURI]: {
       typeHash: TypeHash
@@ -95,7 +99,7 @@ declare module "../../Algebra/Primitives" {
   }
 }
 
-declare module "../../Algebra/Refined" {
+declare module "../../Algebra/Refined/index.js" {
   interface RefinedConfig<E, A, B> {
     [TypeHashURI]: {
       typeHash: TypeHash
@@ -109,7 +113,7 @@ declare module "../../Algebra/Refined" {
   }
 }
 
-declare module "../../Algebra/Set" {
+declare module "../../Algebra/Set/index.js" {
   interface SetConfig<L, A> {
     [TypeHashURI]: {
       typeHash: TypeHash
@@ -117,7 +121,7 @@ declare module "../../Algebra/Set" {
   }
 }
 
-declare module "../../Algebra/Record" {
+declare module "../../Algebra/Record/index.js" {
   interface RecordConfig<L, A> {
     [TypeHashURI]: {
       typeHash: TypeHash
@@ -125,7 +129,7 @@ declare module "../../Algebra/Record" {
   }
 }
 
-declare module "../../Algebra/TaggedUnion" {
+declare module "../../Algebra/TaggedUnion/index.js" {
   interface TaggedUnionConfig<Types> {
     [TypeHashURI]: {
       typeHashes: TaggedUnionLA<Types, TypeHashURI>
@@ -133,7 +137,7 @@ declare module "../../Algebra/TaggedUnion" {
   }
 }
 
-declare module "../../Algebra/Union" {
+declare module "../../Algebra/Union/index.js" {
   interface UnionConfig<Types> {
     [TypeHashURI]: {
       typeHashes: {

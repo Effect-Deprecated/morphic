@@ -1,10 +1,10 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 
-import type { SetURI } from "../../Algebra/Set"
-import { interpreter } from "../../HKT"
-import { HashType, typeHashApplyConfig, TypeHashURI } from "../base"
+import type { SetURI } from "../../Algebra/Set/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { HashType, typeHashApplyConfig, TypeHashURI } from "../base/index.js"
 
 export const typeHashSetInterpreter = interpreter<TypeHashURI, SetURI>()(() => ({
   _F: TypeHashURI,

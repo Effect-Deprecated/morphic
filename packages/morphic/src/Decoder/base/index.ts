@@ -1,7 +1,7 @@
-// tracing: off
+// ets_tracing: off
 
-import { getApplyConfig } from "../../HKT"
-import type { Decoder } from "../common"
+import { getApplyConfig } from "../../HKT/index.js"
+import type { Decoder } from "../common/index.js"
 
 export const DecoderURI = "DecoderURI" as const
 
@@ -9,7 +9,7 @@ export type DecoderURI = typeof DecoderURI
 
 export const decoderApplyConfig = getApplyConfig(DecoderURI)
 
-declare module "../../HKT" {
+declare module "../../HKT/index.js" {
   interface ConfigType<E, A> {
     [DecoderURI]: Decoder<A>
   }

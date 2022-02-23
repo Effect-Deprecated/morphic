@@ -2,10 +2,10 @@ import { left } from "@effect-ts/core/Either"
 import { pipe } from "@effect-ts/core/Function"
 import * as S from "@effect-ts/core/Sync"
 
-import type { AType, EType } from "../src"
-import { DecoderURI, make, opaque } from "../src"
-import { decoder, fail, report } from "../src/Decoder"
-import { encoder } from "../src/Encoder"
+import { decoder, fail, report } from "../src/Decoder/index.js"
+import { encoder } from "../src/Encoder/index.js"
+import type { AType, EType } from "../src/index.js"
+import { DecoderURI, make, opaque } from "../src/index.js"
 
 const Id_ = make((F) =>
   F.interface({

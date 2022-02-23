@@ -1,12 +1,12 @@
-// tracing: off
+// ets_tracing: off
 
 import { fromArray } from "@effect-ts/core/Collections/Immutable/Set"
 import { pipe } from "@effect-ts/core/Function"
 import * as Ord from "@effect-ts/core/Ord"
 
-import type { SetURI } from "../../Algebra/Set"
-import { interpreter } from "../../HKT"
-import { accessFC, FastCheckType, FastCheckURI, fcApplyConfig } from "../base"
+import type { SetURI } from "../../Algebra/Set/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { accessFC, FastCheckType, FastCheckURI, fcApplyConfig } from "../base/index.js"
 
 export const fcSetInterpreter = interpreter<FastCheckURI, SetURI>()(() => ({
   _F: FastCheckURI,

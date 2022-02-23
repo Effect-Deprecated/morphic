@@ -1,13 +1,13 @@
-// tracing: off
+// ets_tracing: off
 
 import * as A from "@effect-ts/core/Collections/Immutable/Array"
 import { pipe } from "@effect-ts/core/Function"
 import * as T from "@effect-ts/core/Sync"
 
-import type { IntersectionURI } from "../../Algebra/Intersection"
-import { mergePrefer } from "../../Decoder/interpreter/common"
-import { interpreter } from "../../HKT"
-import { encoderApplyConfig, EncoderType, EncoderURI } from "../base"
+import type { IntersectionURI } from "../../Algebra/Intersection/index.js"
+import { mergePrefer } from "../../Decoder/interpreter/common.js"
+import { interpreter } from "../../HKT/index.js"
+import { encoderApplyConfig, EncoderType, EncoderURI } from "../base/index.js"
 
 export const encoderIntersectionInterpreter = interpreter<
   EncoderURI,

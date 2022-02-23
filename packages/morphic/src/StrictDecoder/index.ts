@@ -1,13 +1,13 @@
-// tracing: off
+// ets_tracing: off
 
 import { flow } from "@effect-ts/core/Function"
 import * as T from "@effect-ts/core/Sync"
 
-import type { M } from "../Batteries/summoner"
-import { decoder } from "../Decoder"
-import type { Decoder } from "../Decoder/common"
-import { makeDecoder } from "../Decoder/common"
-import { strict } from "../Strict"
+import type { M } from "../Batteries/summoner/index.js"
+import type { Decoder } from "../Decoder/common/index.js"
+import { makeDecoder } from "../Decoder/common/index.js"
+import { decoder } from "../Decoder/index.js"
+import { strict } from "../Strict/index.js"
 
 function strictDecoder_<E, A>(F: M<{}, E, A>): Decoder<A> {
   const d = decoder(F)

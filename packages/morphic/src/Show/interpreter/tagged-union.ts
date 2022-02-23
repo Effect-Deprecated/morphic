@@ -1,9 +1,9 @@
-// tracing: off
+// ets_tracing: off
 
-import type { TaggedUnionURI } from "../../Algebra/TaggedUnion"
-import { interpreter } from "../../HKT"
-import { mapRecord } from "../../Utils"
-import { showApplyConfig, ShowType, ShowURI } from "../base"
+import type { TaggedUnionURI } from "../../Algebra/TaggedUnion/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { mapRecord } from "../../Utils/index.js"
+import { showApplyConfig, ShowType, ShowURI } from "../base/index.js"
 
 export const showTaggedUnionInterpreter = interpreter<ShowURI, TaggedUnionURI>()(
   () => ({

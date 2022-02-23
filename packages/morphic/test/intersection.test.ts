@@ -1,11 +1,11 @@
 import { right } from "@effect-ts/core/Either"
 import { run, runEither } from "@effect-ts/core/Sync"
 
-import { make } from "../src"
-import { decoder, decoderType } from "../src/Decoder"
-import { encoderType } from "../src/Encoder"
-import { equalType } from "../src/Equal"
-import { hash } from "../src/TypeHash"
+import { decoder, decoderType } from "../src/Decoder/index.js"
+import { encoderType } from "../src/Encoder/index.js"
+import { equalType } from "../src/Equal/index.js"
+import { make } from "../src/index.js"
+import { hash } from "../src/TypeHash/index.js"
 
 const A = make((F) =>
   F.interface({

@@ -1,21 +1,21 @@
-// tracing: off
+// ets_tracing: off
 
 import type { Erase } from "@effect-ts/core/Utils"
 
-import { cacheUnaryFunction } from "../../Algebra/Core"
-import type { BaseFC } from "../../FastCheck/base"
-import type { AnyEnv } from "../../HKT"
-import type { InterpreterURI } from "../interpreter"
-import type { ProgramURI } from "../program"
-import type { Materialized } from "../usage/materializer"
-import type { ProgramType } from "../usage/program-type"
+import { cacheUnaryFunction } from "../../Algebra/Core/index.js"
+import type { BaseFC } from "../../FastCheck/base/index.js"
+import type { AnyEnv } from "../../HKT/index.js"
+import type { InterpreterURI } from "../interpreter/index.js"
+import type { ProgramURI } from "../program/index.js"
+import type { Materialized } from "../usage/materializer/index.js"
+import type { ProgramType } from "../usage/program-type/index.js"
 import type {
   AnyConfigEnv,
   ExtractEnv,
   SummonerOps,
   Summoners
-} from "../usage/summoner"
-import { makeSummoner } from "../usage/summoner"
+} from "../usage/summoner/index.js"
+import { makeSummoner } from "../usage/summoner/index.js"
 
 export interface MM<R, L, A>
   extends Materialized<R, L, A, ProgramURI, InterpreterURI> {}

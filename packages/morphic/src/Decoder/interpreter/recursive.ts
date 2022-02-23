@@ -1,12 +1,12 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 
-import type { RecursiveURI } from "../../Algebra/Recursive"
-import { interpreter } from "../../HKT"
-import { memo } from "../../Utils"
-import { decoderApplyConfig, DecoderType, DecoderURI } from "../base"
-import { makeDecoder } from "../common"
+import type { RecursiveURI } from "../../Algebra/Recursive/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { memo } from "../../Utils/index.js"
+import { decoderApplyConfig, DecoderType, DecoderURI } from "../base/index.js"
+import { makeDecoder } from "../common/index.js"
 
 export const decoderRecursiveInterpreter = interpreter<DecoderURI, RecursiveURI>()(
   () => ({

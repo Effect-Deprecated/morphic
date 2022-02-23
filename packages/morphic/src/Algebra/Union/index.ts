@@ -1,4 +1,4 @@
-// tracing: off
+// ets_tracing: off
 
 import type { NonEmptyArray } from "@effect-ts/core/Collections/Immutable/NonEmptyArray"
 import type { Refinement } from "@effect-ts/system/Function"
@@ -10,7 +10,7 @@ import type {
   InterpreterURIS,
   Kind,
   Named
-} from "../../HKT"
+} from "../../HKT/index.js"
 
 export const UnionURI = "UnionURI" as const
 export type UnionURI = typeof UnionURI

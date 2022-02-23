@@ -1,8 +1,8 @@
-// tracing: off
+// ets_tracing: off
 
-import type { UnionURI } from "../../Algebra/Union"
-import { interpreter } from "../../HKT"
-import { HashType, typeHashApplyConfig, TypeHashURI } from "../base"
+import type { UnionURI } from "../../Algebra/Union/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { HashType, typeHashApplyConfig, TypeHashURI } from "../base/index.js"
 
 export const typeHashUnionInterpreter = interpreter<TypeHashURI, UnionURI>()(() => ({
   _F: TypeHashURI,

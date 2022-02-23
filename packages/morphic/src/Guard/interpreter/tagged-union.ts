@@ -1,9 +1,9 @@
-// tracing: off
+// ets_tracing: off
 
-import type { TaggedUnionURI } from "../../Algebra/TaggedUnion"
-import { interpreter } from "../../HKT"
-import { mapRecord } from "../../Utils"
-import { guardApplyConfig, GuardType, GuardURI } from "../base"
+import type { TaggedUnionURI } from "../../Algebra/TaggedUnion/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { mapRecord } from "../../Utils/index.js"
+import { guardApplyConfig, GuardType, GuardURI } from "../base/index.js"
 
 export const guardTaggedUnionInterpreter = interpreter<GuardURI, TaggedUnionURI>()(
   () => ({

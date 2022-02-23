@@ -1,11 +1,11 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 
-import type { RecursiveURI } from "../../Algebra/Recursive"
-import { interpreter } from "../../HKT"
-import { memo } from "../../Utils"
-import { accessFC, FastCheckType, FastCheckURI, fcApplyConfig } from "../base"
+import type { RecursiveURI } from "../../Algebra/Recursive/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { memo } from "../../Utils/index.js"
+import { accessFC, FastCheckType, FastCheckURI, fcApplyConfig } from "../base/index.js"
 
 export const fcRecursiveInterpreter = interpreter<FastCheckURI, RecursiveURI>()(() => ({
   _F: FastCheckURI,

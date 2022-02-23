@@ -1,11 +1,11 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 import type { Some } from "@effect-ts/core/Option"
 
-import type { NewtypeURI } from "../../Algebra/Newtype"
-import { interpreter } from "../../HKT"
-import { FastCheckType, FastCheckURI, fcApplyConfig } from "../base"
+import type { NewtypeURI } from "../../Algebra/Newtype/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { FastCheckType, FastCheckURI, fcApplyConfig } from "../base/index.js"
 
 export const fcNewtypeInterpreter = interpreter<FastCheckURI, NewtypeURI>()(() => ({
   _F: FastCheckURI,

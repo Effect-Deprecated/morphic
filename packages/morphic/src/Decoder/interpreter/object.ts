@@ -1,18 +1,18 @@
-// tracing: off
+// ets_tracing: off
 
 import * as R from "@effect-ts/core/Collections/Immutable/Dictionary"
 import { pipe } from "@effect-ts/core/Function"
 import * as T from "@effect-ts/core/Sync"
 
-import type { ObjectURI } from "../../Algebra/Object"
-import { isUnknownRecord } from "../../Guard/interpreter/common"
-import type { Kind } from "../../HKT"
-import { interpreter } from "../../HKT"
-import { projectFieldWithEnv2 } from "../../Utils"
-import { decoderApplyConfig, DecoderType, DecoderURI } from "../base"
-import type { Decoder } from "../common"
-import { appendContext, fail, makeDecoder } from "../common"
-import { forEachRecordWithIndex, mergePrefer, originalSort, tuple } from "./common"
+import type { ObjectURI } from "../../Algebra/Object/index.js"
+import { isUnknownRecord } from "../../Guard/interpreter/common.js"
+import type { Kind } from "../../HKT/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { projectFieldWithEnv2 } from "../../Utils/index.js"
+import { decoderApplyConfig, DecoderType, DecoderURI } from "../base/index.js"
+import type { Decoder } from "../common/index.js"
+import { appendContext, fail, makeDecoder } from "../common/index.js"
+import { forEachRecordWithIndex, mergePrefer, originalSort, tuple } from "./common.js"
 
 export const decoderObjectInterpreter = interpreter<DecoderURI, ObjectURI>()(() => ({
   _F: DecoderURI,

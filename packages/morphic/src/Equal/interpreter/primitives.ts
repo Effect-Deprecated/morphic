@@ -1,4 +1,4 @@
-// tracing: off
+// ets_tracing: off
 
 import * as A from "@effect-ts/core/Collections/Immutable/Array"
 import { getEqual as LgetEq } from "@effect-ts/core/Collections/Immutable/List"
@@ -7,9 +7,9 @@ import * as Equal from "@effect-ts/core/Equal"
 import { pipe } from "@effect-ts/core/Function"
 import { getEqual as OgetEq } from "@effect-ts/core/Option"
 
-import type { PrimitivesURI, UUID } from "../../Algebra/Primitives"
-import { interpreter } from "../../HKT"
-import { eqApplyConfig, EqType, EqURI } from "../base"
+import type { PrimitivesURI, UUID } from "../../Algebra/Primitives/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { eqApplyConfig, EqType, EqURI } from "../base/index.js"
 
 export const eqPrimitiveInterpreter = interpreter<EqURI, PrimitivesURI>()(() => ({
   _F: EqURI,

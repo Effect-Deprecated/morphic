@@ -1,4 +1,4 @@
-// tracing: off
+// ets_tracing: off
 
 import type { Branded } from "@effect-ts/core/Branded"
 import type { Array } from "@effect-ts/core/Collections/Immutable/Array"
@@ -10,7 +10,13 @@ import type { FunctionN } from "@effect-ts/core/Function"
 import type { Option } from "@effect-ts/core/Option"
 import type { Mutable } from "@effect-ts/core/Support/Mutable"
 
-import type { AnyEnv, ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT"
+import type {
+  AnyEnv,
+  ConfigsForType,
+  InterpreterURIS,
+  Kind,
+  Named
+} from "../../HKT/index.js"
 
 export interface UUIDBrand {
   readonly UUID: unique symbol

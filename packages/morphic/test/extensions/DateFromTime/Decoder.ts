@@ -1,6 +1,6 @@
 import * as T from "@effect-ts/core/Sync"
 
-import * as Decoder from "../../../src/Decoder"
+import * as Decoder from "../../../src/Decoder/index.js"
 
 Decoder.decoderExtension("dateFromTime")(
   () => (cfg) => (env) =>

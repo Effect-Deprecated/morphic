@@ -1,8 +1,8 @@
-// tracing: off
+// ets_tracing: off
 
-import type { UnknownURI } from "../../Algebra/Unknown"
-import { interpreter } from "../../HKT"
-import { guardApplyConfig, GuardType, GuardURI } from "../base"
+import type { UnknownURI } from "../../Algebra/Unknown/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { guardApplyConfig, GuardType, GuardURI } from "../base/index.js"
 
 export const guardUnknownInterpreter = interpreter<GuardURI, UnknownURI>()(() => ({
   _F: GuardURI,

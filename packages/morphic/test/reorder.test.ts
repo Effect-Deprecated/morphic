@@ -1,7 +1,7 @@
 import * as S from "@effect-ts/core/Sync"
 
-import * as MO from "../src"
-import { reorder } from "../src/Reorder"
+import * as MO from "../src/index.js"
+import { reorder } from "../src/Reorder/index.js"
 
 const A_ = MO.make((F) => F.interface({ a: F.string() }, { name: "A" }))
 

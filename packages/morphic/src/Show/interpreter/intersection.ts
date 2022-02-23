@@ -1,8 +1,8 @@
-// tracing: off
+// ets_tracing: off
 
-import type { IntersectionURI } from "../../Algebra/Intersection"
-import { interpreter } from "../../HKT"
-import { showApplyConfig, ShowType, ShowURI } from "../base"
+import type { IntersectionURI } from "../../Algebra/Intersection/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { showApplyConfig, ShowType, ShowURI } from "../base/index.js"
 
 export const showIntersectionInterpreter = interpreter<ShowURI, IntersectionURI>()(
   () => ({

@@ -1,4 +1,4 @@
-// tracing: off
+// ets_tracing: off
 
 import { Array } from "@effect-ts/core/Collections/Immutable/Array"
 import * as L from "@effect-ts/core/Collections/Immutable/List"
@@ -7,11 +7,11 @@ import type { Either } from "@effect-ts/core/Either"
 import { pipe } from "@effect-ts/core/Function"
 import type { Option } from "@effect-ts/core/Option"
 
-import type { PrimitivesURI, UUID } from "../../Algebra/Primitives"
-import { interpreter } from "../../HKT"
-import { guardApplyConfig, GuardType, GuardURI } from "../base"
-import type { AOfGuard } from "./common"
-import { isNumber, isString } from "./common"
+import type { PrimitivesURI, UUID } from "../../Algebra/Primitives/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { guardApplyConfig, GuardType, GuardURI } from "../base/index.js"
+import type { AOfGuard } from "./common.js"
+import { isNumber, isString } from "./common.js"
 
 export const regexUUID =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i

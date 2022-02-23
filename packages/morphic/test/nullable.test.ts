@@ -2,8 +2,8 @@ import * as E from "@effect-ts/core/Either"
 import * as O from "@effect-ts/core/Option"
 import * as S from "@effect-ts/core/Sync"
 
-import * as MO from "../src"
-import { decoder } from "../src/Decoder"
+import { decoder } from "../src/Decoder/index.js"
+import * as MO from "../src/index.js"
 
 const UpdateTPInput = MO.make((F) =>
   F.both(

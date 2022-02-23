@@ -1,13 +1,13 @@
-// tracing: off
+// ets_tracing: off
 
 import * as R from "@effect-ts/core/Collections/Immutable/Dictionary"
 import { pipe } from "@effect-ts/core/Function"
 import * as T from "@effect-ts/core/Sync"
 
-import type { ObjectURI } from "../../Algebra/Object"
-import { interpreter } from "../../HKT"
-import { projectFieldWithEnv2 } from "../../Utils"
-import { encoderApplyConfig, EncoderType, EncoderURI } from "../base"
+import type { ObjectURI } from "../../Algebra/Object/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { projectFieldWithEnv2 } from "../../Utils/index.js"
+import { encoderApplyConfig, EncoderType, EncoderURI } from "../base/index.js"
 
 export const encoderObjectInterpreter = interpreter<EncoderURI, ObjectURI>()(() => ({
   _F: EncoderURI,

@@ -1,10 +1,10 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 
-import type { NewtypeURI } from "../../Algebra/Newtype"
-import { interpreter } from "../../HKT"
-import { strictApplyConfig, StrictType, StrictURI } from "../base"
+import type { NewtypeURI } from "../../Algebra/Newtype/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { strictApplyConfig, StrictType, StrictURI } from "../base/index.js"
 
 export const strictNewtypeInterpreter = interpreter<StrictURI, NewtypeURI>()(() => ({
   _F: StrictURI,

@@ -1,6 +1,6 @@
-// tracing: off
+// ets_tracing: off
 
-import { getApplyConfig } from "../../HKT"
+import { getApplyConfig } from "../../HKT/index.js"
 
 export const GuardURI = "GuardURI" as const
 
@@ -12,7 +12,7 @@ export interface Guard<A> {
 
 export const guardApplyConfig = getApplyConfig(GuardURI)
 
-declare module "../../HKT" {
+declare module "../../HKT/index.js" {
   interface ConfigType<E, A> {
     [GuardURI]: Guard<A>
   }

@@ -1,4 +1,4 @@
-// tracing: off
+// ets_tracing: off
 
 import { first } from "@effect-ts/core/Associative"
 import {
@@ -14,16 +14,24 @@ import {
 import { tuple } from "@effect-ts/core/Collections/Immutable/Tuple"
 import * as Equal from "@effect-ts/core/Equal"
 
-import type { ADT } from "../../../Adt"
-import { makeADT } from "../../../Adt"
-import type { ElemType } from "../../../Adt/utils"
-import type { TaggedUnionConfig, TaggedUnionURI } from "../../../Algebra/TaggedUnion"
-import type { ConfigsForType, HKT, InterpreterURIS, URItoAlgebra } from "../../../HKT"
-import type { InterpreterURI } from "../interpreter-result"
-import type { Materialized, Morph } from "../materializer"
-import type { ProgramType, ProgramURI } from "../program-type"
-import type { AType, EType, InhabitedTypes } from "../utils"
-import { assignCallable, wrapFun } from "../utils"
+import type { ADT } from "../../../Adt/index.js"
+import { makeADT } from "../../../Adt/index.js"
+import type { ElemType } from "../../../Adt/utils/index.js"
+import type {
+  TaggedUnionConfig,
+  TaggedUnionURI
+} from "../../../Algebra/TaggedUnion/index.js"
+import type {
+  ConfigsForType,
+  HKT,
+  InterpreterURIS,
+  URItoAlgebra
+} from "../../../HKT/index.js"
+import type { InterpreterURI } from "../interpreter-result/index.js"
+import type { Materialized, Morph } from "../materializer/index.js"
+import type { ProgramType, ProgramURI } from "../program-type/index.js"
+import type { AType, EType, InhabitedTypes } from "../utils/index.js"
+import { assignCallable, wrapFun } from "../utils/index.js"
 
 export type IfStringLiteral<T, IfLiteral, IfString, IfNotString> = T extends string
   ? string extends T

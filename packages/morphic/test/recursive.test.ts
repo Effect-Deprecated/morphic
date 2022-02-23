@@ -1,5 +1,5 @@
-import * as MO from "../src"
-import { equal } from "../src/Equal"
+import { equal } from "../src/Equal/index.js"
+import * as MO from "../src/index.js"
 
 export interface MatchField {
   readonly _tag: "MatchField"

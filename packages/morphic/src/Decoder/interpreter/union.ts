@@ -1,12 +1,12 @@
-// tracing: off
+// ets_tracing: off
 
 import * as S from "@effect-ts/core/Sync"
 
-import type { UnionURI } from "../../Algebra/Union"
-import { interpreter } from "../../HKT"
-import { decoderApplyConfig, DecoderType, DecoderURI } from "../base"
-import type { Decoder, ValidationError } from "../common"
-import { appendContext, failures, makeDecoder } from "../common"
+import type { UnionURI } from "../../Algebra/Union/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { decoderApplyConfig, DecoderType, DecoderURI } from "../base/index.js"
+import type { Decoder, ValidationError } from "../common/index.js"
+import { appendContext, failures, makeDecoder } from "../common/index.js"
 
 export const decoderUnionInterpreter = interpreter<DecoderURI, UnionURI>()(() => ({
   _F: DecoderURI,

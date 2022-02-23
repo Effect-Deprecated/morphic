@@ -1,4 +1,4 @@
-// tracing: off
+// ets_tracing: off
 
 import { makeAssociative } from "@effect-ts/core/Associative"
 import * as A from "@effect-ts/core/Collections/Immutable/Array"
@@ -7,7 +7,7 @@ import * as NA from "@effect-ts/core/Collections/Immutable/NonEmptyArray"
 import * as DSL from "@effect-ts/core/Prelude/DSL"
 import * as T from "@effect-ts/core/Sync"
 
-import type { Errors } from "../common"
+import type { Errors } from "../common/index.js"
 
 export const AssociativeDecodeError = makeAssociative<Errors>((x, y) => [...x, ...y])
 

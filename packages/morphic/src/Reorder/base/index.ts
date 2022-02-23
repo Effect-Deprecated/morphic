@@ -1,8 +1,8 @@
-// tracing: off
+// ets_tracing: off
 
 import type * as T from "@effect-ts/core/Sync"
 
-import { getApplyConfig } from "../../HKT"
+import { getApplyConfig } from "../../HKT/index.js"
 
 export const ReorderURI = "ReorderURI" as const
 
@@ -14,7 +14,7 @@ export interface Reorder<A> {
   reorder: (u: A) => T.Sync<unknown, never, A>
 }
 
-declare module "../../HKT" {
+declare module "../../HKT/index.js" {
   interface ConfigType<E, A> {
     [ReorderURI]: Reorder<A>
   }

@@ -1,10 +1,10 @@
-import "./DateFromTime"
-import "./DateFromTime/Decoder"
+import "./DateFromTime/index.js"
+import "./DateFromTime/Decoder.js"
 
 import * as E from "@effect-ts/core/Either"
 
-import * as MO from "../../src"
-import { runDecode } from "../../src/Decoder"
+import { runDecode } from "../../src/Decoder/index.js"
+import * as MO from "../../src/index.js"
 
 describe("Extension", () => {
   it("should use extension", () => {

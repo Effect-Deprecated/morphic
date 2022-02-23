@@ -1,6 +1,6 @@
-// tracing: off
+// ets_tracing: off
 
-import type { SelectKeyOfMatchingValues } from "../utils"
+import type { SelectKeyOfMatchingValues } from "../utils/index.js"
 
 export interface InterpreterResult<E, A>
   extends Record<string, { build: (x: A) => A }> {}

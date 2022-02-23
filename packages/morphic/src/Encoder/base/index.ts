@@ -1,8 +1,8 @@
-// tracing: off
+// ets_tracing: off
 
 import type * as T from "@effect-ts/core/Sync"
 
-import { getApplyConfig } from "../../HKT"
+import { getApplyConfig } from "../../HKT/index.js"
 
 export const EncoderURI = "EncoderURI" as const
 
@@ -14,7 +14,7 @@ export interface Encoder<A, E> {
   encode: (e: A) => T.Sync<unknown, never, E>
 }
 
-declare module "../../HKT" {
+declare module "../../HKT/index.js" {
   interface ConfigType<E, A> {
     [EncoderURI]: Encoder<A, E>
   }

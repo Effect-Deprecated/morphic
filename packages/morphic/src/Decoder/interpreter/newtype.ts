@@ -1,13 +1,13 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 import * as O from "@effect-ts/core/Option"
 import * as T from "@effect-ts/core/Sync"
 
-import type { NewtypeURI } from "../../Algebra/Newtype"
-import { interpreter } from "../../HKT"
-import { decoderApplyConfig, DecoderType, DecoderURI } from "../base"
-import { fail, makeDecoder } from "../common"
+import type { NewtypeURI } from "../../Algebra/Newtype/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { decoderApplyConfig, DecoderType, DecoderURI } from "../base/index.js"
+import { fail, makeDecoder } from "../common/index.js"
 
 export const decoderNewtypeInterpreter = interpreter<DecoderURI, NewtypeURI>()(() => ({
   _F: DecoderURI,

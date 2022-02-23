@@ -1,11 +1,11 @@
 import * as E from "@effect-ts/core/Either"
 import * as Sync from "@effect-ts/core/Sync"
 
-import type { AType, EType } from "../src"
-import * as MO from "../src"
-import { decode, report } from "../src/Decoder"
-import { guard } from "../src/Guard"
-import { hash } from "../src/TypeHash"
+import { decode, report } from "../src/Decoder/index.js"
+import { guard } from "../src/Guard/index.js"
+import type { AType, EType } from "../src/index.js"
+import * as MO from "../src/index.js"
+import { hash } from "../src/TypeHash/index.js"
 
 const Foo_ = MO.make((F) =>
   F.interface(

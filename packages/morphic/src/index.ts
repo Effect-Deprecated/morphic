@@ -1,44 +1,44 @@
-// tracing: off
+// ets_tracing: off
 
-import type { M, M_ } from "./Batteries/summoner"
-import { opaque, opaque_, summonFor } from "./Batteries/summoner"
+import type { M, M_ } from "./Batteries/summoner/index.js"
+import { opaque, opaque_, summonFor } from "./Batteries/summoner/index.js"
 
 //
 // Summoner
 //
 
-export { Summoner, summonFor as makeFor } from "./Batteries/summoner"
+export { Summoner, summonFor as makeFor } from "./Batteries/summoner/index.js"
 
 //
 // Opaque
 //
-export type { AType, EType, RType } from "./Batteries/usage/utils"
+export type { AType, EType, RType } from "./Batteries/usage/utils/index.js"
 
 //
 // URIS
 //
-export { FastCheckURI } from "./FastCheck/base"
-export { GuardURI } from "./Guard/base"
-export { DecoderURI } from "./Decoder/base"
-export { EncoderURI } from "./Encoder/base"
-export { EqURI } from "./Equal/base"
-export { ShowURI } from "./Show/base"
-export { StrictURI } from "./Strict/base"
-export { TypeHashURI as HashURI } from "./TypeHash/base"
-export { ReorderURI } from "./Reorder/base"
+export { FastCheckURI } from "./FastCheck/base/index.js"
+export { GuardURI } from "./Guard/base/index.js"
+export { DecoderURI } from "./Decoder/base/index.js"
+export { EncoderURI } from "./Encoder/base/index.js"
+export { EqURI } from "./Equal/base/index.js"
+export { ShowURI } from "./Show/base/index.js"
+export { StrictURI } from "./Strict/base/index.js"
+export { TypeHashURI as HashURI } from "./TypeHash/base/index.js"
+export { ReorderURI } from "./Reorder/base/index.js"
 
 //
 // Threading configs
 //
-export {} from "./FastCheck/interpreter/configs"
-export {} from "./Guard/interpreter/configs"
-export {} from "./Decoder/interpreter/configs"
-export {} from "./Encoder/interpreter/configs"
-export {} from "./Equal/interpreter/configs"
-export {} from "./Show/interpreter/configs"
-export {} from "./Strict/interpreter/configs"
-export {} from "./TypeHash/interpreter/configs"
-export {} from "./Reorder/interpreter/configs"
+export {} from "./FastCheck/interpreter/configs.js"
+export {} from "./Guard/interpreter/configs.js"
+export {} from "./Decoder/interpreter/configs.js"
+export {} from "./Encoder/interpreter/configs.js"
+export {} from "./Equal/interpreter/configs.js"
+export {} from "./Show/interpreter/configs.js"
+export {} from "./Strict/interpreter/configs.js"
+export {} from "./TypeHash/interpreter/configs.js"
+export {} from "./Reorder/interpreter/configs.js"
 
 //
 // Generics

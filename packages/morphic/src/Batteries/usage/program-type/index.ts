@@ -1,7 +1,7 @@
-// tracing: off
+// ets_tracing: off
 
-import type { InterpreterURIS } from "../../../HKT"
-import type { AnyConfigEnv } from "../summoner"
+import type { InterpreterURIS } from "../../../HKT/index.js"
+import type { AnyConfigEnv } from "../summoner/index.js"
 
 export interface ProgramType<R extends AnyConfigEnv, E, A> {
   _R: (_R: R) => void

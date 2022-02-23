@@ -1,20 +1,20 @@
-// tracing: off
+// ets_tracing: off
 
 import type { Show } from "@effect-ts/core/Show"
 
-import type { M, Summoner } from "../Batteries/summoner"
-import { summonFor } from "../Batteries/summoner"
-import type { Materialized } from "../Batteries/usage/materializer"
+import type { M, Summoner } from "../Batteries/summoner/index.js"
+import { summonFor } from "../Batteries/summoner/index.js"
+import type { Materialized } from "../Batteries/usage/materializer/index.js"
 import type {
   SummonerEnv,
   SummonerInterpURI,
   SummonerProgURI
-} from "../Batteries/usage/summoner"
-import type { ShowURI } from "./base"
-import { modelShowInterpreter } from "./interpreter"
+} from "../Batteries/usage/summoner/index.js"
+import type { ShowURI } from "./base/index.js"
+import { modelShowInterpreter } from "./interpreter/index.js"
 
-export { showExtension } from "./interpreter"
-export { ShowURI, ShowType, showApplyConfig } from "./base"
+export { showExtension } from "./interpreter/index.js"
+export { ShowURI, ShowType, showApplyConfig } from "./base/index.js"
 
 export function deriveFor<S extends Summoner<any>>(S: S) {
   return (_: {

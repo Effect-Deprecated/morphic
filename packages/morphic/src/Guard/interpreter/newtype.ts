@@ -1,12 +1,12 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 import type { Iso } from "@effect-ts/monocle/Iso"
 import type { Prism } from "@effect-ts/monocle/Prism"
 
-import type { NewtypeURI } from "../../Algebra/Newtype"
-import { interpreter } from "../../HKT"
-import { guardApplyConfig, GuardType, GuardURI } from "../base"
+import type { NewtypeURI } from "../../Algebra/Newtype/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { guardApplyConfig, GuardType, GuardURI } from "../base/index.js"
 
 type AOfIso<X> = X extends Iso<infer S, infer A> ? A : never
 type AOfPrism<X> = X extends Prism<infer S, infer A> ? A : never

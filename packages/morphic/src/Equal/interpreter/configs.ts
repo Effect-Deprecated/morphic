@@ -1,12 +1,16 @@
-// tracing: off
+// ets_tracing: off
 
 import type * as E from "@effect-ts/core/Equal"
 
-import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
-import type { HKT, Kind } from "../../HKT"
-import type { EqURI } from "../base"
+import type {
+  InterfaceLA,
+  IntersectionLA,
+  TaggedUnionLA
+} from "../../Algebra/Config/index.js"
+import type { HKT, Kind } from "../../HKT/index.js"
+import type { EqURI } from "../base/index.js"
 
-declare module "../../Algebra/Intersection" {
+declare module "../../Algebra/Intersection/index.js" {
   export interface IntersectionConfig<
     L extends readonly unknown[],
     A extends readonly unknown[]
@@ -17,7 +21,7 @@ declare module "../../Algebra/Intersection" {
   }
 }
 
-declare module "../../Algebra/Newtype" {
+declare module "../../Algebra/Newtype/index.js" {
   interface NewtypeConfig<L, A, N> {
     [EqURI]: {
       eq: E.Equal<A>
@@ -40,7 +44,7 @@ declare module "../../Algebra/Newtype" {
   }
 }
 
-declare module "../../Algebra/Object" {
+declare module "../../Algebra/Object/index.js" {
   interface InterfaceConfig<Props> {
     [EqURI]: {
       eq: InterfaceLA<Props, EqURI>
@@ -59,7 +63,7 @@ declare module "../../Algebra/Object" {
   }
 }
 
-declare module "../../Algebra/Primitives" {
+declare module "../../Algebra/Primitives/index.js" {
   interface NonEmptyArrayConfig<L, A> {
     [EqURI]: {
       eq: E.Equal<A>
@@ -107,7 +111,7 @@ declare module "../../Algebra/Primitives" {
   }
 }
 
-declare module "../../Algebra/Refined" {
+declare module "../../Algebra/Refined/index.js" {
   interface RefinedConfig<E, A, B> {
     [EqURI]: {
       eq: E.Equal<A>
@@ -121,7 +125,7 @@ declare module "../../Algebra/Refined" {
   }
 }
 
-declare module "../../Algebra/Set" {
+declare module "../../Algebra/Set/index.js" {
   interface SetConfig<L, A> {
     [EqURI]: {
       eq: E.Equal<A>
@@ -129,7 +133,7 @@ declare module "../../Algebra/Set" {
   }
 }
 
-declare module "../../Algebra/Record" {
+declare module "../../Algebra/Record/index.js" {
   interface RecordConfig<L, A> {
     [EqURI]: {
       eq: E.Equal<A>
@@ -137,7 +141,7 @@ declare module "../../Algebra/Record" {
   }
 }
 
-declare module "../../Algebra/TaggedUnion" {
+declare module "../../Algebra/TaggedUnion/index.js" {
   interface TaggedUnionConfig<Types> {
     [EqURI]: {
       equals: TaggedUnionLA<Types, EqURI>
@@ -145,7 +149,7 @@ declare module "../../Algebra/TaggedUnion" {
   }
 }
 
-declare module "../../Algebra/Union" {
+declare module "../../Algebra/Union/index.js" {
   interface UnionConfig<Types> {
     [EqURI]: {
       equals: {

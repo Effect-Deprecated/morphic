@@ -1,13 +1,13 @@
-// tracing: off
+// ets_tracing: off
 
-import type { Algebra, HKT, InterpreterURIS, Kind } from "../../../HKT"
+import type { Algebra, HKT, InterpreterURIS, Kind } from "../../../HKT/index.js"
 import type {
   ProgramAlgebra,
   ProgramAlgebraURI,
   ProgramType,
   ProgramURI
-} from "../program-type"
-import type { AnyConfigEnv } from "../summoner"
+} from "../program-type/index.js"
+import type { AnyConfigEnv } from "../summoner/index.js"
 
 export const overloadsSymb = Symbol()
 

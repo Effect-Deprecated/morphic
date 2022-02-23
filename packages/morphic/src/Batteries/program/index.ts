@@ -1,20 +1,20 @@
-// tracing: off
+// ets_tracing: off
 
-import type { ExtensionsURI } from "../../Algebra/Extensions"
-import type { IntersectionURI } from "../../Algebra/Intersection"
-import type { NewtypeURI } from "../../Algebra/Newtype"
-import type { ObjectURI } from "../../Algebra/Object"
-import type { PrimitivesURI } from "../../Algebra/Primitives"
-import type { RecordURI } from "../../Algebra/Record"
-import type { RecursiveURI } from "../../Algebra/Recursive"
-import type { RefinedURI } from "../../Algebra/Refined"
-import type { SetURI } from "../../Algebra/Set"
-import type { TaggedUnionURI } from "../../Algebra/TaggedUnion"
-import type { UnionURI } from "../../Algebra/Union"
-import type { UnknownURI } from "../../Algebra/Unknown"
-import type { GetAlgebra, InterpreterURIS } from "../../HKT"
-import type { InferredAlgebra, InferredProgram } from "../usage/program-infer"
-import type { AnyConfigEnv } from "../usage/summoner"
+import type { ExtensionsURI } from "../../Algebra/Extensions/index.js"
+import type { IntersectionURI } from "../../Algebra/Intersection/index.js"
+import type { NewtypeURI } from "../../Algebra/Newtype/index.js"
+import type { ObjectURI } from "../../Algebra/Object/index.js"
+import type { PrimitivesURI } from "../../Algebra/Primitives/index.js"
+import type { RecordURI } from "../../Algebra/Record/index.js"
+import type { RecursiveURI } from "../../Algebra/Recursive/index.js"
+import type { RefinedURI } from "../../Algebra/Refined/index.js"
+import type { SetURI } from "../../Algebra/Set/index.js"
+import type { TaggedUnionURI } from "../../Algebra/TaggedUnion/index.js"
+import type { UnionURI } from "../../Algebra/Union/index.js"
+import type { UnknownURI } from "../../Algebra/Unknown/index.js"
+import type { GetAlgebra, InterpreterURIS } from "../../HKT/index.js"
+import type { InferredAlgebra, InferredProgram } from "../usage/program-infer/index.js"
+import type { AnyConfigEnv } from "../usage/summoner/index.js"
 
 export const ProgramURI = "ProgramURI" as const
 
@@ -26,7 +26,7 @@ export interface CoreAlgebra<F extends InterpreterURIS, Env>
 export interface P<R extends AnyConfigEnv, E, A>
   extends InferredProgram<R, E, A, ProgramURI> {}
 
-declare module "../usage/program-type" {
+declare module "../usage/program-type/index.js" {
   interface ProgramAlgebraURI {
     [ProgramURI]: GetAlgebra<
       | PrimitivesURI

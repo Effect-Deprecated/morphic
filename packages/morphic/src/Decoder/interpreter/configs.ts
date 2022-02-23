@@ -1,11 +1,15 @@
-// tracing: off
+// ets_tracing: off
 
-import type { InterfaceLA, IntersectionLA, TaggedUnionLA } from "../../Algebra/Config"
-import type { HKT, Kind } from "../../HKT"
-import type { DecoderURI } from "../base"
-import type { Decoder } from "../common"
+import type {
+  InterfaceLA,
+  IntersectionLA,
+  TaggedUnionLA
+} from "../../Algebra/Config/index.js"
+import type { HKT, Kind } from "../../HKT/index.js"
+import type { DecoderURI } from "../base/index.js"
+import type { Decoder } from "../common/index.js"
 
-declare module "../../Algebra/Intersection" {
+declare module "../../Algebra/Intersection/index.js" {
   interface IntersectionConfig<
     L extends readonly unknown[],
     A extends readonly unknown[]
@@ -16,7 +20,7 @@ declare module "../../Algebra/Intersection" {
   }
 }
 
-declare module "../../Algebra/Newtype" {
+declare module "../../Algebra/Newtype/index.js" {
   interface NewtypeConfig<L, A, N> {
     [DecoderURI]: {
       decoder: Decoder<A>
@@ -39,7 +43,7 @@ declare module "../../Algebra/Newtype" {
   }
 }
 
-declare module "../../Algebra/Object" {
+declare module "../../Algebra/Object/index.js" {
   interface InterfaceConfig<Props> {
     [DecoderURI]: {
       decoder: InterfaceLA<Props, DecoderURI>
@@ -58,7 +62,7 @@ declare module "../../Algebra/Object" {
   }
 }
 
-declare module "../../Algebra/Primitives" {
+declare module "../../Algebra/Primitives/index.js" {
   interface NonEmptyArrayConfig<L, A> {
     [DecoderURI]: {
       decoder: Decoder<A>
@@ -106,7 +110,7 @@ declare module "../../Algebra/Primitives" {
   }
 }
 
-declare module "../../Algebra/Refined" {
+declare module "../../Algebra/Refined/index.js" {
   interface RefinedConfig<E, A, B> {
     [DecoderURI]: {
       decoder: Decoder<A>
@@ -119,7 +123,7 @@ declare module "../../Algebra/Refined" {
   }
 }
 
-declare module "../../Algebra/Set" {
+declare module "../../Algebra/Set/index.js" {
   interface SetConfig<L, A> {
     [DecoderURI]: {
       decoder: Decoder<A>
@@ -127,7 +131,7 @@ declare module "../../Algebra/Set" {
   }
 }
 
-declare module "../../Algebra/Record" {
+declare module "../../Algebra/Record/index.js" {
   interface RecordConfig<L, A> {
     [DecoderURI]: {
       decoder: Decoder<A>
@@ -135,7 +139,7 @@ declare module "../../Algebra/Record" {
   }
 }
 
-declare module "../../Algebra/TaggedUnion" {
+declare module "../../Algebra/TaggedUnion/index.js" {
   interface TaggedUnionConfig<Types> {
     [DecoderURI]: {
       decoders: TaggedUnionLA<Types, DecoderURI>
@@ -143,7 +147,7 @@ declare module "../../Algebra/TaggedUnion" {
   }
 }
 
-declare module "../../Algebra/Union" {
+declare module "../../Algebra/Union/index.js" {
   interface UnionConfig<Types> {
     [DecoderURI]: {
       decoders: {

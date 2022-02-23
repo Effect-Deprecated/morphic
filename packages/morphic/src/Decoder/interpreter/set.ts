@@ -1,15 +1,15 @@
-// tracing: off
+// ets_tracing: off
 
 import * as S from "@effect-ts/core/Collections/Immutable/Set"
 import { pipe } from "@effect-ts/core/Function"
 import * as Ord from "@effect-ts/core/Ord"
 import * as T from "@effect-ts/core/Sync"
 
-import type { SetURI } from "../../Algebra/Set"
-import { interpreter } from "../../HKT"
-import { decoderApplyConfig, DecoderType, DecoderURI } from "../base"
-import { appendContext, fail, makeDecoder } from "../common"
-import { forEachArray } from "./common"
+import type { SetURI } from "../../Algebra/Set/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { decoderApplyConfig, DecoderType, DecoderURI } from "../base/index.js"
+import { appendContext, fail, makeDecoder } from "../common/index.js"
+import { forEachArray } from "./common.js"
 
 export const decoderSetInterpreter = interpreter<DecoderURI, SetURI>()(() => ({
   _F: DecoderURI,

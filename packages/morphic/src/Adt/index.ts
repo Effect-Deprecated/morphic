@@ -1,4 +1,4 @@
-// tracing: off
+// ets_tracing: off
 
 import { first as AssociativeFirst } from "@effect-ts/core/Associative"
 import type { Array } from "@effect-ts/core/Collections/Immutable/Array"
@@ -12,17 +12,17 @@ import { fromFoldable } from "@effect-ts/core/Collections/Immutable/Dictionary"
 import { tuple } from "@effect-ts/core/Collections/Immutable/Tuple"
 import * as Equal from "@effect-ts/core/Equal"
 
-import * as CU from "./ctors"
-import * as Ma from "./matcher"
-import * as M from "./monocle"
-import * as PU from "./predicates"
+import * as CU from "./ctors/index.js"
+import * as Ma from "./matcher/index.js"
+import * as M from "./monocle/index.js"
+import * as PU from "./predicates/index.js"
 import type {
   ElemType,
   ExcludeUnion,
   ExtractUnion,
   KeysDefinition,
   Tagged
-} from "./utils"
+} from "./utils/index.js"
 
 export interface ADT<A, Tag extends keyof A & string>
   extends Ma.Matchers<A, Tag>,

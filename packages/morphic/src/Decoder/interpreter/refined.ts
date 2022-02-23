@@ -1,12 +1,12 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 import * as T from "@effect-ts/core/Sync"
 
-import type { RefinedURI } from "../../Algebra/Refined"
-import { interpreter } from "../../HKT"
-import { decoderApplyConfig, DecoderType, DecoderURI } from "../base"
-import { fail, makeDecoder } from "../common"
+import type { RefinedURI } from "../../Algebra/Refined/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { decoderApplyConfig, DecoderType, DecoderURI } from "../base/index.js"
+import { fail, makeDecoder } from "../common/index.js"
 
 export const decoderRefinedInterpreter = interpreter<DecoderURI, RefinedURI>()(() => ({
   _F: DecoderURI,

@@ -1,7 +1,7 @@
-// tracing: off
+// ets_tracing: off
 
-import type { KeysDefinition } from "../utils"
-import { isIn } from "../utils"
+import type { KeysDefinition } from "../utils/index.js"
+import { isIn } from "../utils/index.js"
 
 type ValueByKeyByTag<
   Union extends Record<any, any>,

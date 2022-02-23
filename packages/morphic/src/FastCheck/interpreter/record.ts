@@ -1,4 +1,4 @@
-// tracing: off
+// ets_tracing: off
 
 import { first } from "@effect-ts/core/Associative"
 import { Foldable as array } from "@effect-ts/core/Collections/Immutable/Array"
@@ -6,9 +6,9 @@ import { fromFoldable } from "@effect-ts/core/Collections/Immutable/Dictionary"
 import { fromNative } from "@effect-ts/core/Collections/Immutable/Tuple"
 import { pipe } from "@effect-ts/core/Function"
 
-import type { RecordURI } from "../../Algebra/Record"
-import { interpreter } from "../../HKT"
-import { accessFC, FastCheckType, FastCheckURI, fcApplyConfig } from "../base"
+import type { RecordURI } from "../../Algebra/Record/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { accessFC, FastCheckType, FastCheckURI, fcApplyConfig } from "../base/index.js"
 
 const recordFromArray = <A>(fa: [string, A][]) =>
   fromFoldable(first<A>(), array)(fa.map(fromNative))

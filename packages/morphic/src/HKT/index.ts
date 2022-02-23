@@ -1,20 +1,26 @@
-// tracing: off
+// ets_tracing: off
 
 import type { UnionToIntersection } from "@effect-ts/core/Utils"
 
-import type { AlgebraExtensions, ExtensionsURI } from "../Algebra/Extensions"
-import type { AlgebraIntersections, IntersectionURI } from "../Algebra/Intersection"
-import type { AlgebraNewtypes, NewtypeURI } from "../Algebra/Newtype"
-import type { AlgebraObjects, ObjectURI } from "../Algebra/Object"
-import type { AlgebraPrimitives, PrimitivesURI } from "../Algebra/Primitives"
-import type { AlgebraRecord, RecordURI } from "../Algebra/Record"
-import type { AlgebraRecursive, RecursiveURI } from "../Algebra/Recursive"
-import type { AlgebraRefined, RefinedURI } from "../Algebra/Refined"
-import type { AlgebraSet, SetURI } from "../Algebra/Set"
-import type { AlgebraTaggedUnion, TaggedUnionURI } from "../Algebra/TaggedUnion"
-import type { AlgebraUnion, UnionURI } from "../Algebra/Union"
-import type { AlgebraUnknown, UnknownURI } from "../Algebra/Unknown"
-import { memo } from "../Utils"
+import type { AlgebraExtensions, ExtensionsURI } from "../Algebra/Extensions/index.js"
+import type {
+  AlgebraIntersections,
+  IntersectionURI
+} from "../Algebra/Intersection/index.js"
+import type { AlgebraNewtypes, NewtypeURI } from "../Algebra/Newtype/index.js"
+import type { AlgebraObjects, ObjectURI } from "../Algebra/Object/index.js"
+import type { AlgebraPrimitives, PrimitivesURI } from "../Algebra/Primitives/index.js"
+import type { AlgebraRecord, RecordURI } from "../Algebra/Record/index.js"
+import type { AlgebraRecursive, RecursiveURI } from "../Algebra/Recursive/index.js"
+import type { AlgebraRefined, RefinedURI } from "../Algebra/Refined/index.js"
+import type { AlgebraSet, SetURI } from "../Algebra/Set/index.js"
+import type {
+  AlgebraTaggedUnion,
+  TaggedUnionURI
+} from "../Algebra/TaggedUnion/index.js"
+import type { AlgebraUnion, UnionURI } from "../Algebra/Union/index.js"
+import type { AlgebraUnknown, UnknownURI } from "../Algebra/Unknown/index.js"
+import { memo } from "../Utils/index.js"
 
 export type URISIndexedAny = Readonly<Record<InterpreterURIS, any>>
 

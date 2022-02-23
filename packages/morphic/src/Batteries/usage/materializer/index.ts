@@ -1,12 +1,17 @@
-// tracing: off
+// ets_tracing: off
 
-import { MonocleFor } from "../../../Adt/monocle"
-import type { InterpreterResult, InterpreterURI } from "../interpreter-result"
-import type { Overloads } from "../program-infer"
-import { interpretable } from "../program-infer"
-import type { ProgramType, ProgramURI } from "../program-type"
-import type { InhabitedTypes } from "../utils"
-import { assignCallable, assignFunction, inhabitTypes, wrapFun } from "../utils"
+import { MonocleFor } from "../../../Adt/monocle/index.js"
+import type { InterpreterResult, InterpreterURI } from "../interpreter-result/index.js"
+import type { Overloads } from "../program-infer/index.js"
+import { interpretable } from "../program-infer/index.js"
+import type { ProgramType, ProgramURI } from "../program-type/index.js"
+import type { InhabitedTypes } from "../utils/index.js"
+import {
+  assignCallable,
+  assignFunction,
+  inhabitTypes,
+  wrapFun
+} from "../utils/index.js"
 
 export interface ProgramInterpreter<
   ProgURI extends ProgramURI,

@@ -1,15 +1,15 @@
-// tracing: off
+// ets_tracing: off
 
-import type { CacheType } from "../../../Algebra/Core"
-import type { AnyEnv, InterpreterURIS } from "../../../HKT"
-import type { InterpreterResult, InterpreterURI } from "../interpreter-result"
-import type { Materialized } from "../materializer"
-import { materialize } from "../materializer"
-import type { Define, InferredProgram, Overloads } from "../program-infer"
-import { defineFor } from "../program-infer"
-import type { ProgramType, ProgramURI } from "../program-type"
-import type { TaggedBuilder } from "../tagged-union"
-import { makeTagged } from "../tagged-union"
+import type { CacheType } from "../../../Algebra/Core/index.js"
+import type { AnyEnv, InterpreterURIS } from "../../../HKT/index.js"
+import type { InterpreterResult, InterpreterURI } from "../interpreter-result/index.js"
+import type { Materialized } from "../materializer/index.js"
+import { materialize } from "../materializer/index.js"
+import type { Define, InferredProgram, Overloads } from "../program-infer/index.js"
+import { defineFor } from "../program-infer/index.js"
+import type { ProgramType, ProgramURI } from "../program-type/index.js"
+import type { TaggedBuilder } from "../tagged-union/index.js"
+import { makeTagged } from "../tagged-union/index.js"
 
 export interface Summoners<
   ProgURI extends ProgramURI,

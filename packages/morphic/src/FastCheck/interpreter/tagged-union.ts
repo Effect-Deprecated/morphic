@@ -1,11 +1,11 @@
-// tracing: off
+// ets_tracing: off
 
 import { pipe } from "@effect-ts/core/Function"
 
-import type { TaggedUnionURI } from "../../Algebra/TaggedUnion"
-import { interpreter } from "../../HKT"
-import { collect } from "../../Utils"
-import { accessFC, FastCheckType, FastCheckURI, fcApplyConfig } from "../base"
+import type { TaggedUnionURI } from "../../Algebra/TaggedUnion/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { collect } from "../../Utils/index.js"
+import { accessFC, FastCheckType, FastCheckURI, fcApplyConfig } from "../base/index.js"
 
 export const fcTaggedUnionInterpreter = interpreter<FastCheckURI, TaggedUnionURI>()(
   () => ({

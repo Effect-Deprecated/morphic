@@ -1,4 +1,4 @@
-// tracing: off
+// ets_tracing: off
 
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import { getShow as AgetShow } from "@effect-ts/core/Collections/Immutable/Array"
@@ -13,9 +13,9 @@ import {
   string as showString
 } from "@effect-ts/core/Show"
 
-import type { LiteralT, PrimitivesURI, UUID } from "../../Algebra/Primitives"
-import { interpreter } from "../../HKT"
-import { showApplyConfig, ShowType, ShowURI } from "../base"
+import type { LiteralT, PrimitivesURI, UUID } from "../../Algebra/Primitives/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { showApplyConfig, ShowType, ShowURI } from "../base/index.js"
 
 export const named =
   (name?: string | undefined) =>

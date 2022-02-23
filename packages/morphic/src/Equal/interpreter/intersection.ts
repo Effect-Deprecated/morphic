@@ -1,11 +1,11 @@
-// tracing: off
+// ets_tracing: off
 
 import * as A from "@effect-ts/core/Collections/Immutable/Array"
 import { all, fold } from "@effect-ts/core/Identity"
 
-import type { IntersectionURI } from "../../Algebra/Intersection"
-import { interpreter } from "../../HKT"
-import { eqApplyConfig, EqType, EqURI } from "../base"
+import type { IntersectionURI } from "../../Algebra/Intersection/index.js"
+import { interpreter } from "../../HKT/index.js"
+import { eqApplyConfig, EqType, EqURI } from "../base/index.js"
 
 export const eqIntersectionInterpreter = interpreter<EqURI, IntersectionURI>()(() => ({
   _F: EqURI,

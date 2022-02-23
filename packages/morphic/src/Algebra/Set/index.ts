@@ -1,11 +1,17 @@
-// tracing: off
+// ets_tracing: off
 
 import type { Array } from "@effect-ts/core/Collections/Immutable/Array"
 import type { Set } from "@effect-ts/core/Collections/Immutable/Set"
 import type { Equal } from "@effect-ts/core/Equal"
 import type { Ord } from "@effect-ts/core/Ord"
 
-import type { AnyEnv, ConfigsForType, InterpreterURIS, Kind, Named } from "../../HKT"
+import type {
+  AnyEnv,
+  ConfigsForType,
+  InterpreterURIS,
+  Kind,
+  Named
+} from "../../HKT/index.js"
 
 export const SetURI = "SetURI" as const
 

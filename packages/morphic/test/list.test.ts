@@ -3,8 +3,8 @@ import { right } from "@effect-ts/core/Either"
 import { pipe } from "@effect-ts/core/Function"
 import * as S from "@effect-ts/core/Sync"
 
-import * as MO from "../src"
-import { decode } from "../src/Decoder"
+import { decode } from "../src/Decoder/index.js"
+import * as MO from "../src/index.js"
 
 const Person_ = MO.make((F) =>
   F.interface(
