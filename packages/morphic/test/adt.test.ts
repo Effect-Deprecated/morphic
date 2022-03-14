@@ -88,4 +88,10 @@ describe("Adt", () => {
       'Tagged(_tag)({"_tag":"Bar","bar":"string"} | {"_tag":"Foo","foo":"string"})'
     )
   })
+
+  it("ctor is protected from tag override", () => {
+    const foo = FooBar.of.Foo({ foo: "" })
+    const bar = FooBar.of.Bar({ ...foo, bar: "" })
+    expect(bar._tag).toBe("Bar")
+  })
 })
