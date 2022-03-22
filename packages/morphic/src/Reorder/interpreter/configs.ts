@@ -138,6 +138,15 @@ declare module "../../Algebra/Record/index.js" {
   }
 }
 
+declare module "../../Algebra/HashMap/index.js" {
+  interface HashMapConfig<L, A, K> {
+    [ReorderURI]: {
+      reorder: Reorder<K>
+      coReorder: Reorder<A>
+    }
+  }
+}
+
 declare module "../../Algebra/TaggedUnion/index.js" {
   interface TaggedUnionConfig<Types> {
     [ReorderURI]: {

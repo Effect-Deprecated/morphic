@@ -131,6 +131,15 @@ declare module "../../Algebra/Record/index.js" {
   }
 }
 
+declare module "../../Algebra/HashMap/index.js" {
+  interface HashMapConfig<L, A, K> {
+    [ShowURI]: {
+      show: S.Show<K>
+      coShow: S.Show<A>
+    }
+  }
+}
+
 declare module "../../Algebra/TaggedUnion/index.js" {
   interface TaggedUnionConfig<Types> {
     [ShowURI]: {

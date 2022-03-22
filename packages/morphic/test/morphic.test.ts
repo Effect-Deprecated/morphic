@@ -1,3 +1,4 @@
+import * as HM from "@effect-ts/core/Collections/Immutable/HashMap"
 import * as E from "@effect-ts/core/Either"
 import { pipe } from "@effect-ts/core/Function"
 import type { TypeOf } from "@effect-ts/core/Newtype"
@@ -281,5 +282,49 @@ describe("Tuple", () => {
     expect(equal(Tuple).equals(["1", 0, "3", "abc"], ["1", 2, "3", "abc"])).toEqual(
       false
     )
+  })
+})
+
+export const Hashmap = make((F) => F.hashMap(F.string(), F.number()))
+
+describe("HashMap", () => {
+  it("Equal regardless of ordering", () => {
+    expect(
+      equal(Hashmap).equals(
+        pipe(HM.make<string, number>(), HM.set("1", 3), HM.set("2", 1)),
+        pipe(HM.make<string, number>(), HM.set("2", 1), HM.set("1", 3))
+      )
+    ).toEqual(true)
+  })
+  it("Equal after removal", () => {
+    expect(
+      equal(Hashmap).equals(
+        pipe(HM.make<string, number>(), HM.set("1", 3), HM.set("2", 1)),
+        pipe(
+          HM.make<string, number>(),
+          HM.set("0", 5),
+          HM.set("2", 1),
+          HM.set("1", 3),
+          HM.remove("0")
+        )
+      )
+    ).toEqual(true)
+  })
+  it("Encode/Decode HashMap", () => {
+    fc.check(
+      fc.property(arbitrary(Hashmap), (p) => {
+        const res = T.runEither(
+          decoder(Hashmap).decode(T.run(encoder(Hashmap).encode(p)))
+        )
+        expect(res).toEqual(E.right(p))
+      })
+    )
+  })
+  it("Show", () => {
+    expect(
+      show(Hashmap).show(
+        pipe(HM.make<string, number>(), HM.set("1", 3), HM.set("2", 1))
+      )
+    ).toEqual('new HashMap([["1", 3], ["2", 1]])')
   })
 })

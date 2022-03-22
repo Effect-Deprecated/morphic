@@ -3,6 +3,7 @@
 import type { AnyEnv } from "../../HKT/index.js"
 import { memo, merge } from "../../Utils/index.js"
 import { eqExtensionsInterpreter } from "./extensions.js"
+import { eqHashMapInterpreter } from "./hashMap"
 import { eqIntersectionInterpreter } from "./intersection.js"
 import { eqNewtypeInterpreter } from "./newtype.js"
 import { eqObjectInterpreter } from "./object.js"
@@ -26,6 +27,7 @@ export const allModelEq = <Env extends AnyEnv>() =>
     eqTaggedUnionInterpreter<Env>(),
     eqRecursiveInterpreter<Env>(),
     eqRecordMapInterpreter<Env>(),
+    eqHashMapInterpreter<Env>(),
     eqSetInterpreter<Env>(),
     eqUnionInterpreter<Env>(),
     eqExtensionsInterpreter<Env>()
@@ -38,6 +40,7 @@ export { eqNewtypeInterpreter } from "./newtype.js"
 export { eqObjectInterpreter } from "./object.js"
 export { eqPrimitiveInterpreter } from "./primitives.js"
 export { eqRecordMapInterpreter } from "./record.js"
+export { eqHashMapInterpreter } from "./hashMap.js"
 export { eqRecursiveInterpreter } from "./recursive.js"
 export { eqRefinedInterpreter } from "./refined.js"
 export { eqSetInterpreter } from "./set.js"

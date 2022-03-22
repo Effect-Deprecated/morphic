@@ -133,6 +133,15 @@ declare module "../../Algebra/Record/index.js" {
   }
 }
 
+declare module "../../Algebra/HashMap/index.js" {
+  interface HashMapConfig<L, A, K> {
+    [EncoderURI]: {
+      encoder: Encoder<K, string>
+      coEncoder: Encoder<A, L>
+    }
+  }
+}
+
 declare module "../../Algebra/TaggedUnion/index.js" {
   interface TaggedUnionConfig<Types> {
     [EncoderURI]: {

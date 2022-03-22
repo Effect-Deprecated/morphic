@@ -129,6 +129,15 @@ declare module "../../Algebra/Record/index.js" {
   }
 }
 
+declare module "../../Algebra/HashMap/index.js" {
+  interface HashMapConfig<L, A, K> {
+    [TypeHashURI]: {
+      typeHash: TypeHash
+      coTypeHash: TypeHash
+    }
+  }
+}
+
 declare module "../../Algebra/TaggedUnion/index.js" {
   interface TaggedUnionConfig<Types> {
     [TypeHashURI]: {

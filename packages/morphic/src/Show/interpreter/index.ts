@@ -3,6 +3,7 @@
 import type { AnyEnv } from "../../HKT/index.js"
 import { memo, merge } from "../../Utils/index.js"
 import { showExtensionsInterpreter } from "./extensions.js"
+import { showHashMapInterpreter } from "./hashMap.js"
 import { showIntersectionInterpreter } from "./intersection.js"
 import { showNewtypeInterpreter } from "./newtype.js"
 import { showObjectInterpreter } from "./object.js"
@@ -27,6 +28,7 @@ export const allModelShow = <Env extends AnyEnv>() =>
     showRecursiveInterpreter<Env>(),
     showSetInterpreter<Env>(),
     showRecordInterpreter<Env>(),
+    showHashMapInterpreter<Env>(),
     showUnionInterpreter<Env>(),
     showExtensionsInterpreter<Env>()
   )
@@ -38,6 +40,7 @@ export { showNewtypeInterpreter } from "./newtype.js"
 export { showObjectInterpreter } from "./object.js"
 export { showPrimitiveInterpreter } from "./primitives.js"
 export { showRecordInterpreter } from "./record.js"
+export { showHashMapInterpreter } from "./hashMap.js"
 export { showRecursiveInterpreter } from "./recursive.js"
 export { showRefinedInterpreter } from "./refined.js"
 export { showSetInterpreter } from "./set.js"

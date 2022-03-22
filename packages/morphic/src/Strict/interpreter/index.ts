@@ -3,6 +3,7 @@
 import type { AnyEnv } from "../../HKT/index.js"
 import { memo, merge } from "../../Utils/index.js"
 import { strictExtensionsInterpreter } from "./extensions.js"
+import { strictHashMapInterpreter } from "./hashMap"
 import { strictIntersectionInterpreter } from "./intersection.js"
 import { strictNewtypeInterpreter } from "./newtype.js"
 import { strictObjectInterpreter } from "./object.js"
@@ -26,6 +27,7 @@ export const allModelStrict = <Env extends AnyEnv>() =>
     strictTaggedUnionInterpreter<Env>(),
     strictRecursiveInterpreter<Env>(),
     strictRecordInterpreter<Env>(),
+    strictHashMapInterpreter<Env>(),
     strictSetInterpreter<Env>(),
     strictUnionInterpreter<Env>(),
     strictExtensionsInterpreter<Env>()
@@ -38,6 +40,7 @@ export { strictNewtypeInterpreter } from "./newtype.js"
 export { strictObjectInterpreter } from "./object.js"
 export { strictPrimitiveInterpreter } from "./primitives.js"
 export { strictRecordInterpreter } from "./record.js"
+export { strictHashMapInterpreter } from "./hashMap.js"
 export { strictRecursiveInterpreter } from "./recursive.js"
 export { strictRefinedInterpreter } from "./refined.js"
 export { strictSetInterpreter } from "./set.js"

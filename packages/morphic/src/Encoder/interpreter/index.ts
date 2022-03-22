@@ -3,6 +3,7 @@
 import type { AnyEnv } from "../../HKT/index.js"
 import { memo, merge } from "../../Utils/index.js"
 import { encoderExtensionsInterpreter } from "./extensions.js"
+import { encoderHashMapInterpreter } from "./hashMap.js"
 import { encoderIntersectionInterpreter } from "./intersection.js"
 import { encoderNewtypeInterpreter } from "./newtype.js"
 import { encoderObjectInterpreter } from "./object.js"
@@ -26,6 +27,7 @@ export const allModelEncoder = <Env extends AnyEnv>() =>
     encoderTaggedUnionInterpreter<Env>(),
     encoderRecursiveInterpreter<Env>(),
     encoderRecordInterpreter<Env>(),
+    encoderHashMapInterpreter<Env>(),
     encoderSetInterpreter<Env>(),
     encoderUnionInterpreter<Env>(),
     encoderExtensionsInterpreter<Env>()
@@ -38,6 +40,7 @@ export { encoderNewtypeInterpreter } from "./newtype.js"
 export { encoderObjectInterpreter } from "./object.js"
 export { encoderPrimitiveInterpreter } from "./primitives.js"
 export { encoderRecordInterpreter } from "./record.js"
+export { encoderHashMapInterpreter } from "./hashMap.js"
 export { encoderRecursiveInterpreter } from "./recursive.js"
 export { encoderRefinedInterpreter } from "./refined.js"
 export { encoderSetInterpreter } from "./set.js"

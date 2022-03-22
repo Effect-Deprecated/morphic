@@ -1,6 +1,7 @@
 // ets_tracing: off
 
 import type { ExtensionsURI } from "../../Algebra/Extensions/index.js"
+import type { HashMapURI } from "../../Algebra/HashMap/index.js"
 import type { IntersectionURI } from "../../Algebra/Intersection/index.js"
 import type { NewtypeURI } from "../../Algebra/Newtype/index.js"
 import type { ObjectURI } from "../../Algebra/Object/index.js"
@@ -35,6 +36,7 @@ declare module "../usage/program-type/index.js" {
       | ObjectURI
       | NewtypeURI
       | RecordURI
+      | HashMapURI
       | RecursiveURI
       | RefinedURI
       | UnknownURI
