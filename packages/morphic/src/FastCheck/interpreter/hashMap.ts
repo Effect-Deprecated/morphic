@@ -20,7 +20,8 @@ export const fcHashMapInterpreter = interpreter<FastCheckURI, HashMapURI>()(() =
         accessFC(env).array(accessFC(env).tuple(arb, coArb)).map(HashMapFromArray),
         env,
         {
-          arb
+          arb,
+          coArb
         }
       )
     )

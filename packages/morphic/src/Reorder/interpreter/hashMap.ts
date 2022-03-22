@@ -33,7 +33,7 @@ export const reorderHashMapInterpreter = interpreter<ReorderURI, HashMapURI>()((
           )
         },
         env,
-        { reorder }
+        { reorder, coReorder }
       )
     )
   }

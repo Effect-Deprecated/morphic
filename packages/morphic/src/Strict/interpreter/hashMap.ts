@@ -33,7 +33,7 @@ export const strictHashMapInterpreter = interpreter<StrictURI, HashMapURI>()(() 
           )
         },
         env,
-        { strict }
+        { strict, coStrict }
       )
     )
   }

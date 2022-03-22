@@ -21,7 +21,7 @@ export const encoderHashMapInterpreter = interpreter<EncoderURI, HashMapURI>()((
           )
         },
         env,
-        { encoder }
+        { encoder, coEncoder }
       )
     )
   }

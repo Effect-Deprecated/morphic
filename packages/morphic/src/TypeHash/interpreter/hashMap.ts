@@ -9,14 +9,14 @@ export const typeHashHashMapInterpreter = interpreter<TypeHashURI, HashMapURI>()
     _F: TypeHashURI,
     hashMap: (domain, codomain, config) => (env) => {
       const typeHash = domain(env).typeHash
-      const cotypeHash = codomain(env).typeHash
+      const coTypeHash = codomain(env).typeHash
       return new HashType(
         typeHashApplyConfig(config?.conf)(
           {
-            typeHash: `HashMap<${typeHash.typeHash}, ${cotypeHash.typeHash}>`
+            typeHash: `HashMap<${typeHash.typeHash}, ${coTypeHash.typeHash}>`
           },
           env,
-          { typeHash }
+          { typeHash, coTypeHash }
         )
       )
     }
