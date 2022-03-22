@@ -1,8 +1,5 @@
 // ets_tracing: off
 
-import { Chunk } from "@effect-ts/core"
-import * as R from "@effect-ts/core/Collections/Immutable/Dictionary"
-import * as Tp from "@effect-ts/core/Collections/Immutable/Tuple"
 import { flow } from "@effect-ts/core/Function"
 import * as Sy from "@effect-ts/core/Sync"
 
@@ -20,7 +17,7 @@ export const encoderHashMapInterpreter = interpreter<EncoderURI, HashMapURI>()((
         {
           encode: flow(
             Sy.forEach(([k, a]) => Sy.tuple(encoder.encode(k), coEncoder.encode(a))),
-            Sy.map(flow(Chunk.map(Tp.fromNative), Chunk.toArray, R.fromArray))
+            Sy.map(Object.fromEntries)
           )
         },
         env,
