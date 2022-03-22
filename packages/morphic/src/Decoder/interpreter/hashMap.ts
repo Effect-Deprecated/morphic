@@ -1,7 +1,6 @@
 // ets_tracing: off
 
-import * as A from "@effect-ts/core/Collections/Immutable/Array"
-import * as R from "@effect-ts/core/Collections/Immutable/Dictionary"
+import { Chunk } from "@effect-ts/core"
 import * as HM from "@effect-ts/core/Collections/Immutable/HashMap"
 import { pipe } from "@effect-ts/core/Function"
 import * as Sy from "@effect-ts/core/Sync"
@@ -11,7 +10,7 @@ import { isUnknownRecord } from "../../Guard/interpreter/common.js"
 import { interpreter } from "../../HKT/index.js"
 import { decoderApplyConfig, DecoderType, DecoderURI } from "../base/index.js"
 import { appendContext, fail, makeDecoder } from "../common/index.js"
-import { forEachArray, tuple } from "./common.js"
+import { tuple } from "./common.js"
 
 export const decoderHashMapInterpreter = interpreter<DecoderURI, HashMapURI>()(() => ({
   _F: DecoderURI,
@@ -24,16 +23,15 @@ export const decoderHashMapInterpreter = interpreter<DecoderURI, HashMapURI>()((
           (u, c) =>
             isUnknownRecord(u)
               ? pipe(
-                  R.toArray(u),
-                  forEachArray((i, x) => {
-                    const k = x.get(0)
-                    const a = x.get(1)
-                    return tuple(
+                  Object.entries(u),
+                  Chunk.from,
+                  Sy.forEach(([k, a]) =>
+                    tuple(
                       decoder.validate(k, appendContext(c, k, decoder, u)),
                       coDecoder.validate(a, appendContext(c, k, coDecoder, u))
                     )
-                  }),
-                  Sy.map(A.reduce(HM.make(), (h, t) => HM.set_(h, t[0], t[1])))
+                  ),
+                  Sy.map(Chunk.reduce(HM.make(), (h, t) => HM.set_(h, t[0], t[1])))
                 )
               : fail(u, c, `${typeof u} is not a hashMap`),
           "hashMap",

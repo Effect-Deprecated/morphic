@@ -2,7 +2,7 @@
 
 import { Chunk } from "@effect-ts/core"
 import * as HM from "@effect-ts/core/Collections/Immutable/HashMap"
-import { pipe } from "@effect-ts/core/Function"
+import { flow } from "@effect-ts/core/Function"
 import * as Sy from "@effect-ts/core/Sync"
 
 import type { HashMapURI } from "../../Algebra/HashMap/index.js"
@@ -21,19 +21,18 @@ export const reorderHashMapInterpreter = interpreter<ReorderURI, HashMapURI>()((
     return new ReorderType(
       reorderApplyConfig(config?.conf)(
         {
-          reorder: (m) =>
-            pipe(
-              Chunk.from(m.tupleIterator),
-              Sy.forEach((t) =>
-                Sy.tuple(reorder.reorder(t.get(0)), coReorder.reorder(t.get(1)))
-              ),
-              Sy.map(
-                Chunk.reduce(
-                  HM.make<AOfReorder<typeof reorder>, AOfReorder<typeof coReorder>>(),
-                  (h, t) => HM.set_(h, t[0], t[1])
-                )
+          reorder: flow(
+            (m) => Chunk.from(m.tupleIterator),
+            Sy.forEach((t) =>
+              Sy.tuple(reorder.reorder(t.get(0)), coReorder.reorder(t.get(1)))
+            ),
+            Sy.map(
+              Chunk.reduce(
+                HM.make<AOfReorder<typeof reorder>, AOfReorder<typeof coReorder>>(),
+                (h, t) => HM.set_(h, t[0], t[1])
               )
             )
+          )
         },
         env,
         { reorder }

@@ -2,7 +2,7 @@
 
 import { Chunk } from "@effect-ts/core"
 import * as HM from "@effect-ts/core/Collections/Immutable/HashMap"
-import { pipe } from "@effect-ts/core/Function"
+import { flow } from "@effect-ts/core/Function"
 import * as Sy from "@effect-ts/core/Sync"
 
 import type { HashMapURI } from "../../Algebra/HashMap/index.js"
@@ -21,19 +21,18 @@ export const strictHashMapInterpreter = interpreter<StrictURI, HashMapURI>()(() 
     return new StrictType(
       strictApplyConfig(config?.conf)(
         {
-          shrink: (m) =>
-            pipe(
-              Chunk.from(m.tupleIterator),
-              Sy.forEach((t) =>
-                Sy.tuple(strict.shrink(t.get(0)), coStrict.shrink(t.get(1)))
-              ),
-              Sy.map(
-                Chunk.reduce(
-                  HM.make<AOfStrict<typeof strict>, AOfStrict<typeof coStrict>>(),
-                  (h, t) => HM.set_(h, t[0], t[1])
-                )
+          shrink: flow(
+            (m) => Chunk.from(m.tupleIterator),
+            Sy.forEach((t) =>
+              Sy.tuple(strict.shrink(t.get(0)), coStrict.shrink(t.get(1)))
+            ),
+            Sy.map(
+              Chunk.reduce(
+                HM.make<AOfStrict<typeof strict>, AOfStrict<typeof coStrict>>(),
+                (h, t) => HM.set_(h, t[0], t[1])
               )
             )
+          )
         },
         env,
         { strict }
