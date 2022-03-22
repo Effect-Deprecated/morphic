@@ -3,6 +3,7 @@
 import type { AnyEnv } from "../../HKT/index.js"
 import { memo, merge } from "../../Utils/index.js"
 import { guardExtensionsInterpreter } from "./extensions.js"
+import { guardHashMapInterpreter } from "./hashMap.js"
 import { guardIntersectionInterpreter } from "./intersection.js"
 import { guardNewtypeInterpreter } from "./newtype.js"
 import { guardObjectInterpreter } from "./object.js"
@@ -26,6 +27,7 @@ export const allModelGuard = <Env extends AnyEnv>() =>
     guardTaggedUnionInterpreter<Env>(),
     guardRecursiveInterpreter<Env>(),
     guardRecordInterpreter<Env>(),
+    guardHashMapInterpreter<Env>(),
     guardSetInterpreter<Env>(),
     guardUnionInterpreter<Env>(),
     guardExtensionsInterpreter<Env>()
@@ -38,6 +40,7 @@ export { guardNewtypeInterpreter } from "./newtype.js"
 export { guardObjectInterpreter } from "./object.js"
 export { guardPrimitiveInterpreter } from "./primitives.js"
 export { guardRecordInterpreter } from "./record.js"
+export { guardHashMapInterpreter } from "./hashMap.js"
 export { guardRecursiveInterpreter } from "./recursive.js"
 export { guardRefinedInterpreter } from "./refined.js"
 export { guardSetInterpreter } from "./set.js"

@@ -3,6 +3,7 @@
 import type { AnyEnv } from "../../HKT/index.js"
 import { memo, merge } from "../../Utils/index.js"
 import { reorderExtensionsInterpreter } from "./extensions.js"
+import { reorderHashMapInterpreter } from "./hashMap.js"
 import { reorderIntersectionInterpreter } from "./intersection.js"
 import { reorderNewtypeInterpreter } from "./newtype.js"
 import { reorderObjectInterpreter } from "./object.js"
@@ -26,6 +27,7 @@ export const allModelReorder = <Env extends AnyEnv>() =>
     reorderTaggedUnionInterpreter<Env>(),
     reorderRecursiveInterpreter<Env>(),
     reorderRecordInterpreter<Env>(),
+    reorderHashMapInterpreter<Env>(),
     reorderSetInterpreter<Env>(),
     reorderUnionInterpreter<Env>(),
     reorderExtensionsInterpreter<Env>()
@@ -38,6 +40,7 @@ export { reorderNewtypeInterpreter } from "./newtype.js"
 export { reorderObjectInterpreter } from "./object.js"
 export { reorderPrimitiveInterpreter } from "./primitives.js"
 export { reorderRecordInterpreter } from "./record.js"
+export { reorderHashMapInterpreter } from "./hashMap.js"
 export { reorderRecursiveInterpreter } from "./recursive.js"
 export { reorderRefinedInterpreter } from "./refined.js"
 export { reorderSetInterpreter } from "./set.js"

@@ -3,6 +3,7 @@
 import type { AnyEnv } from "../../HKT/index.js"
 import { memo, merge } from "../../Utils/index.js"
 import { fcExtensionsInterpreter } from "./extensions.js"
+import { fcHashMapInterpreter } from "./hashMap.js"
 import { fcIntersectionInterpreter } from "./intersection.js"
 import { fcNewtypeInterpreter } from "./newtype.js"
 import { fcObjectInterpreter } from "./object.js"
@@ -26,6 +27,7 @@ export const allModelFC = <Env extends AnyEnv>() =>
     fcTaggedUnionInterpreter<Env>(),
     fcRecursiveInterpreter<Env>(),
     fcStrMapInterpreter<Env>(),
+    fcHashMapInterpreter<Env>(),
     fcSetInterpreter<Env>(),
     fcUnionInterpreter<Env>(),
     fcExtensionsInterpreter<Env>()
@@ -38,6 +40,7 @@ export { fcNewtypeInterpreter } from "./newtype.js"
 export { fcObjectInterpreter } from "./object.js"
 export { fcPrimitiveInterpreter } from "./primitives.js"
 export { fcStrMapInterpreter } from "./record.js"
+export { fcHashMapInterpreter } from "./hashMap.js"
 export { fcRecursiveInterpreter } from "./recursive.js"
 export { fcRefinedInterpreter } from "./refined.js"
 export { fcSetInterpreter } from "./set.js"

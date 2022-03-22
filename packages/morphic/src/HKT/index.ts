@@ -3,6 +3,7 @@
 import type { UnionToIntersection } from "@effect-ts/core/Utils"
 
 import type { AlgebraExtensions, ExtensionsURI } from "../Algebra/Extensions/index.js"
+import type { AlgebraHashMap, HashMapURI } from "../Algebra/HashMap/index.js"
 import type {
   AlgebraIntersections,
   IntersectionURI
@@ -108,6 +109,7 @@ export interface URItoAlgebra<F extends InterpreterURIS, Env extends AnyEnv> {
   [ObjectURI]: AlgebraObjects<F, Env>
   [NewtypeURI]: AlgebraNewtypes<F, Env>
   [RecordURI]: AlgebraRecord<F, Env>
+  [HashMapURI]: AlgebraHashMap<F, Env>
   [RecursiveURI]: AlgebraRecursive<F, Env>
   [RefinedURI]: AlgebraRefined<F, Env>
   [SetURI]: AlgebraSet<F, Env>

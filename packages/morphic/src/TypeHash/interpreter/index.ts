@@ -3,6 +3,7 @@
 import type { AnyEnv } from "../../HKT/index.js"
 import { memo, merge } from "../../Utils/index.js"
 import { typeHashExtensionsInterpreter } from "./extensions.js"
+import { typeHashHashMapInterpreter } from "./hashMap.js"
 import { typeHashIntersectionInterpreter } from "./intersection.js"
 import { typeHashNewtypeInterpreter } from "./newtype.js"
 import { typeHashObjectInterpreter } from "./object.js"
@@ -27,6 +28,7 @@ export const allModelHash = <Env extends AnyEnv>() =>
     typeHashRecursiveInterpreter<Env>(),
     typeHashSetInterpreter<Env>(),
     typeHashRecordInterpreter<Env>(),
+    typeHashHashMapInterpreter<Env>(),
     typeHashUnionInterpreter<Env>(),
     typeHashExtensionsInterpreter<Env>()
   )
@@ -38,6 +40,7 @@ export { typeHashNewtypeInterpreter } from "./newtype.js"
 export { typeHashObjectInterpreter } from "./object.js"
 export { typeHashPrimitiveInterpreter } from "./primitives.js"
 export { typeHashRecordInterpreter } from "./record.js"
+export { typeHashHashMapInterpreter } from "./hashMap.js"
 export { typeHashRecursiveInterpreter } from "./recursive.js"
 export { typeHashRefinedInterpreter } from "./refined.js"
 export { typeHashSetInterpreter } from "./set.js"
