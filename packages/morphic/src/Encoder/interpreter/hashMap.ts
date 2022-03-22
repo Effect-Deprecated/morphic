@@ -19,10 +19,7 @@ export const encoderHashMapInterpreter = interpreter<EncoderURI, HashMapURI>()((
       encoderApplyConfig(config?.conf)(
         {
           encode: flow(
-            (x) => x.tupleIterator,
-            Sy.forEach((x) =>
-              Sy.tuple(encoder.encode(x.get(0)), coEncoder.encode(x.get(1)))
-            ),
+            Sy.forEach(([k, a]) => Sy.tuple(encoder.encode(k), coEncoder.encode(a))),
             Sy.map(flow(Chunk.map(Tp.fromNative), Chunk.toArray, R.fromArray))
           )
         },

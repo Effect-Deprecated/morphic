@@ -22,10 +22,8 @@ export const reorderHashMapInterpreter = interpreter<ReorderURI, HashMapURI>()((
       reorderApplyConfig(config?.conf)(
         {
           reorder: flow(
-            (m) => Chunk.from(m.tupleIterator),
-            Sy.forEach((t) =>
-              Sy.tuple(reorder.reorder(t.get(0)), coReorder.reorder(t.get(1)))
-            ),
+            Chunk.from,
+            Sy.forEach((t) => Sy.tuple(reorder.reorder(t[0]), coReorder.reorder(t[1]))),
             Sy.map(
               Chunk.reduce(
                 HM.make<AOfReorder<typeof reorder>, AOfReorder<typeof coReorder>>(),

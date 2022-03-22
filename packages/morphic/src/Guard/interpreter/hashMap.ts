@@ -2,7 +2,6 @@
 
 import { Chunk } from "@effect-ts/core"
 import * as HM from "@effect-ts/core/Collections/Immutable/HashMap"
-import type { Tuple } from "@effect-ts/core/Collections/Immutable/Tuple"
 import { pipe } from "@effect-ts/core/Function"
 
 import type { HashMapURI } from "../../Algebra/HashMap/index.js"
@@ -25,11 +24,8 @@ export const guardHashMapInterpreter = interpreter<GuardURI, HashMapURI>()(() =>
           > =>
             u instanceof HM.HashMap &&
             pipe(
-              Chunk.from(u.tupleIterator),
-              Chunk.forAll(
-                (t): t is Tuple<[AOfGuard<typeof guard>, AOfGuard<typeof coGuard>]> =>
-                  guard.is(t.get(0)) && coGuard.is(t.get(1))
-              )
+              Chunk.from(u),
+              Chunk.forAll((t) => guard.is(t[0]) && coGuard.is(t[1]))
             )
         },
         env,

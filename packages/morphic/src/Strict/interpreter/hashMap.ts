@@ -22,10 +22,8 @@ export const strictHashMapInterpreter = interpreter<StrictURI, HashMapURI>()(() 
       strictApplyConfig(config?.conf)(
         {
           shrink: flow(
-            (m) => Chunk.from(m.tupleIterator),
-            Sy.forEach((t) =>
-              Sy.tuple(strict.shrink(t.get(0)), coStrict.shrink(t.get(1)))
-            ),
+            Chunk.from,
+            Sy.forEach((t) => Sy.tuple(strict.shrink(t[0]), coStrict.shrink(t[1]))),
             Sy.map(
               Chunk.reduce(
                 HM.make<AOfStrict<typeof strict>, AOfStrict<typeof coStrict>>(),

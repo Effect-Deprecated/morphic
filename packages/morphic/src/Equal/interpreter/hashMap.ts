@@ -20,11 +20,10 @@ export const eqHashMapInterpreter = interpreter<EqURI, HashMapURI>()(() => ({
             a === b ||
             (a.size === b.size &&
               pipe(
-                C.from(a.tupleIterator),
+                C.from(a),
                 C.zipWith(
-                  C.from(b.tupleIterator),
-                  (x, y) =>
-                    eq.equals(x.get(0), y.get(0)) && coEq.equals(x.get(1), y.get(1))
+                  C.from(b),
+                  (x, y) => eq.equals(x[0], y[0]) && coEq.equals(x[1], y[1])
                 ),
                 C.forAll((x) => x)
               ))
