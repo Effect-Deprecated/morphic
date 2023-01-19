@@ -3,7 +3,7 @@
 import type { AnyEnv } from "../../HKT/index.js"
 import { memo, merge } from "../../Utils/index.js"
 import { strictExtensionsInterpreter } from "./extensions.js"
-import { strictHashMapInterpreter } from "./hashMap"
+import { strictHashMapInterpreter } from "./hashMap.js"
 import { strictIntersectionInterpreter } from "./intersection.js"
 import { strictNewtypeInterpreter } from "./newtype.js"
 import { strictObjectInterpreter } from "./object.js"

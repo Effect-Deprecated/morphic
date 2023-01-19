@@ -3,7 +3,7 @@
 import type { AnyEnv } from "../../HKT/index.js"
 import { memo, merge } from "../../Utils/index.js"
 import { eqExtensionsInterpreter } from "./extensions.js"
-import { eqHashMapInterpreter } from "./hashMap"
+import { eqHashMapInterpreter } from "./hashMap.js"
 import { eqIntersectionInterpreter } from "./intersection.js"
 import { eqNewtypeInterpreter } from "./newtype.js"
 import { eqObjectInterpreter } from "./object.js"
