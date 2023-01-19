@@ -20,7 +20,7 @@ jobs:
           npm install -g yarn
           yarn
           yarn run ci
-          NPM_CONFIG_AUTH="//registry.npmjs.org/:_authToken=${NPM_TOKEN}" yarn lerna publish from-package --pre-dist-tag next --yes
+          yarn lerna publish from-package --pre-dist-tag next --yes --legacy-auth "//registry.npmjs.org/:_authToken=${NPM_TOKEN}"
         env:
           CI: "true"
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
