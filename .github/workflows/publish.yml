@@ -20,8 +20,7 @@ jobs:
           npm install -g yarn
           yarn
           yarn run ci
-          cp .ci.npmrc .npmrc
-          yarn lerna publish from-package --pre-dist-tag next --yes
+          NPM_CONFIG_AUTH="//registry.npmjs.org/:_authToken=${NPM_TOKEN}" yarn lerna publish from-package --pre-dist-tag next --yes
         env:
           CI: "true"
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
